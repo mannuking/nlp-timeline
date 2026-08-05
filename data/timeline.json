@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "title": "Evolution of NLP — 1962 to 2026",
+    "subtitle": "From hand-written rules to agentic reasoning",
+    "assignment": "Assignment 1 — NLP Landscape (1962-2026)",
+    "course": "Introduction to Natural Language Processing",
+    "institution": "Delhi Technological University",
+    "instructor": "Dr. Minni Jain",
+    "student": "Jai Kumar Meena",
+    "color_palette": {
+      "foundations": "#7A8FB8",
+      "statistical": "#C9A86A",
+      "embeddings": "#C97A8F",
+      "transformers": "#5DA882",
+      "agentic": "#9B6FCC"
+    }
+  },
+  "eras": [
+    {
+      "id": "foundations",
+      "label": "Foundations Era",
+      "years": "1962 – 1989",
+      "color": "#7A8FB8",
+      "summary": "Hand-crafted linguistic rules, pattern matching, and the first chatbots. The field lived or died on whether a small team of linguists could encode enough grammar to fool a human.",
+      "milestones": [
+        {
+          "year": 1966,
+          "title": "ELIZA",
+          "author": "Joseph Weizenbaum, MIT",
+          "summary": "The first chatbot. Used simple pattern matching and substitution rules (no actual understanding) to simulate a Rogerian psychotherapist. The DOCTOR script became famous; users famously believed it understood them — now called the 'ELIZA effect'.",
+          "why_it_mattered": "Demonstrated that even shallow pattern matching could feel human. Founded the entire field of human-computer conversation.",
+          "links": [
+            { "label": "Wikipedia: ELIZA", "url": "https://en.wikipedia.org/wiki/ELIZA" },
+            { "label": "Original CACM paper (1966)", "url": "https://dl.acm.org/doi/10.1145/365153.365168" }
+          ],
+          "tags": ["chatbot", "rule-based"]
+        },
+        {
+          "year": 1968,
+          "title": "SHRDLU",
+          "author": "Terry Winograd, MIT",
+          "summary": "An early natural-language understanding program. The user conversed with the computer about a 'blocks world' — moving cubes, naming collections, asking about state. Combined syntax, semantics, and a simulated robot that could actually act.",
+          "why_it_mattered": "First system to integrate parsing, semantics, and action in one coherent demo. Showed that grounded language understanding was possible in restricted domains.",
+          "links": [
+            { "label": "Wikipedia: SHRDLU", "url": "https://en.wikipedia.org/wiki/SHRDLU" }
+          ],
+          "tags": ["NLU", "blocks-world", "rule-based"]
+        },
+        {
+          "year": 1969,
+          "title": "Conceptual Dependency Theory",
+          "author": "Roger Schank, Stanford → Yale",
+          "summary": "A model of language understanding where the meaning of any sentence is reduced to a small set of primitive 'conceptual acts' (PTRANS, ATRANS, etc.). Two sentences with the same meaning get the same representation, regardless of surface wording.",
+          "why_it_mattered": "First serious attempt to capture meaning independent of the words used. Inspired a generation of story-understanding systems (MARGIE, SAM, PAM, TaleSpin).",
+          "links": [
+            { "label": "Wikipedia: Conceptual dependency theory", "url": "https://en.wikipedia.org/wiki/Conceptual_dependency_theory" }
+          ],
+          "tags": ["semantics", "knowledge-representation"]
+        },
+        {
+          "year": 1970,
+          "title": "Augmented Transition Networks (ATNs)",
+          "author": "William A. Woods, BBN",
+          "summary": "An extension of finite-state transition networks with recursive structure and arbitrary conditions on transitions. Became the dominant parsing formalism for NLP through the 1970s and 1980s.",
+          "why_it_mattered": "Made it tractable to write grammars for real natural-language input. Used in LUNAR (a natural-language interface to a database about moon rocks) and SHRDLU's successor systems.",
+          "links": [
+            { "label": "Wikipedia: ATN", "url": "https://en.wikipedia.org/wiki/Augmentable_transition_network" }
+          ],
+          "tags": ["parsing", "grammar"]
+        },
+        {
+          "year": 1975,
+          "title": "MARGIE → SAM → PAM → TaleSpin",
+          "author": "Schank's group at Yale (Lehnert, Wilensky, Meehan, Cullingford)",
+          "summary": "A family of conceptual-dependency-based programs that could infer, paraphrase, summarize, plan, and even tell stories. MARGIE inferred implications; TaleSpin generated short folk tales about bears and bees.",
+          "why_it_mattered": "Demonstrated that deep semantic representations could support reasoning and generation — not just parsing. The Yale school defined NLP research for the late 1970s.",
+          "links": [
+            { "label": "History of NLP (Wikipedia)", "url": "https://en.wikipedia.org/wiki/History_of_natural_language_processing" }
+          ],
+          "tags": ["inference", "story-generation", "semantics"]
+        }
+      ]
+    },
+    {
+      "id": "statistical",
+      "label": "Statistical Era",
+      "years": "1990 – 2010",
+      "color": "#C9A86A",
+      "summary": "Hand-written rules couldn't scale. Researchers turned to probability theory, large corpora, and statistical learning. N-gram language models, HMMs for POS tagging and speech, and the first web-scale MT systems.",
+      "milestones": [
+        {
+          "year": 1990,
+          "title": "Elman Networks (Early RNN for NLP)",
+          "author": "Jeffrey Elman, UCSD",
+          "summary": "A simple recurrent neural network that learned to predict the next word in a sequence. Each word in the training corpus was encoded as a vector — an early form of word embedding.",
+          "why_it_mattered": "First demonstration that neural networks could learn distributed word representations and temporal patterns from raw text. The seed of all later neural NLP work.",
+          "links": [
+            { "label": "Elman (1990) 'Finding Structure in Time'", "url": "http://doi.wiley.com/10.1207/s15516709cog1402_1" }
+          ],
+          "tags": ["RNN", "word-embeddings"]
+        },
+        {
+          "year": 1997,
+          "title": "LSTM",
+          "author": "Sepp Hochreiter & Jürgen Schmidhuber",
+          "summary": "Long Short-Term Memory. A recurrent unit with a cell state and three gates (input, output, forget) that mitigates the vanishing-gradient problem and lets RNNs learn dependencies thousands of steps long.",
+          "why_it_mattered": "Made RNNs actually trainable on long sequences. Dominant sequence model for speech, MT, and text generation from 2010 through 2017.",
+          "links": [
+            { "label": "Wikipedia: LSTM", "url": "https://en.wikipedia.org/wiki/Long_short-term_memory" }
+          ],
+          "tags": ["RNN", "deep-learning"]
+        },
+        {
+          "year": 2001,
+          "title": "BLEU (Bilingual Evaluation Understudy)",
+          "author": "Kishore Papineni et al., IBM",
+          "summary": "An automatic evaluation metric for machine translation. Compares MT output against professional human reference translations using modified n-gram precision + brevity penalty.",
+          "why_it_mattered": "Made MT research reproducible at scale. For 20+ years it has been the de-facto standard for evaluating translation systems.",
+          "links": [
+            { "label": "Wikipedia: BLEU", "url": "https://en.wikipedia.org/wiki/BLEU" }
+          ],
+          "tags": ["evaluation", "machine-translation"]
+        },
+        {
+          "year": 2003,
+          "title": "Neural Probabilistic Language Model",
+          "author": "Yoshua Bengio et al., Université de Montréal",
+          "summary": "Trained a feed-forward neural network to predict the next word given the previous n words. Each word was mapped to a learned distributed representation (a 100-dim vector) before being fed to the network.",
+          "why_it_mattered": "Combined two ideas that became the foundation of modern NLP: distributed word representations + neural language modeling. Generalized across vocabulary — same word can have one vector, shared across contexts.",
+          "links": [
+            { "label": "Bengio et al. (2003) JMLR", "url": "https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf" }
+          ],
+          "tags": ["neural-LM", "word-embeddings", "deep-learning"]
+        },
+        {
+          "year": 2005,
+          "title": "Statistical Machine Translation Goes Mainstream",
+          "author": "Google, Moses (Koehn et al.), many others",
+          "summary": "Phrase-based statistical MT became the production standard. Google Translate launched in 2006 using this paradigm. Phrase tables + language models trained on parallel corpora replaced rule-based MT.",
+          "why_it_mattered": "Made working translation systems a real product. Set the stage for the neural MT revolution that came 10 years later.",
+          "links": [
+            { "label": "Moses statistical MT toolkit", "url": "http://www.statmt.org/moses/" }
+          ],
+          "tags": ["machine-translation", "statistical"]
+        }
+      ]
+    },
+    {
+      "id": "embeddings",
+      "label": "Embeddings & Deep Learning Era",
+      "years": "2011 – 2016",
+      "color": "#C97A8F",
+      "summary": "Neural networks returned to NLP — first as word embeddings, then as sequence models. The famous 'king − man + woman ≈ queen' analogy. RNNs and LSTMs dominated, but the seeds of attention and transformers were already planted.",
+      "milestones": [
+        {
+          "year": 2013,
+          "title": "word2vec (CBOW + Skip-gram)",
+          "author": "Tomáš Mikolov, Kai Chen, Greg Corrado, Ilya Sutskever, Jeff Dean — Google",
+          "summary": "An efficient method to learn word embeddings from huge corpora. Two architectures — Continuous Bag-of-Words and Skip-gram — produced vectors where semantic relationships appeared as linear offsets ('king − man + woman ≈ queen').",
+          "why_it_mattered": "Made word embeddings practical at web scale. Showed that simple linear algebra over embeddings captures meaning. Became a default preprocessing step in nearly every NLP pipeline from 2014-2017.",
+          "links": [
+            { "label": "Mikolov et al. (2013) arXiv:1301.3781", "url": "https://arxiv.org/abs/1301.3781" },
+            { "label": "Wikipedia: Word2vec", "url": "https://en.wikipedia.org/wiki/Word2vec" }
+          ],
+          "tags": ["word-embeddings", "representation-learning"]
+        },
+        {
+          "year": 2014,
+          "title": "Seq2seq (Sutskever et al.) + Attention (Bahdanau et al.)",
+          "author": "Sutskever, Vinyals, Le (Google); Bahdanau, Cho, Bengio (Jacobs University/Montreal)",
+          "summary": "Two landmark papers: (1) an encoder-decoder LSTM that maps a variable-length input sequence to a fixed vector and decodes to a variable-length output, achieving state-of-the-art machine translation; (2) attention, which lets the decoder look back at all encoder states with learned weights — solving the bottleneck problem.",
+          "why_it_mattered": "Attention directly paved the way for the Transformer (2017). Without attention, there is no GPT, BERT, or any modern LLM.",
+          "links": [
+            { "label": "Sutskever et al. (2014) arXiv:1409.3215", "url": "https://arxiv.org/abs/1409.3215" },
+            { "label": "Bahdanau et al. (2014) arXiv:1409.0473", "url": "https://arxiv.org/abs/1409.0473" }
+          ],
+          "tags": ["seq2seq", "attention", "RNN"]
+        },
+        {
+          "year": 2014,
+          "title": "GloVe (Global Vectors)",
+          "author": "Pennington, Socher, Manning — Stanford",
+          "summary": "An alternative to word2vec that learns embeddings by factorizing the global word-word co-occurrence matrix of a corpus. Captures the same linear substructure as word2vec but with different training objectives.",
+          "why_it_mattered": "Provided a complementary method to word2vec and gave the NLP community a second workhorse embedding technique. Standard pre-trained embeddings (50d, 100d, 200d, 300d) freely available.",
+          "links": [
+            { "label": "GloVe paper (2014)", "url": "https://nlp.stanford.edu/pubs/glove.pdf" }
+          ],
+          "tags": ["word-embeddings", "representation-learning"]
+        },
+        {
+          "year": 2015,
+          "title": "TensorFlow released",
+          "author": "Google Brain",
+          "summary": "Open-sourced deep learning framework built by the Google Brain team. Combined graph-based computation with automatic differentiation and GPU acceleration.",
+          "why_it_mattered": "Democratized deep learning research. Made it trivial to share and reproduce architectures — including in NLP — and accelerated the entire field by years.",
+          "links": [
+            { "label": "TensorFlow announcement", "url": "https://blog.tensorflow.org/2015/11/tensorflow-0-9-smaller-binary-and.html" }
+          ],
+          "tags": ["tooling", "deep-learning"]
+        },
+        {
+          "year": 2016,
+          "title": "Google Neural Machine Translation (GNMT)",
+          "author": "Wu et al., Google",
+          "summary": "End-to-end neural MT system deployed in production at Google. 8-layer encoder + 8-layer decoder LSTM with attention + residual connections. Trained on Google's massive parallel corpora.",
+          "why_it_mattered": "Proved that NMT worked at production scale. Within a year Google Translate had switched from phrase-based SMT to GNMT. The 'statistical era' was over.",
+          "links": [
+            { "label": "Wu et al. (2016) arXiv:1609.08144", "url": "https://arxiv.org/abs/1609.08144" }
+          ],
+          "tags": ["NMT", "production", "deep-learning"]
+        }
+      ]
+    },
+    {
+      "id": "transformers",
+      "label": "Transformer / LLM Era",
+      "years": "2017 – 2022",
+      "color": "#5DA882",
+      "summary": "The architecture change that changed everything. Self-attention replaced recurrence. Pretrain-then-finetune replaced task-specific architectures. Model size and data scale became the dominant variables. GPT-3 demonstrated emergent in-context learning.",
+      "milestones": [
+        {
+          "year": 2017,
+          "title": "Transformer — 'Attention Is All You Need'",
+          "author": "Vaswani et al., Google Brain & Google Research (8 authors)",
+          "summary": "Replaced recurrence and convolutions with stacked self-attention + feedforward layers. Parallelizable, faster to train, and stronger on MT than anything before. Introduced multi-head attention, positional encodings, layer norm, and the encoder-decoder pattern that became ubiquitous.",
+          "why_it_mattered": "The architecture underlying every modern LLM. The single most important NLP paper of the 2010s.",
+          "links": [
+            { "label": "Vaswani et al. (2017) arXiv:1706.03762", "url": "https://arxiv.org/abs/1706.03762" },
+            { "label": "Wikipedia: Attention Is All You Need", "url": "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" }
+          ],
+          "tags": ["transformer", "attention", "architecture"]
+        },
+        {
+          "year": 2018,
+          "title": "BERT + GPT-1",
+          "author": "Devlin et al. (Google AI Language); Radford et al. (OpenAI)",
+          "summary": "Two papers that defined the pretrain-finetune paradigm. BERT is an encoder-only transformer pretrained with masked language modeling + next-sentence prediction. GPT-1 is a decoder-only transformer pretrained with left-to-right language modeling, then fine-tuned on each downstream task.",
+          "why_it_mattered": "BERT-style bidirectional pretraining and GPT-style generative pretraining became the two dominant paradigms. Within 18 months every state-of-the-art NLP benchmark was held by a transformer-based model.",
+          "links": [
+            { "label": "BERT paper arXiv:1810.04805", "url": "https://arxiv.org/abs/1810.04805" },
+            { "label": "GPT-1 paper (OpenAI)", "url": "https://openai.com/index/language-unsupervised/" }
+          ],
+          "tags": ["transformer", "pretraining", "BERT", "GPT"]
+        },
+        {
+          "year": 2019,
+          "title": "GPT-2 + XLNet + RoBERTa + T5",
+          "author": "OpenAI (GPT-2); Google Brain (XLNet, T5); Facebook AI (RoBERTa)",
+          "summary": "A Cambrian explosion of transformer variants. GPT-2 (1.5B params) showed unsupervised multitask learning at scale. XLNet permuted language modeling. RoBERTa removed BERT's NSP and trained longer with more data. T5 cast every NLP task as text-to-text.",
+          "why_it_mattered": "Established that scale + more data + longer training reliably improved quality — the empirical scaling-laws foundation of the LLM era.",
+          "links": [
+            { "label": "GPT-2 (OpenAI blog)", "url": "https://openai.com/index/better-language-models/" },
+            { "label": "T5 paper arXiv:1910.10683", "url": "https://arxiv.org/abs/1910.10683" }
+          ],
+          "tags": ["LLM", "pretraining", "scaling"]
+        },
+        {
+          "year": 2020,
+          "title": "GPT-3",
+          "author": "Brown et al., OpenAI",
+          "summary": "175-billion-parameter decoder-only transformer. Trained on hundreds of billions of tokens of web text. The 'Language Models are Few-Shot Learners' paper demonstrated that scale enables in-context learning — the model can perform tasks from just a few examples in its prompt, with no weight updates.",
+          "why_it_mattered": "Showed emergent capabilities: arithmetic, code generation, translation, question answering with no fine-tuning. Triggered the commercial LLM race (Microsoft licensed it exclusively the same day it was published).",
+          "links": [
+            { "label": "Brown et al. (2020) arXiv:2005.14165", "url": "https://arxiv.org/abs/2005.14165" }
+          ],
+          "tags": ["LLM", "in-context-learning", "scaling"]
+        },
+        {
+          "year": 2022,
+          "title": "ChatGPT — RLHF Goes Mainstream",
+          "author": "OpenAI",
+          "summary": "Released November 30, 2022. GPT-3.5 fine-tuned with Reinforcement Learning from Human Feedback (RLHF). Became the fastest-growing consumer application in history — 100M users in 2 months.",
+          "why_it_mattered": "Brought LLMs to the general public. Sparked the 2023 generative AI boom and the arms race between OpenAI, Anthropic, Google DeepMind, and Meta. RLHF became the standard alignment technique.",
+          "links": [
+            { "label": "ChatGPT announcement", "url": "https://openai.com/index/chatgpt/" },
+            { "label": "Wikipedia: ChatGPT", "url": "https://en.wikipedia.org/wiki/ChatGPT" }
+          ],
+          "tags": ["chatbot", "RLHF", "consumer-product"]
+        }
+      ]
+    },
+    {
+      "id": "agentic",
+      "label": "Agentic AI Era",
+      "years": "2023 – 2026+",
+      "color": "#9B6FCC",
+      "summary": "Multimodality, reasoning models, agentic workflows, and open-source catching up. The frontier moved from 'better text generation' to 'tool use, planning, and chain-of-thought'. Reasoning models (o1, o3, DeepSeek-R1) showed that test-time compute scales differently from training-time scale.",
+      "milestones": [
+        {
+          "year": 2023,
+          "title": "GPT-4 + Claude 2 + Llama 2 — The Multimodal Year",
+          "author": "OpenAI (GPT-4, March); Anthropic (Claude 2, July); Meta (Llama 2, July)",
+          "summary": "GPT-4 added image inputs and dramatically improved reasoning. Anthropic's Claude 2 launched with 100k context. Meta released Llama 2 openly licensed — the catalyst for the open-source LLM ecosystem.",
+          "why_it_mattered": "Three competing frontier labs shipping major models within months of each other. Multimodality (vision + text) became standard. Open-weights models became credible alternatives to closed APIs.",
+          "links": [
+            { "label": "GPT-4 announcement", "url": "https://openai.com/index/gpt-4-research/" },
+            { "label": "Llama 2 paper arXiv:2307.09288", "url": "https://arxiv.org/abs/2307.09288" }
+          ],
+          "tags": ["multimodal", "open-source", "frontier-models"]
+        },
+        {
+          "year": 2024,
+          "title": "Claude 3.5 Sonnet + OpenAI o1 — Reasoning Becomes the Frontier",
+          "author": "Anthropic; OpenAI",
+          "summary": "Claude 3.5 Sonnet (June 2024) jumped to the top of most coding and reasoning benchmarks. OpenAI o1-preview (September 2024) introduced a new paradigm: the model spends additional compute at inference time 'thinking' before responding, producing strong gains on math, science, and code.",
+          "why_it_mattered": "Test-time compute scaling emerged as a new axis of progress, separate from parameter scaling. Reasoning chains, search, and self-critique became first-class concerns. MMLU, HumanEval, and other benchmarks were repeatedly saturated.",
+          "links": [
+            { "label": "Claude 3.5 Sonnet announcement", "url": "https://www.anthropic.com/news/claude-3-5-sonnet" },
+            { "label": "OpenAI o1 announcement", "url": "https://openai.com/index/learning-to-reason-with-llms/" }
+          ],
+          "tags": ["reasoning", "test-time-compute", "frontier-models"]
+        },
+        {
+          "year": 2025,
+          "title": "DeepSeek-R1 + Open-Weight Reasoning",
+          "author": "DeepSeek (Hangzhou, China)",
+          "summary": "Released January 2025, DeepSeek-R1 matched or exceeded OpenAI o1 on many reasoning benchmarks while being released under an open-weight license. Trained with reinforcement learning from the base model, demonstrating that competitive reasoning models don't require closed infrastructure.",
+          "why_it_mattered": "Disrupted the assumption that frontier reasoning was the exclusive domain of well-funded US labs. Triggered a major Nvidia stock sell-off. Accelerated global policy debates on AI export controls.",
+          "links": [
+            { "label": "DeepSeek-R1 paper", "url": "https://arxiv.org/abs/2501.12948" },
+            { "label": "Wikipedia: DeepSeek", "url": "https://en.wikipedia.org/wiki/DeepSeek" }
+          ],
+          "tags": ["reasoning", "open-source", "DeepSeek"]
+        },
+        {
+          "year": 2024,
+          "title": "Model Context Protocol (MCP)",
+          "author": "Anthropic (released November 2024)",
+          "summary": "An open standard for connecting LLMs to data sources, tools, and agents. Like USB-C for AI applications — any MCP-compatible model can talk to any MCP-compatible tool.",
+          "why_it_mattered": "Standardized the 'tool use' / 'function calling' interface across models. Made agentic workflows portable: write an MCP server once, use it with Claude, GPT, Gemini, or open-source models.",
+          "links": [
+            { "label": "MCP specification", "url": "https://modelcontextprotocol.io/" }
+          ],
+          "tags": ["agentic", "standards", "tools"]
+        },
+        {
+          "year": 2026,
+          "title": "Frontier Reasoning + Agentic Workflows",
+          "author": "OpenAI, Anthropic, Google DeepMind, Meta, others",
+          "summary": "As of mid-2026, frontier models combine: (a) test-time compute reasoning (chain-of-thought, search, self-critique); (b) tool use via MCP and similar protocols; (c) long context (1M+ tokens); (d) multimodal inputs (text, image, audio, video); (e) agentic loops that plan, act, observe, and iterate autonomously.",
+          "why_it_mattered": "The field is moving from 'chat with a model' to 'coordinate an agent that uses tools to accomplish goals'. This is the trajectory set by the 2017 Transformer paper, scaled through 9 years of compute and data growth.",
+          "links": [
+            { "label": "Anthropic — Building effective agents", "url": "https://www.anthropic.com/research/building-effective-agents" }
+          ],
+          "tags": ["agentic", "multimodal", "frontier"]
+        }
+      ]
+    }
+  ]
+}
