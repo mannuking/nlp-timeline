@@ -2,11 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+/* ============================================================
+   NEUMORPHIC DESIGN SYSTEM
+   ------------------------------------------------------------
+   Directional lighting convention: light source from TOP-LEFT.
+   - Highlights (white) on top-left
+   - Shadows (dark blue-gray) on bottom-right
+   This is the standard neumorphic look. All shadows below
+   follow this convention with consistent ratios.
+   ============================================================ */
+
+:root {
+  /* Surface color */
+  --neu-base: #E0E5EC;
+  --neu-light: #F4F8FC;
+  --neu-dark: #A3B1C6;
+  --neu-text: #2D3748;
+  --neu-muted: #718096;
+
+  /* Maroon accent (warm scholarly tone) */
+  --maroon-500: #8B2C2C;
+  --maroon-600: #7A2222;
+  --maroon-100: #F5E2E2;
+  --maroon-300: #D49090;
+
+  /* Shadow color tokens — single dark source = consistent lighting */
+  --shadow-color: rgba(163, 177, 198, 0.55);
+  --highlight-color: rgba(255, 255, 255, 0.85);
+  --shadow-color-sm: rgba(163, 177, 198, 0.50);
+  --highlight-color-sm: rgba(255, 255, 255, 0.75);
+  --shadow-color-xs: rgba(163, 177, 198, 0.45);
+  --highlight-color-xs: rgba(255, 255, 255, 0.70);
+}
 
 html, body {
-  background: #E0E5EC;
-  color: #2D3748;
+  background: var(--neu-base);
+  color: var(--neu-text);
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100vh;
   margin: 0;
@@ -18,102 +51,137 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Neumorphic utility classes */
+/* ============================================================
+   UNIFIED NEUMORPHIC SHADOWS
+   All .neu-* shadows use the same:
+   - Light source: top-left (highlight = top-left, shadow = bottom-right)
+   - Offset ratio: 1:1 (offset = blur)
+   - Single dark color, single light color
+   This eliminates the previous "irregular shade" issues.
+   ============================================================ */
+
 .neu-card {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 20px;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-              -9px -9px 16px rgba(255, 255, 255, 0.7);
+  box-shadow:
+    8px 8px 16px var(--shadow-color),
+    -8px -8px 16px var(--highlight-color);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .neu-card:hover {
-  box-shadow: 11px 11px 20px rgba(163, 177, 198, 0.65),
-              -11px -11px 20px rgba(255, 255, 255, 0.75);
+  box-shadow:
+    10px 10px 20px var(--shadow-color),
+    -10px -10px 20px var(--highlight-color);
 }
 
 .neu-card-pressed {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 20px;
-  box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.6),
-              inset -6px -6px 12px rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 6px 6px 12px var(--shadow-color),
+    inset -6px -6px 12px var(--highlight-color);
 }
 
 .neu-pill {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 999px;
-  box-shadow: 5px 5px 10px rgba(163, 177, 198, 0.5),
-              -5px -5px 10px rgba(255, 255, 255, 0.6);
+  box-shadow:
+    4px 4px 8px var(--shadow-color-sm),
+    -4px -4px 8px var(--highlight-color-sm);
   transition: all 0.2s ease;
 }
 
 .neu-pill:hover {
-  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.55),
-              -6px -6px 12px rgba(255, 255, 255, 0.65);
+  box-shadow:
+    5px 5px 10px var(--shadow-color-sm),
+    -5px -5px 10px var(--highlight-color-sm);
 }
 
 .neu-pill-active {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 999px;
-  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.7),
-              inset -4px -4px 8px rgba(255, 255, 255, 0.6);
-  color: #2D3748;
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-color-sm),
+    inset -3px -3px 6px var(--highlight-color-sm);
+  color: var(--neu-text);
   font-weight: 600;
 }
 
 .neu-node {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: #E0E5EC;
+  background: var(--neu-base);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 13px;
-  color: #4A5568;
-  box-shadow: 5px 5px 10px rgba(163, 177, 198, 0.5),
-              -5px -5px 10px rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  color: var(--neu-text);
+  box-shadow:
+    4px 4px 8px var(--shadow-color-sm),
+    -4px -4px 8px var(--highlight-color-sm);
   transition: all 0.25s ease;
   cursor: pointer;
   position: relative;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 .neu-node:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 7px 7px 14px rgba(163, 177, 198, 0.6),
-              -7px -7px 14px rgba(255, 255, 255, 0.7);
+  box-shadow:
+    6px 6px 12px var(--shadow-color),
+    -6px -6px 12px var(--highlight-color);
 }
 
 .neu-node-active {
-  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.7),
-              inset -4px -4px 8px rgba(255, 255, 255, 0.6);
-  color: #2D3748;
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-color-sm),
+    inset -3px -3px 6px var(--highlight-color-sm);
+  color: var(--maroon-500);
+  font-weight: 700;
 }
 
 .neu-track {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 999px;
-  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.55),
-              inset -4px -4px 8px rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-color-sm),
+    inset -3px -3px 6px var(--highlight-color-sm);
   height: 4px;
   position: relative;
 }
 
 .neu-tag {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 999px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   font-size: 11px;
   font-weight: 500;
-  color: #718096;
-  box-shadow: inset 2px 2px 4px rgba(163, 177, 198, 0.45),
-              inset -2px -2px 4px rgba(255, 255, 255, 0.6);
+  color: var(--neu-muted);
+  box-shadow:
+    inset 2px 2px 4px var(--shadow-color-xs),
+    inset -2px -2px 4px var(--highlight-color-xs);
+}
+
+/* Maroon accent variant — used for active era, current milestone, CTA */
+.neu-tag-maroon {
+  background: var(--neu-base);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--maroon-500);
+  box-shadow:
+    inset 2px 2px 4px var(--shadow-color-xs),
+    inset -2px -2px 4px var(--highlight-color-xs),
+    inset 0 0 0 1px rgba(139, 44, 44, 0.30);
 }
 
 .neu-link {
@@ -122,44 +190,60 @@ html {
   gap: 6px;
   padding: 8px 14px;
   border-radius: 12px;
-  background: #E0E5EC;
-  color: #4A5568;
+  background: var(--neu-base);
+  color: var(--neu-text);
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
-  box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5),
-              -4px -4px 8px rgba(255, 255, 255, 0.6);
+  box-shadow:
+    3px 3px 6px var(--shadow-color-sm),
+    -3px -3px 6px var(--highlight-color-sm);
   transition: all 0.2s ease;
 }
 
 .neu-link:hover {
-  color: #2D3748;
-  box-shadow: 5px 5px 10px rgba(163, 177, 198, 0.55),
-              -5px -5px 10px rgba(255, 255, 255, 0.65);
+  color: var(--maroon-500);
+  box-shadow:
+    4px 4px 8px var(--shadow-color),
+    -4px -4px 8px var(--highlight-color);
   transform: translateY(-1px);
 }
 
 .neu-link:active {
-  box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.55),
-              inset -3px -3px 6px rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-color-sm),
+    inset -3px -3px 6px var(--highlight-color-sm);
 }
 
 .neu-input {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border: none;
   border-radius: 14px;
   padding: 12px 18px;
-  color: #2D3748;
+  color: var(--neu-text);
   font-family: inherit;
   font-size: 14px;
-  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.5),
-              inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-color-sm),
+    inset -4px -4px 8px var(--highlight-color-sm);
   outline: none;
+  transition: box-shadow 0.2s ease;
 }
 
 .neu-input:focus {
-  box-shadow: inset 5px 5px 10px rgba(163, 177, 198, 0.6),
-              inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 5px 5px 10px var(--shadow-color),
+    inset -5px -5px 10px var(--highlight-color);
+}
+
+/* Maroon-accented section card — used on hero header and details */
+.neu-card-accent {
+  background: var(--neu-base);
+  border-radius: 20px;
+  box-shadow:
+    8px 8px 16px var(--shadow-color),
+    -8px -8px 16px var(--highlight-color),
+    inset 0 0 0 1px rgba(139, 44, 44, 0.18);
 }
 
 /* Custom scrollbar */
@@ -169,27 +253,40 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #E0E5EC;
+  background: var(--neu-base);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #C9A86A, #7A8FB8);
+  background: linear-gradient(135deg, var(--maroon-500), #5DA882);
   border-radius: 999px;
-  border: 3px solid #E0E5EC;
+  border: 3px solid var(--neu-base);
 }
 
-/* Disable text selection on UI chrome but allow on content */
 .ui-no-select {
   -webkit-user-select: none;
   user-select: none;
 }
 
+/* Maroon underline for important text */
+.text-maroon {
+  color: var(--maroon-500);
+}
+
+.border-maroon {
+  border-color: var(--maroon-500);
+}
+
+/* Year button — full year, not 2-digit */
+.year-button {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
 /* Print friendliness */
 @media print {
-  body {
-    background: white;
-  }
+  body { background: white; }
   .neu-card, .neu-pill, .neu-node {
     box-shadow: none !important;
     border: 1px solid #ccc !important;
