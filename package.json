@@ -10,7 +10,10 @@
     "lint": "next lint",
     "deploy": "npm run build && firebase deploy --only hosting",
     "deploy:preview": "npm run build && firebase hosting:channel:deploy preview",
-    "deploy:message": "firebase deploy --only hosting --message \"Update from local\""
+    "deploy:message": "firebase deploy --only hosting --message \"Update from local\"",
+    "deploy:new": "npm run build && firebase deploy --only hosting:nlp-1950-2030",
+    "deploy:old": "npm run build && firebase deploy --only hosting:nlp-2050-2060",
+    "deploy:all": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
     "@types/node": "^20.14.10",
