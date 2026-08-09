@@ -477,3 +477,35 @@ html {
     border: 1px solid #ccc !important;
   }
 }
+/* Inline author/instructor link — subtle hover that fits the text row
+   without competing with the era track nodes. Used for the byline in
+   the hero header and footer. */
+.author-link {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.author-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--maroon-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.author-link:hover {
+  color: var(--maroon-500);
+}
+.author-link:hover::after {
+  transform: scaleX(1);
+}
+.author-link:focus-visible {
+  outline: 2px solid var(--maroon-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}

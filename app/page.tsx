@@ -35,7 +35,9 @@ type Data = {
     course: string;
     institution: string;
     instructor: string;
+    instructor_url: string;
     student: string;
+    student_url: string;
   };
   eras: Era[];
 };
@@ -389,9 +391,25 @@ export default function Home() {
             <div className="flex flex-wrap gap-x-3 gap-y-1 items-center justify-center text-xs text-neu-muted">
               <span className="text-maroon font-medium">{data.meta.institution}</span>
               <span>·</span>
-              <span>{data.meta.instructor}</span>
+              <a
+                href={data.meta.instructor_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="author-link"
+                title={`Open ${data.meta.instructor}'s Google Scholar profile`}
+              >
+                {data.meta.instructor}
+              </a>
               <span>·</span>
-              <span>{data.meta.student}</span>
+              <a
+                href={data.meta.student_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="author-link"
+                title={`Open ${data.meta.student}'s portfolio`}
+              >
+                {data.meta.student}
+              </a>
             </div>
           </motion.div>
         </div>
@@ -588,7 +606,27 @@ export default function Home() {
                   Built with Next.js + Framer Motion + neumorphic CSS.
                   Data sourced from Wikipedia &amp; arXiv primary papers (1950 – 2030).
                 </p>
-                <p className="mt-1">{data.meta.student} · {data.meta.instructor}</p>
+                <p className="mt-1">
+                  <a
+                    href={data.meta.student_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="author-link"
+                    title={`Open ${data.meta.student}'s portfolio`}
+                  >
+                    {data.meta.student}
+                  </a>
+                  {' · '}
+                  <a
+                    href={data.meta.instructor_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="author-link"
+                    title={`Open ${data.meta.instructor}'s Google Scholar profile`}
+                  >
+                    {data.meta.instructor}
+                  </a>
+                </p>
               </NeuCard>
             </footer>
           </main>

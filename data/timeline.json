@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Evolution of NLP \u2014 1950 to 2030",
-    "subtitle": "From Shannon's information theory to agentic AI \u2014 the eight-decade journey of natural language processing",
-    "assignment": "Assignment 1 \u2014 NLP Landscape (1950-2030)",
+    "title": "Evolution of NLP — 1950 to 2030",
+    "subtitle": "From Shannon's information theory to agentic AI — the eight-decade journey of natural language processing",
+    "assignment": "Assignment 1 — NLP Landscape (1950-2030)",
     "course": "Introduction to Natural Language Processing",
     "institution": "Delhi Technological University",
     "instructor": "Dr. Minni Jain",
@@ -14,13 +14,15 @@
       "transformers": "#5DA882",
       "agentic": "#9B6FCC",
       "frontier": "#8B2C2C"
-    }
+    },
+    "student_url": "https://jaimeena.com",
+    "instructor_url": "https://scholar.google.com/citations?user=rAV43LwAAAAJ&hl=en"
   },
   "eras": [
     {
       "id": "foundations",
       "label": "Foundations Era",
-      "years": "1950 \u2013 1989",
+      "years": "1950 – 1989",
       "color": "#7A8FB8",
       "summary": "The pre-statistical decades. Hand-crafted linguistic rules, pattern matching, the first chatbots, and the founding debates of AI. The field's appetite for symbolic representations and finite automata set the stage for everything that came later.",
       "milestones": [
@@ -28,11 +30,11 @@
           "year": 1950,
           "title": "Shannon's Information Theory Applied to Language",
           "author": "Claude Shannon, Bell Labs",
-          "summary": "Claude Shannon published 'Prediction and Entropy of Printed English' in the Bell System Technical Journal, applying his recently-developed information theory to natural language. He modeled English as a stochastic process and demonstrated that languages have ~50% redundancy \u2014 the next letter can be predicted with ~50% accuracy from context. He also computed entropy rates of English at ~1.5 bits per character.",
+          "summary": "Claude Shannon published 'Prediction and Entropy of Printed English' in the Bell System Technical Journal, applying his recently-developed information theory to natural language. He modeled English as a stochastic process and demonstrated that languages have ~50% redundancy — the next letter can be predicted with ~50% accuracy from context. He also computed entropy rates of English at ~1.5 bits per character.",
           "why_it_mattered": "Founded the entire field of statistical language modeling. The n-gram, the perplexity metric, and information-theoretic complexity measures all descend directly from this work. Every modern LM (BERT, GPT, the phone's autocomplete) is a direct descendant of Shannon's 1950 insight.",
           "links": [
             {
-              "label": "Shannon (1950) \u2014 Prediction and Entropy of Printed English",
+              "label": "Shannon (1950) — Prediction and Entropy of Printed English",
               "url": "https://www.princeton.edu/~wbialek/MEIG/syllabi/shannon_48.pdf"
             },
             {
@@ -156,7 +158,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -176,7 +178,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -192,7 +194,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -200,7 +202,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -212,7 +214,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -220,7 +222,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -232,7 +234,7 @@
         },
         {
           "year": 1954,
-          "title": "Georgetown-IBM Experiment \u2014 First Public MT Demo",
+          "title": "Georgetown-IBM Experiment — First Public MT Demo",
           "author": "Leon Dostert (Georgetown), Cuthbert Hurd (IBM)",
           "summary": "On January 7, 1954, IBM's 701 mainframe translated 49 hand-selected Russian sentences into English at a press conference in New York. The system used 6 grammar rules and 250 lexical items, with vocabulary limited to organic chemistry. Despite the brittleness, the demonstration launched the field of machine translation.",
           "why_it_mattered": "Sparked the American and Soviet enthusiasm for machine translation that funded DARPA, NSF, and ARPA research for the next decade. The system was primitive but the public demonstration set expectations for what 'thinking machines' could do. The 1966 ALPAC report that defunded MT traced directly back to this over-promise.",
@@ -258,7 +260,7 @@
               "url": "https://www.nytimes.com/1954/01/08/archives/electronic-brain-translates-russian.html"
             },
             {
-              "label": "IBM Archives \u2014 early computing",
+              "label": "IBM Archives — early computing",
               "url": "https://www.ibm.com/ibm/history/exhibits/"
             },
             {
@@ -270,7 +272,7 @@
               "url": "https://ieeexplore.ieee.org/document/6530475"
             },
             {
-              "label": "ACL Anthology \u2014 MT papers",
+              "label": "ACL Anthology — MT papers",
               "url": "https://aclanthology.org/"
             },
             {
@@ -286,7 +288,7 @@
               "url": "https://www.lti.cs.cmu.edu/research/lang-engines/mt-history/"
             },
             {
-              "label": "MIT Press: Machine Translation \u2014 Hutchins 1986",
+              "label": "MIT Press: Machine Translation — Hutchins 1986",
               "url": "https://mitpress.mit.edu/9780262521852/"
             },
             {
@@ -310,7 +312,7 @@
               "url": "https://archive.org/details/ibm701"
             },
             {
-              "label": "IBM Research \u2014 modern AI history",
+              "label": "IBM Research — modern AI history",
               "url": "https://www.research.ibm.com/ai/"
             },
             {
@@ -322,11 +324,11 @@
               "url": "https://www.state.gov/history-cold-war/"
             },
             {
-              "label": "NSF history \u2014 MT funding",
+              "label": "NSF history — MT funding",
               "url": "https://www.nsf.gov/about/history/"
             },
             {
-              "label": "DARPA history \u2014 NLU/MT programs",
+              "label": "DARPA history — NLU/MT programs",
               "url": "https://www.darpa.mil/about/history"
             },
             {
@@ -350,7 +352,7 @@
               "url": "https://www.smithsonianmag.com/history/"
             },
             {
-              "label": "NYT \u2014 full original article",
+              "label": "NYT — full original article",
               "url": "https://www.nytimes.com/1954/01/08/archives/electronic-brain-translates-russian.html"
             },
             {
@@ -370,7 +372,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -390,7 +392,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -406,7 +408,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -414,7 +416,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -426,7 +428,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -434,7 +436,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -446,9 +448,9 @@
         },
         {
           "year": 1956,
-          "title": "Dartmouth Workshop \u2014 Founding of AI",
+          "title": "Dartmouth Workshop — Founding of AI",
           "author": "John McCarthy, Marvin Minsky, Claude Shannon, Nathaniel Rochester",
-          "summary": "The 1956 Dartmouth Summer Research Project on Artificial Intelligence ran for ~2 months at Dartmouth College with 10 attendees. The proposal, written by McCarthy, coined the term 'artificial intelligence' itself. The workshop featured Allen Newell and Herbert Simon presenting the Logic Theorist \u2014 the first symbolic AI program that proved 38 of the first 52 theorems in Principia Mathematica.",
+          "summary": "The 1956 Dartmouth Summer Research Project on Artificial Intelligence ran for ~2 months at Dartmouth College with 10 attendees. The proposal, written by McCarthy, coined the term 'artificial intelligence' itself. The workshop featured Allen Newell and Herbert Simon presenting the Logic Theorist — the first symbolic AI program that proved 38 of the first 52 theorems in Principia Mathematica.",
           "why_it_mattered": "Founding ceremony of AI as an academic field. NLP research for the next 65 years can be traced back to positions taken at Dartmouth: the symbolic vs. connectionist debate, the question of whether machine learning is possible, the role of formal logic in language understanding, and the role of statistical methods.",
           "links": [
             {
@@ -488,7 +490,7 @@
               "url": "https://hai.stanford.edu/"
             },
             {
-              "label": "MIT Press: AI \u2014 A Tumultuous History",
+              "label": "MIT Press: AI — A Tumultuous History",
               "url": "https://mitpress.mit.edu/9780465029976/"
             },
             {
@@ -588,7 +590,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -608,7 +610,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -624,7 +626,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -632,7 +634,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -644,7 +646,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -652,7 +654,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -786,7 +788,7 @@
               "url": "https://www.law.umich.edu/special-areas/linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 parsing papers",
+              "label": "ACL Anthology — parsing papers",
               "url": "https://aclanthology.org/"
             },
             {
@@ -802,7 +804,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -822,7 +824,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -838,7 +840,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -846,7 +848,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -858,7 +860,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -866,7 +868,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -878,10 +880,10 @@
         },
         {
           "year": 1960,
-          "title": "ALPAC Report \u2014 The MT Winter Begins",
+          "title": "ALPAC Report — The MT Winter Begins",
           "author": "Automatic Language Processing Advisory Committee (ALPAC), National Academy of Sciences",
           "summary": "The 1966 ALPAC report, 'Languages and Machines: Computers in Translation and Linguistics', was a National Academy of Sciences evaluation of machine translation. It concluded that MT was slower, less accurate, and more expensive than human translation, and that 'there is no immediate or predictable prospect of useful machine translation.' The report's recommendation cut US government MT funding dramatically.",
-          "why_it_mattered": "Created the 'AI winter' for MT research that lasted until the 1980s. Indirectly, it forced the field to focus on deeper computational linguistics \u2014 ATN parsing, semantic representations, conceptual dependency \u2014 instead of superficial rule-based MT. The pendulum-back in 1990s (statistical MT) and again in 2010s (neural MT) eventually vindicated the researchers ALPAC had defunded.",
+          "why_it_mattered": "Created the 'AI winter' for MT research that lasted until the 1980s. Indirectly, it forced the field to focus on deeper computational linguistics — ATN parsing, semantic representations, conceptual dependency — instead of superficial rule-based MT. The pendulum-back in 1990s (statistical MT) and again in 2010s (neural MT) eventually vindicated the researchers ALPAC had defunded.",
           "links": [
             {
               "label": "Wikipedia: ALPAC",
@@ -992,7 +994,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -1012,7 +1014,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -1028,7 +1030,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -1036,7 +1038,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -1048,7 +1050,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -1056,7 +1058,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -1068,13 +1070,13 @@
         },
         {
           "year": 1966,
-          "title": "ELIZA \u2014 The First Chatbot",
+          "title": "ELIZA — The First Chatbot",
           "author": "Joseph Weizenbaum, MIT",
-          "summary": "ELIZA, written by Joseph Weizenbaum at MIT, was the first program to attempt human-like conversation. Using simple pattern matching and substitution rules with the DOCTOR script, ELIZA simulated a Rogerian psychotherapist. It famously fooled users into believing it understood them \u2014 now known as the 'ELIZA effect'.",
+          "summary": "ELIZA, written by Joseph Weizenbaum at MIT, was the first program to attempt human-like conversation. Using simple pattern matching and substitution rules with the DOCTOR script, ELIZA simulated a Rogerian psychotherapist. It famously fooled users into believing it understood them — now known as the 'ELIZA effect'.",
           "why_it_mattered": "Founded the field of human-computer conversation. Modern chatbots, virtual assistants, and customer service bots all trace their lineage to ELIZA. Weizenbaum's distress at users' emotional attachment to his program also planted the earliest seeds of AI ethics.",
           "links": [
             {
-              "label": "Weizenbaum 1966 ELIZA paper \u2014 CACM",
+              "label": "Weizenbaum 1966 ELIZA paper — CACM",
               "url": "https://dl.acm.org/doi/10.1145/365153.365168"
             },
             {
@@ -1114,7 +1116,7 @@
               "url": "https://web.njit.edu/~alexg/courses/cs675/"
             },
             {
-              "label": "GitHub: eliza.py \u2014 Python implementation",
+              "label": "GitHub: eliza.py — Python implementation",
               "url": "https://github.com/jezhiggins/eliza.py"
             },
             {
@@ -1154,7 +1156,7 @@
               "url": "https://www.vice.com/en/article/93wdyb/the-first-chatbot"
             },
             {
-              "label": "Stanford NLP \u2014 ELIZA retrospectives",
+              "label": "Stanford NLP — ELIZA retrospectives",
               "url": "https://nlp.stanford.edu/"
             },
             {
@@ -1198,7 +1200,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -1218,7 +1220,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -1234,7 +1236,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -1242,7 +1244,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -1254,7 +1256,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -1262,7 +1264,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -1274,9 +1276,9 @@
         },
         {
           "year": 1968,
-          "title": "SHRDLU \u2014 Grounded Language Understanding",
+          "title": "SHRDLU — Grounded Language Understanding",
           "author": "Terry Winograd, MIT",
-          "summary": "SHRDLU was an early natural-language understanding program. The user conversed with the computer about a 'blocks world' \u2014 moving cubes, naming collections, asking about state. Combined syntax, semantics, and a simulated robot that could actually act. SHRDLU was a masterwork of integrated AI \u2014 and a casualty of the AI winter.",
+          "summary": "SHRDLU was an early natural-language understanding program. The user conversed with the computer about a 'blocks world' — moving cubes, naming collections, asking about state. Combined syntax, semantics, and a simulated robot that could actually act. SHRDLU was a masterwork of integrated AI — and a casualty of the AI winter.",
           "why_it_mattered": "First system to tightly integrate parsing, semantics, and action in one coherent demo. Showed that grounded language understanding was possible in restricted domains. Inspired a generation of robotics + NLP research, including modern instruction-following agents and embodied AI.",
           "links": [
             {
@@ -1400,7 +1402,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -1420,7 +1422,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -1436,7 +1438,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -1444,7 +1446,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -1456,7 +1458,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -1464,7 +1466,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -1514,7 +1516,7 @@
               "url": "https://www.cs.northwestern.edu/indiana-roger-schank"
             },
             {
-              "label": "Yale \u2014 Schank's early career",
+              "label": "Yale — Schank's early career",
               "url": "https://www.yale.edu/"
             },
             {
@@ -1534,7 +1536,7 @@
               "url": "https://framenet.icsi.berkeley.edu/"
             },
             {
-              "label": "ACL Anthology \u2014 Schank's papers",
+              "label": "ACL Anthology — Schank's papers",
               "url": "https://aclanthology.org/"
             },
             {
@@ -1602,7 +1604,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -1622,7 +1624,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -1638,7 +1640,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -1646,7 +1648,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -1658,7 +1660,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -1666,7 +1668,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -1680,7 +1682,7 @@
           "title": "Augmented Transition Networks (ATNs)",
           "author": "William A. Woods, BBN",
           "summary": "Woods proposed ATNs as an extension of finite-state transition networks with arbitrary recursive structure and conditions on transitions. ATNs became the dominant parsing formalism for NLP through the 1970s and 1980s. They allowed hierarchical structures to be parsed with deterministic or non-deterministic finite-state machines.",
-          "why_it_mattered": "Made it tractable to write grammars for real natural-language input. ATNs were used in LUNAR (a natural-language interface to a database about moon rocks) and SHRDLU's successor systems. The algorithmic insight \u2014 recursive conditions on transitions \u2014 anticipated by 30 years the architecture of transition-based neural parsers of the 2010s.",
+          "why_it_mattered": "Made it tractable to write grammars for real natural-language input. ATNs were used in LUNAR (a natural-language interface to a database about moon rocks) and SHRDLU's successor systems. The algorithmic insight — recursive conditions on transitions — anticipated by 30 years the architecture of transition-based neural parsers of the 2010s.",
           "links": [
             {
               "label": "Wikipedia: Augmented transition network",
@@ -1719,7 +1721,7 @@
               "url": "https://en.wikipedia.org/wiki/BBN_Technologies"
             },
             {
-              "label": "ACL Anthology \u2014 parsing papers",
+              "label": "ACL Anthology — parsing papers",
               "url": "https://www.aclweb.org/anthology/"
             },
             {
@@ -1771,7 +1773,7 @@
               "url": "https://en.wikipedia.org/wiki/Constituency_grammar"
             },
             {
-              "label": "ACL \u2014 how to access papers",
+              "label": "ACL — how to access papers",
               "url": "https://www.aclweb.org/anthology-signup/"
             },
             {
@@ -1815,7 +1817,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -1835,7 +1837,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -1851,7 +1853,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -1859,7 +1861,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -1871,7 +1873,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -1879,7 +1881,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -1890,10 +1892,10 @@
         },
         {
           "year": 1975,
-          "title": "MARGIE \u2192 SAM \u2192 PAM \u2192 TaleSpin",
+          "title": "MARGIE → SAM → PAM → TaleSpin",
           "author": "Schank's group at Yale (Lehnert, Wilensky, Meehan, Cullingford)",
           "summary": "A family of conceptual-dependency-based programs that could infer, paraphrase, summarize, plan, and even tell stories. MARGIE inferred implications; SAM (Script Applier Mechanism) accessed stereotyped event sequences; PAM (Plan Applier Mechanism) understood stories by recognizing the plan being executed; TaleSpin generated short folk tales about bears and bees.",
-          "why_it_mattered": "Demonstrated that deep semantic representations could support reasoning and generation \u2014 not just parsing. The Yale school defined NLP research for the late 1970s and inspired the frame-based and script-based approaches that later became FrameNet and modern knowledge graphs.",
+          "why_it_mattered": "Demonstrated that deep semantic representations could support reasoning and generation — not just parsing. The Yale school defined NLP research for the late 1970s and inspired the frame-based and script-based approaches that later became FrameNet and modern knowledge graphs.",
           "links": [
             {
               "label": "Wikipedia: Roger Schank",
@@ -1936,7 +1938,7 @@
               "url": "https://www.cs.northwestern.edu/"
             },
             {
-              "label": "ACL Anthology \u2014 Schank papers",
+              "label": "ACL Anthology — Schank papers",
               "url": "https://aclanthology.org/"
             },
             {
@@ -2020,7 +2022,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -2040,7 +2042,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -2056,7 +2058,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -2064,7 +2066,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -2076,7 +2078,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -2084,7 +2086,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -2096,9 +2098,9 @@
         },
         {
           "year": 1989,
-          "title": "Penn Treebank \u2014 Annotated Corpus Era Begins",
-          "author": "Mitchell Marcus, Beatrice Santorini, Mary Ann Marcinkiewicz \u2014 University of Pennsylvania",
-          "summary": "The Penn Treebank project published 4.5 million words of American English annotated with phrase-structure parse trees, part-of-speech tags, and other linguistic annotations. The Treebank had a transformative effect on NLP \u2014 for the first time, researchers could train statistical models on large, consistent corpora.",
+          "title": "Penn Treebank — Annotated Corpus Era Begins",
+          "author": "Mitchell Marcus, Beatrice Santorini, Mary Ann Marcinkiewicz — University of Pennsylvania",
+          "summary": "The Penn Treebank project published 4.5 million words of American English annotated with phrase-structure parse trees, part-of-speech tags, and other linguistic annotations. The Treebank had a transformative effect on NLP — for the first time, researchers could train statistical models on large, consistent corpora.",
           "why_it_mattered": "Created the modern paradigm of corpus-based NLP. Every statistical parsing model from 1990 onward (including the modern neural parsers) was trained on the Penn Treebank or its descendants. The Treebank also popularized the principle that scientific NLP requires shared, annotated datasets as benchmarks.",
           "links": [
             {
@@ -2234,7 +2236,7 @@
               "url": "https://en.wikipedia.org/wiki/Computational_linguistics"
             },
             {
-              "label": "ACL Anthology \u2014 full corpus",
+              "label": "ACL Anthology — full corpus",
               "url": "https://aclanthology.org/"
             },
             {
@@ -2254,7 +2256,7 @@
               "url": "https://www.aclweb.org/"
             },
             {
-              "label": "NAACL \u2014 North American Chapter of ACL",
+              "label": "NAACL — North American Chapter of ACL",
               "url": "https://naacl.org/"
             },
             {
@@ -2270,7 +2272,7 @@
               "url": "https://mitpress.mit.edu/series/computational-linguistics/"
             },
             {
-              "label": "arXiv cs.CL \u2014 Computation and Language",
+              "label": "arXiv cs.CL — Computation and Language",
               "url": "https://arxiv.org/list/cs.CL/recent"
             },
             {
@@ -2278,7 +2280,7 @@
               "url": "https://paperswithcode.com/"
             },
             {
-              "label": "HuggingFace \u2014 model hub",
+              "label": "HuggingFace — model hub",
               "url": "https://huggingface.co/models"
             },
             {
@@ -2290,7 +2292,7 @@
               "url": "https://www.semanticscholar.org/"
             },
             {
-              "label": "DBLP \u2014 Computer Science Bibliography",
+              "label": "DBLP — Computer Science Bibliography",
               "url": "https://dblp.org/"
             },
             {
@@ -2298,7 +2300,7 @@
               "url": "https://openreview.net/"
             },
             {
-              "label": "Distill.pub \u2014 interactive ML articles",
+              "label": "Distill.pub — interactive ML articles",
               "url": "https://distill.pub/"
             }
           ],
@@ -2313,15 +2315,15 @@
     {
       "id": "statistical",
       "label": "Statistical Era",
-      "years": "1990 \u2013 2010",
+      "years": "1990 – 2010",
       "color": "#C9A86A",
       "summary": "Hand-written rules couldn't scale. Researchers turned to probability theory, large corpora, and statistical learning. N-gram language models, HMMs for POS tagging and speech, and the first web-scale MT systems.",
       "milestones": [
         {
           "year": 1990,
-          "title": "Elman Networks \u2014 Early RNN for NLP",
+          "title": "Elman Networks — Early RNN for NLP",
           "author": "Jeffrey Elman, UCSD",
-          "summary": "A simple recurrent neural network that learned to predict the next word in a sequence. Each word in the training corpus was encoded as a learned vector \u2014 an early form of word embedding. The network had 20-100 hidden units and was trained on ~100 sentences.",
+          "summary": "A simple recurrent neural network that learned to predict the next word in a sequence. Each word in the training corpus was encoded as a learned vector — an early form of word embedding. The network had 20-100 hidden units and was trained on ~100 sentences.",
           "why_it_mattered": "First demonstration that neural networks could learn distributed word representations and temporal patterns from raw text. The seed of all later neural NLP work.",
           "links": [
             {
@@ -2520,8 +2522,8 @@
         },
         {
           "year": 1997,
-          "title": "LSTM \u2014 Long Short-Term Memory",
-          "author": "Sepp Hochreiter & J\u00fcrgen Schmidhuber",
+          "title": "LSTM — Long Short-Term Memory",
+          "author": "Sepp Hochreiter & Jürgen Schmidhuber",
           "summary": "A recurrent unit with a cell state and three gates (input, output, forget) that mitigates the vanishing-gradient problem and lets RNNs learn dependencies thousands of steps long.",
           "why_it_mattered": "Made RNNs actually trainable on long sequences. Dominant sequence model for speech, MT, and text generation from 2010 through 2017.",
           "links": [
@@ -2538,8 +2540,8 @@
               "url": "https://en.wikipedia.org/wiki/Sepp_Hochreiter"
             },
             {
-              "label": "Wikipedia: J\u00fcrgen Schmidhuber",
-              "url": "https://en.wikipedia.org/wiki/J\u00fcrgen_Schmidhuber"
+              "label": "Wikipedia: Jürgen Schmidhuber",
+              "url": "https://en.wikipedia.org/wiki/Jürgen_Schmidhuber"
             },
             {
               "label": "Wikipedia: Vanishing gradient problem",
@@ -2717,10 +2719,10 @@
         },
         {
           "year": 2001,
-          "title": "BLEU Metric \u2014 MT Goes Automatic",
+          "title": "BLEU Metric — MT Goes Automatic",
           "author": "Kishore Papineni et al., IBM",
           "summary": "BLEU compares MT output against human reference translations using modified n-gram precision plus a brevity penalty.",
-          "why_it_mattered": "Made MT research reproducible at scale. 25+ years of standard evaluation. The metric's dominance also created problems \u2014 researchers optimized for BLEU rather than human judgment.",
+          "why_it_mattered": "Made MT research reproducible at scale. 25+ years of standard evaluation. The metric's dominance also created problems — researchers optimized for BLEU rather than human judgment.",
           "links": [
             {
               "label": "Papineni 2002 BLEU paper",
@@ -2919,7 +2921,7 @@
         {
           "year": 2003,
           "title": "Neural Probabilistic Language Model",
-          "author": "Yoshua Bengio et al., Universit\u00e9 de Montr\u00e9al",
+          "author": "Yoshua Bengio et al., Université de Montréal",
           "summary": "Bengio et al. trained a feed-forward neural network to predict the next word given the previous n words. Each word was mapped to a learned distributed representation (a 100-dim vector) before being fed to the network.",
           "why_it_mattered": "Combined two ideas that became the foundation of modern NLP: distributed word representations + neural language modeling. Anticipated word2vec by 10 years and contextual embeddings by 15.",
           "links": [
@@ -3012,8 +3014,8 @@
               "url": "https://en.wikipedia.org/wiki/Semantic_similarity"
             },
             {
-              "label": "Wikipedia: Tf\u2013idf",
-              "url": "https://en.wikipedia.org/wiki/Tf\u2013idf"
+              "label": "Wikipedia: Tf–idf",
+              "url": "https://en.wikipedia.org/wiki/Tf–idf"
             },
             {
               "label": "Wikipedia: Bag-of-words model",
@@ -3343,15 +3345,15 @@
     {
       "id": "embeddings",
       "label": "Embeddings & Deep Learning Era",
-      "years": "2011 \u2013 2016",
+      "years": "2011 – 2016",
       "color": "#C97A8F",
       "summary": "Neural networks returned to NLP. word2vec, GloVe, seq2seq, attention, and the rise of NMT.",
       "milestones": [
         {
           "year": 2013,
-          "title": "word2vec \u2014 Distributed Word Vectors Go Mainstream",
-          "author": "Tom\u00e1\u0161 Mikolov, Kai Chen, Greg Corrado, Jeff Dean \u2014 Google",
-          "summary": "CBOW and Skip-gram architectures produced vectors where semantic relationships appeared as linear offsets ('king \u2212 man + woman \u2248 queen'). Trained on 100B words.",
+          "title": "word2vec — Distributed Word Vectors Go Mainstream",
+          "author": "Tomáš Mikolov, Kai Chen, Greg Corrado, Jeff Dean — Google",
+          "summary": "CBOW and Skip-gram architectures produced vectors where semantic relationships appeared as linear offsets ('king − man + woman ≈ queen'). Trained on 100B words.",
           "why_it_mattered": "Made word embeddings practical at web scale. Became a default preprocessing step in nearly every NLP pipeline 2014-2017.",
           "links": [
             {
@@ -3367,8 +3369,8 @@
               "url": "https://en.wikipedia.org/wiki/Word2vec"
             },
             {
-              "label": "Wikipedia: Tom\u00e1\u0161 Mikolov",
-              "url": "https://en.wikipedia.org/wiki/Tom\u00e1\u0161_Mikolov"
+              "label": "Wikipedia: Tomáš Mikolov",
+              "url": "https://en.wikipedia.org/wiki/Tomáš_Mikolov"
             },
             {
               "label": "Wikipedia: Word embedding",
@@ -3439,8 +3441,8 @@
               "url": "https://en.wikipedia.org/wiki/Cosine_similarity"
             },
             {
-              "label": "Wikipedia: Tf\u2013idf",
-              "url": "https://en.wikipedia.org/wiki/Tf\u2013idf"
+              "label": "Wikipedia: Tf–idf",
+              "url": "https://en.wikipedia.org/wiki/Tf–idf"
             },
             {
               "label": "Wikipedia: Pointwise mutual information",
@@ -3824,8 +3826,8 @@
         },
         {
           "year": 2014,
-          "title": "GloVe \u2014 Global Vectors",
-          "author": "Pennington, Socher, Manning \u2014 Stanford",
+          "title": "GloVe — Global Vectors",
+          "author": "Pennington, Socher, Manning — Stanford",
           "summary": "Learns embeddings by factorizing the global word-word co-occurrence matrix.",
           "why_it_mattered": "Provided a complementary method to word2vec. Standard pre-trained embeddings (50d-300d) freely available.",
           "links": [
@@ -3898,8 +3900,8 @@
               "url": "https://en.wikipedia.org/wiki/Cosine_similarity"
             },
             {
-              "label": "Wikipedia: Tf\u2013idf",
-              "url": "https://en.wikipedia.org/wiki/Tf\u2013idf"
+              "label": "Wikipedia: Tf–idf",
+              "url": "https://en.wikipedia.org/wiki/Tf–idf"
             },
             {
               "label": "Wikipedia: Pointwise mutual information",
@@ -4443,13 +4445,13 @@
     {
       "id": "transformers",
       "label": "Transformer / LLM Era",
-      "years": "2017 \u2013 2022",
+      "years": "2017 – 2022",
       "color": "#5DA882",
       "summary": "Self-attention replaced recurrence. Pretrain-then-finetune. Model size and data scale became dominant.",
       "milestones": [
         {
           "year": 2017,
-          "title": "Transformer \u2014 'Attention Is All You Need'",
+          "title": "Transformer — 'Attention Is All You Need'",
           "author": "Vaswani et al., Google Brain & Research",
           "summary": "Replaced recurrence and convolutions with stacked self-attention + feedforward. Parallelizable, faster, stronger on MT.",
           "why_it_mattered": "The architecture underlying every modern LLM. By 2024, 100k+ citations.",
@@ -5184,7 +5186,7 @@
         },
         {
           "year": 2020,
-          "title": "GPT-3 \u2014 In-Context Learning Emerges",
+          "title": "GPT-3 — In-Context Learning Emerges",
           "author": "Brown et al., OpenAI",
           "summary": "175B-parameter decoder-only transformer. 'Language Models are Few-Shot Learners' demonstrated in-context learning.",
           "why_it_mattered": "Showed emergent capabilities. Triggered commercial LLM race. Demonstrated scaling laws.",
@@ -5450,7 +5452,7 @@
         },
         {
           "year": 2022,
-          "title": "ChatGPT \u2014 RLHF Goes Mainstream",
+          "title": "ChatGPT — RLHF Goes Mainstream",
           "author": "OpenAI",
           "summary": "Released Nov 30, 2022. GPT-3.5 fine-tuned with RLHF. 100M users in 2 months.",
           "why_it_mattered": "Brought LLMs to the public. Sparked the 2023 generative AI boom. RLHF became standard alignment.",
@@ -5703,13 +5705,13 @@
     {
       "id": "agentic",
       "label": "Agentic AI Era",
-      "years": "2023 \u2013 2030",
+      "years": "2023 – 2030",
       "color": "#9B6FCC",
       "summary": "Multimodality, reasoning, agentic workflows, open-source catching up.",
       "milestones": [
         {
           "year": 2023,
-          "title": "GPT-4 + Claude 2 + Llama 2 \u2014 Multimodal Year",
+          "title": "GPT-4 + Claude 2 + Llama 2 — Multimodal Year",
           "author": "OpenAI, Anthropic, Meta",
           "summary": "GPT-4 added image inputs. Claude 2 launched with 100k context. Llama 2 released openly.",
           "why_it_mattered": "Three competing frontier labs. Multimodality became standard. Open-weights credible alternatives.",
@@ -5943,7 +5945,7 @@
         },
         {
           "year": 2024,
-          "title": "Claude 3.5 Sonnet + OpenAI o1 \u2014 Reasoning Frontier",
+          "title": "Claude 3.5 Sonnet + OpenAI o1 — Reasoning Frontier",
           "author": "Anthropic, OpenAI",
           "summary": "Claude 3.5 Sonnet topped coding benchmarks. o1 (Sep 2024) introduced test-time compute reasoning.",
           "why_it_mattered": "Test-time compute scaling emerged as new axis. Reasoning chains and search became first-class.",
@@ -6181,7 +6183,7 @@
         },
         {
           "year": 2025,
-          "title": "DeepSeek-R1 \u2014 Open-Weight Reasoning",
+          "title": "DeepSeek-R1 — Open-Weight Reasoning",
           "author": "DeepSeek (Hangzhou, China)",
           "summary": "Matched or exceeded OpenAI o1 on reasoning benchmarks. Open-weight license.",
           "why_it_mattered": "Disrupted the assumption that frontier reasoning was exclusive to US labs. Triggered Nvidia stock sell-off.",
@@ -7701,8 +7703,8 @@
               "url": "https://en.wikipedia.org/wiki/Insitro"
             },
             {
-              "label": "Wikipedia: Schr\u00f6dinger Inc",
-              "url": "https://en.wikipedia.org/wiki/Schr\u00f6dinger_Inc"
+              "label": "Wikipedia: Schrödinger Inc",
+              "url": "https://en.wikipedia.org/wiki/Schrödinger_Inc"
             },
             {
               "label": "Wikipedia: AI for science",
@@ -7769,7 +7771,7 @@
               "url": "https://en.wikipedia.org/wiki/Insitro"
             },
             {
-              "label": "Wikipedia: Schr\u00f6dinger",
+              "label": "Wikipedia: Schrödinger",
               "url": "https://en.wikipedia.org/wiki/Schr%C3%B6dinger_Inc"
             },
             {
