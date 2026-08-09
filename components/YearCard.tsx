@@ -20,7 +20,7 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 // ---- Types ----
 export type Link = { label: string; url: string };
@@ -204,6 +204,21 @@ export default function YearCard({
   // Local state: show primary milestone content vs structured sections
   const [view, setView] = useState<'structured' | 'milestone'>('structured');
 
+  // Lock body + html scroll while the modal is mounted so only the inner
+  // scrollbar (overflow-y-auto on the card) is visible. Prevents the page
+  // from scrolling behind the modal AND prevents a second scrollbar from
+  // appearing at the page edge.
+  useEffect(() => {
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+    };
+  }, []);
+
   const hasStructured = useMemo(
     () =>
       !!yearContent &&
@@ -226,13 +241,14 @@ export default function YearCard({
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="fixed inset-0 z-40 flex items-end sm:items-center justify-center p-2 sm:p-4 md:p-6 bg-black/30 backdrop-blur-md"
+        className="fixed inset-0 z-40 flex items-end sm:items-center justify-center p-2 sm:p-4 md:p-6 bg-black/30 backdrop-blur-md overflow-hidden"
         onClick={onClose}
       >
         <motion.div
           variants={cardVariants}
           onClick={(e) => e.stopPropagation()}
-          className="neu-card w-full sm:max-w-2xl lg:max-w-3xl p-4 sm:p-6 md:p-7 max-h-[92vh] sm:max-h-[88vh] overflow-y-auto relative"
+          className="neu-card w-full sm:max-w-2xl lg:max-w-3xl p-4 sm:p-6 md:p-7 max-h-[92vh] sm:max-h-[88vh] overflow-y-auto relative scrollbar-thin"
+          style={{ scrollbarGutter: 'stable' }}
         >
           {/* Top accent ribbon — era color fades across the top */}
           <div

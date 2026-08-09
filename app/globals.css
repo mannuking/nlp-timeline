@@ -38,13 +38,47 @@
 }
 
 html, body {
-  background: var(--neu-base);
   color: var(--neu-text);
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100vh;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* FIXED FULL-SCREEN ACCENT BACKGROUND — pinned to the viewport so it never
+   scrolls away. Layered: maroon vertical gradient + diagonal wash + dot
+   pattern, all fading to the base color at the bottom so it doesn't tint
+   the whole page permanently. */
+html {
+  background:
+    /* Diagonal maroon wash */
+    linear-gradient(
+      135deg,
+      rgba(139, 44, 44, 0.18) 0%,
+      rgba(139, 44, 44, 0.08) 35%,
+      transparent 70%
+    ),
+    /* Subtle dot pattern */
+    radial-gradient(
+      circle at 1px 1px,
+      rgba(139, 44, 44, 0.12) 1px,
+      transparent 0
+    ),
+    /* Vertical maroon-to-base gradient */
+    linear-gradient(
+      180deg,
+      var(--maroon-100) 0%,
+      rgba(245, 226, 226, 0.55) 35%,
+      var(--neu-base) 70%,
+      var(--neu-base) 100%
+    );
+  background-size: cover, 22px 22px, cover;
+  background-attachment: fixed, fixed, fixed;
+}
+
+body {
+  background: transparent;
 }
 
 * {
@@ -57,31 +91,33 @@ html {
 
 /* ============================================================
    UNIFIED NEUMORPHIC SHADOWS
-   All .neu-* shadows use the same:
-   - Light source: top-left (highlight = top-left, shadow = bottom-right)
-   - Offset ratio: 1:1 (offset = blur)
-   - Single dark color, single light color
-   This eliminates the previous "irregular shade" issues.
+   Using filter: drop-shadow() so shadows RESPECT the element's
+   border-radius (truly round for circles, pill-shaped for pills).
+   Plain box-shadow would create a rectangular shadow which looks
+   wrong on small round/pill elements.
+   Light source: top-left (highlight = top-left, shadow = bottom-right)
    ============================================================ */
 
 .neu-card {
   background: var(--neu-base);
   border-radius: 20px;
-  box-shadow:
-    8px 8px 16px var(--shadow-color),
-    -8px -8px 16px var(--highlight-color);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  filter:
+    drop-shadow(8px 8px 12px var(--shadow-color))
+    drop-shadow(-8px -8px 12px var(--highlight-color));
+  transition: filter 0.25s ease, transform 0.25s ease;
 }
 
 .neu-card:hover {
-  box-shadow:
-    10px 10px 20px var(--shadow-color),
-    -10px -10px 20px var(--highlight-color);
+  filter:
+    drop-shadow(10px 10px 14px var(--shadow-color))
+    drop-shadow(-10px -10px 14px var(--highlight-color));
 }
 
 .neu-card-pressed {
   background: var(--neu-base);
   border-radius: 20px;
+  /* Pressed = inset look. Use box-shadow inset — clipped to the rounded shape
+     automatically because border-radius clips inset shadows correctly. */
   box-shadow:
     inset 6px 6px 12px var(--shadow-color),
     inset -6px -6px 12px var(--highlight-color);
@@ -90,21 +126,22 @@ html {
 .neu-pill {
   background: var(--neu-base);
   border-radius: 999px;
-  box-shadow:
-    4px 4px 8px var(--shadow-color-sm),
-    -4px -4px 8px var(--highlight-color-sm);
+  filter:
+    drop-shadow(3px 3px 5px var(--shadow-color-sm))
+    drop-shadow(-3px -3px 5px var(--highlight-color-sm));
   transition: all 0.2s ease;
 }
 
 .neu-pill:hover {
-  box-shadow:
-    5px 5px 10px var(--shadow-color-sm),
-    -5px -5px 10px var(--highlight-color-sm);
+  filter:
+    drop-shadow(4px 4px 6px var(--shadow-color-sm))
+    drop-shadow(-4px -4px 6px var(--highlight-color-sm));
 }
 
 .neu-pill-active {
   background: var(--neu-base);
   border-radius: 999px;
+  /* Inset for "pressed in" look on a pill */
   box-shadow:
     inset 3px 3px 6px var(--shadow-color-sm),
     inset -3px -3px 6px var(--highlight-color-sm);
@@ -123,9 +160,10 @@ html {
   font-weight: 500;
   font-size: 10px;
   color: var(--neu-text);
-  box-shadow:
-    4px 4px 8px var(--shadow-color-sm),
-    -4px -4px 8px var(--highlight-color-sm);
+  /* drop-shadow respects border-radius:50% → truly circular shadow */
+  filter:
+    drop-shadow(3px 3px 5px var(--shadow-color-sm))
+    drop-shadow(-3px -3px 5px var(--highlight-color-sm));
   transition: all 0.25s ease;
   cursor: pointer;
   position: relative;
@@ -135,25 +173,28 @@ html {
 
 .neu-node:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow:
-    6px 6px 12px var(--shadow-color),
-    -6px -6px 12px var(--highlight-color);
+  filter:
+    drop-shadow(4px 4px 6px var(--shadow-color))
+    drop-shadow(-4px -4px 6px var(--highlight-color));
 }
 
 .neu-node-active {
+  /* Pressed = inset. On a circle, inset shadow works because the
+     border-radius clips it. */
   box-shadow:
     inset 3px 3px 6px var(--shadow-color-sm),
     inset -3px -3px 6px var(--highlight-color-sm);
   color: var(--maroon-500);
   font-weight: 700;
+  filter: none;
 }
 
 .neu-track {
   background: var(--neu-base);
   border-radius: 999px;
   box-shadow:
-    inset 3px 3px 6px var(--shadow-color-sm),
-    inset -3px -3px 6px var(--highlight-color-sm);
+    inset 2px 2px 4px var(--shadow-color-sm),
+    inset -2px -2px 4px var(--highlight-color-sm);
   height: 4px;
   position: relative;
 }
@@ -195,24 +236,27 @@ html {
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
-  box-shadow:
-    3px 3px 6px var(--shadow-color-sm),
-    -3px -3px 6px var(--highlight-color-sm);
-  transition: all 0.2s ease;
+  /* drop-shadow respects border-radius:12px → truly rounded shadow */
+  filter:
+    drop-shadow(3px 3px 5px var(--shadow-color-sm))
+    drop-shadow(-3px -3px 5px var(--highlight-color-sm));
+  transition: filter 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
 .neu-link:hover {
   color: var(--maroon-500);
-  box-shadow:
-    4px 4px 8px var(--shadow-color),
-    -4px -4px 8px var(--highlight-color);
+  filter:
+    drop-shadow(4px 4px 6px var(--shadow-color))
+    drop-shadow(-4px -4px 6px var(--highlight-color));
   transform: translateY(-1px);
 }
 
 .neu-link:active {
+  /* Pressed = inset. Inset shadows are clipped to border-radius automatically. */
   box-shadow:
     inset 3px 3px 6px var(--shadow-color-sm),
     inset -3px -3px 6px var(--highlight-color-sm);
+  filter: none;
 }
 
 .neu-input {
@@ -223,6 +267,7 @@ html {
   color: var(--neu-text);
   font-family: inherit;
   font-size: 14px;
+  /* Inset shadow on input — inset is auto-clipped to border-radius */
   box-shadow:
     inset 4px 4px 8px var(--shadow-color-sm),
     inset -4px -4px 8px var(--highlight-color-sm);
@@ -240,10 +285,33 @@ html {
 .neu-card-accent {
   background: var(--neu-base);
   border-radius: 20px;
-  box-shadow:
-    8px 8px 16px var(--shadow-color),
-    -8px -8px 16px var(--highlight-color),
-    inset 0 0 0 1px rgba(139, 44, 44, 0.18);
+  filter:
+    drop-shadow(8px 8px 12px var(--shadow-color))
+    drop-shadow(-8px -8px 12px var(--highlight-color));
+}
+
+/* Slim inline scrollbar — keeps the bar tucked inside the element's
+   border-radius, never spilling out into the page. Used by year card
+   and presenter mode scrollable areas. */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(139, 44, 44, 0.35);
+  border-radius: 999px;
+  border: none;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 44, 44, 0.55);
+}
+
+/* Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 44, 44, 0.35) transparent;
 }
 
 /* Custom scrollbar */

@@ -232,6 +232,41 @@ export default function Home() {
     return out;
   }, [allYears, activeEra, searchQuery, yearContentMap, data.eras]);
 
+  // Search-only years — years that match the search query but do NOT have a
+  // curated milestone. These appear in a dedicated "Search Results" track
+  // so users can find any year 1950-2030, not just the 34 curated ones.
+  const searchOnlyYears = useMemo<number[]>(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
+    const out: number[] = [];
+    for (const y of allYears) {
+      // Era filter
+      if (activeEra !== 'all') {
+        const eraForYear = data.eras.find((era) =>
+          era.milestones.some((m) => m.year === y),
+        );
+        if (eraForYear && eraForYear.id !== activeEra) continue;
+      }
+      // Skip if it already has a milestone (covered in filteredEras)
+      const hasMilestone = data.eras.some((era) =>
+        era.milestones.some((m) => m.year === y),
+      );
+      if (hasMilestone) continue;
+      // Search filter
+      const yc = yearContentMap[y];
+      const haystack = [
+        (yc?.cs_highlights ?? []).join(' '),
+        (yc?.nlp_research ?? []).join(' '),
+        (yc?.nlp_applications ?? []).join(' '),
+        (yc?.extras ?? []).join(' '),
+      ].join(' ').toLowerCase();
+      if (haystack.includes(q)) {
+        out.push(y);
+      }
+    }
+    return out;
+  }, [allYears, activeEra, searchQuery, yearContentMap, data.eras]);
+
   // Year nav
   const navYear = useCallback((direction: 1 | -1) => {
     if (flatYears.length === 0) return;
@@ -285,12 +320,10 @@ export default function Home() {
   }, [presenterMode, activeYear, flatYears, navYear]);
 
   return (
-    <main className="min-h-screen pb-32">
-      {/* HERO — full-width accent band, content centered inside max-width container */}
-      <section className="hero-band relative overflow-hidden">
-        <div className="absolute inset-0 hero-gradient pointer-events-none" />
-        <div className="absolute inset-0 hero-dots pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-6 pt-12 pb-10 relative">
+    <main className="min-h-screen pb-32 relative">
+      {/* HERO — content sits inside max-width container; background is on html (fixed) */}
+      <section className="relative z-10 pt-12 pb-10">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -319,8 +352,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTROLS */}
-      <section className="max-w-5xl mx-auto px-6 mb-8 -mt-6 relative z-10">
+      {/* CONTROLS — float over hero, also relative z-10 */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 mb-8 -mt-6">
         <NeuCard className="p-4 sm:p-5">
           <div className="flex flex-col md:flex-row md:items-center gap-3">
             <div className="flex flex-wrap gap-1.5 flex-1">
@@ -359,59 +392,110 @@ export default function Home() {
         </NeuCard>
       </section>
 
-            {/* TIMELINE TRACK — milestone years as clickable nodes */}
-            <section className="max-w-5xl mx-auto px-6 mb-10" ref={timelineRef}>
-              {filteredEras.map((era) => (
-                <motion.div
-                  key={era.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="mb-10"
-                >
-                  <div className="flex items-baseline justify-between mb-3 px-2 flex-wrap gap-2">
-                    <h2 className="font-display text-xl md:text-2xl font-light text-neu-text flex items-center gap-2.5">
-                      <span className="w-3 h-3 rounded-full" style={{ background: era.color }} />
-                      {era.label}
-                    </h2>
-                    <span className="text-neu-muted text-xs font-medium">{era.years}</span>
-                  </div>
-                  <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
+      {/* TIMELINE TRACK — milestone years as clickable nodes */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 mb-10" ref={timelineRef}>
+        {filteredEras.map((era) => (
+          <motion.div
+            key={era.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mb-10"
+          >
+            <div className="flex items-baseline justify-between mb-3 px-2 flex-wrap gap-2">
+              <h2 className="font-display text-xl md:text-2xl font-light text-neu-text flex items-center gap-2.5">
+                <span className="w-3 h-3 rounded-full" style={{ background: era.color }} />
+                {era.label}
+              </h2>
+              <span className="text-neu-muted text-xs font-medium">{era.years}</span>
+            </div>
+            <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
 
-                  <div className="relative overflow-x-auto pb-6">
-                    <div className="flex items-center gap-2 min-w-max px-2">
-                      {era.milestones.map((m, i) => {
-                        const isActive = activeYear === m.year;
-                        return (
-                          <div key={`${m.year}-${m.title}`} className="flex items-center">
-                            <motion.button
-                              initial={{ scale: 0.5, opacity: 0 }}
-                              animate={{ scale: 1, opacity: 1 }}
-                              transition={{ delay: i * 0.04, duration: 0.3 }}
-                              onClick={() => openYear(setActiveYear, m)}
-                              className={`neu-node year-button ${isActive ? 'neu-node-active' : ''}`}
-                              style={isActive ? { color: 'var(--maroon-500)' } : {}}
-                              title={`${m.year} — ${m.title}`}
-                            >
-                              {m.year}
-                            </motion.button>
-                            {i < era.milestones.length - 1 && (
-                              <div className="w-7 h-1 mx-1 rounded-full neu-track" />
-                            )}
-                          </div>
-                        );
-                      })}
+            <div className="relative overflow-x-auto pb-6">
+              <div className="flex items-center gap-2 min-w-max px-2">
+                {era.milestones.map((m, i) => {
+                  const isActive = activeYear === m.year;
+                  return (
+                    <div key={`${m.year}-${m.title}`} className="flex items-center">
+                      <motion.button
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: i * 0.04, duration: 0.3 }}
+                        onClick={() => openYear(setActiveYear, m)}
+                        className={`neu-node year-button ${isActive ? 'neu-node-active' : ''}`}
+                        style={isActive ? { color: 'var(--maroon-500)' } : {}}
+                        title={`${m.year} — ${m.title}`}
+                      >
+                        {m.year}
+                      </motion.button>
+                      {i < era.milestones.length - 1 && (
+                        <div className="w-7 h-1 mx-1 rounded-full neu-track" />
+                      )}
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        ))}
 
-              {filteredEras.length === 0 && (
-                <div className="text-center text-neu-muted text-sm py-12">
-                  No milestones match your search.
-                </div>
-              )}
-            </section>
+        {/* SEARCH RESULTS — non-milestone years that matched the query */}
+        {searchQuery.trim() && searchOnlyYears.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mb-10"
+          >
+            <div className="flex items-baseline justify-between mb-3 px-2 flex-wrap gap-2">
+              <h2 className="font-display text-xl md:text-2xl font-light text-neu-text flex items-center gap-2.5">
+                <span className="w-3 h-3 rounded-full" style={{ background: 'var(--maroon-500)' }} />
+                Search Results
+              </h2>
+              <span className="text-neu-muted text-xs font-medium">
+                {searchOnlyYears.length} {searchOnlyYears.length === 1 ? 'year' : 'years'}
+              </span>
+            </div>
+            <p className="text-neu-muted text-sm mb-5 max-w-3xl">
+              Years from <span className="text-maroon font-medium">1950 – 2030</span> that match your search but are not curated milestones. Click any year to view its full content.
+            </p>
+
+            <div className="relative overflow-x-auto pb-6">
+              <div className="flex items-center gap-2 min-w-max px-2 flex-wrap">
+                {searchOnlyYears.map((y, i) => {
+                  const isActive = activeYear === y;
+                  const eraForYear = data.eras.find((era) =>
+                    era.milestones.some((m) => m.year === y),
+                  );
+                  return (
+                    <div key={y} className="flex items-center">
+                      <motion.button
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: i * 0.03, duration: 0.25 }}
+                        onClick={() => setActiveYear(y)}
+                        className={`neu-node year-button ${isActive ? 'neu-node-active' : ''}`}
+                        style={{
+                          color: isActive ? 'var(--maroon-500)' : (eraForYear?.color ?? 'var(--maroon-500)'),
+                        }}
+                        title={`${y} — click to view content`}
+                      >
+                        {y}
+                      </motion.button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {filteredEras.length === 0 && (!searchQuery.trim() || searchOnlyYears.length === 0) && (
+          <div className="text-center text-neu-muted text-sm py-12">
+            No milestones match your search.
+          </div>
+        )}
+      </section>
 
       {/* ALL-YEARS BROWSER — collapsed by default; user opens it on demand */}
             <YearBrowser
