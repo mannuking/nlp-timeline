@@ -28,13 +28,13 @@
   --maroon-100: #F5E2E2;
   --maroon-300: #D49090;
 
-  /* Shadow color tokens — single dark source = consistent lighting */
-  --shadow-color: rgba(163, 177, 198, 0.55);
-  --highlight-color: rgba(255, 255, 255, 0.85);
-  --shadow-color-sm: rgba(163, 177, 198, 0.50);
-  --highlight-color-sm: rgba(255, 255, 255, 0.75);
-  --shadow-color-xs: rgba(163, 177, 198, 0.45);
-  --highlight-color-xs: rgba(255, 255, 255, 0.70);
+  /* Shadow color tokens — maroon-tinted to match the accent theme */
+  --shadow-color: rgba(139, 44, 44, 0.22);
+  --highlight-color: rgba(255, 255, 255, 0.92);
+  --shadow-color-sm: rgba(139, 44, 44, 0.18);
+  --highlight-color-sm: rgba(255, 255, 255, 0.85);
+  --shadow-color-xs: rgba(139, 44, 44, 0.14);
+  --highlight-color-xs: rgba(255, 255, 255, 0.80);
 }
 
 html, body {
@@ -263,6 +263,26 @@ html {
   border: 3px solid var(--neu-base);
 }
 
+/* Presenter mode scrollbar — slim, maroon, tucked in */
+.presenter-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.presenter-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.presenter-scroll::-webkit-scrollbar-thumb {
+  background: var(--maroon-500);
+  border-radius: 999px;
+  border: none;
+  opacity: 0.5;
+}
+
+/* Firefox */
+.presenter-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--maroon-500) transparent;
+}
+
 .ui-no-select {
   -webkit-user-select: none;
   user-select: none;
@@ -304,13 +324,24 @@ html {
   color: var(--maroon-600);
 }
 
-/* Hero gradient banner — used at the top of the main page */
+/* Hero band — full-width accent strip */
+.hero-band {
+  background: linear-gradient(
+    180deg,
+    var(--maroon-100) 0%,
+    rgba(245, 226, 226, 0.55) 40%,
+    rgba(245, 226, 226, 0) 100%
+  );
+  border-bottom: 1px solid rgba(139, 44, 44, 0.12);
+}
+
+/* Hero gradient — soft maroon wash layered on the band */
 .hero-gradient {
   background: linear-gradient(
     135deg,
-    rgba(139, 44, 44, 0.10) 0%,
-    rgba(139, 44, 44, 0.04) 30%,
-    transparent 60%
+    rgba(139, 44, 44, 0.16) 0%,
+    rgba(139, 44, 44, 0.07) 35%,
+    transparent 70%
   );
 }
 
@@ -318,10 +349,12 @@ html {
 .hero-dots {
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(139, 44, 44, 0.07) 1px,
+    rgba(139, 44, 44, 0.10) 1px,
     transparent 0
   );
   background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
 }
 
 /* Animated shimmer under the hero number — pure CSS */

@@ -17,6 +17,7 @@
  */
 
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import type { Milestone, Era, YearContent } from './YearCard';
 
 type Props = {
@@ -109,17 +110,31 @@ export default function PresenterView({ year, milestone, era, yearContent, onPre
   // Count of milestone content — used to skip the milestone section when empty
   const hasMilestone = !!(title || author || summary || why);
 
+  // Lock body + html scroll while presenter is mounted so only the inner
+  // scrollbar (flex-1 overflow-y-auto) shows. Prevents a second scrollbar
+  // from appearing on the page edge.
+  useEffect(() => {
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+    };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-50 flex flex-col"
+      className="fixed inset-0 z-50 flex flex-col overflow-hidden"
       style={{ background: '#E0E5EC' }}
     >
-      {/* Scrollable content area */}
-      <div className="flex-1 overflow-y-auto">
+      {/* Scrollable content area — single scroll context */}
+      <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-6 py-8 md:py-12">
           {/* Header block — year + era + title + author + summary + why */}
           <motion.div

@@ -286,75 +286,78 @@ export default function Home() {
 
   return (
     <main className="min-h-screen pb-32">
-      {/* HERO */}
-            <section className="max-w-5xl mx-auto px-6 pt-10 pb-8 relative overflow-hidden">
-              <div className="absolute inset-0 hero-gradient pointer-events-none" />
-              <div className="absolute inset-0 hero-dots pointer-events-none" />
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative text-center"
-              >
-                <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
-                  <span className="neu-tag-maroon">{data.meta.assignment}</span>
-                  <span className="neu-tag">{data.meta.course}</span>
-                </div>
-                <h1 className="font-display text-3xl md:text-4xl font-light tracking-tight text-neu-text leading-snug mb-2">
-                  {data.meta.title}
-                </h1>
-                <p className="text-base md:text-lg text-neu-muted max-w-2xl mx-auto mb-4 font-light">
-                  {data.meta.subtitle}
-                </p>
+      {/* HERO — full-width accent band, content centered inside max-width container */}
+      <section className="hero-band relative overflow-hidden">
+        <div className="absolute inset-0 hero-gradient pointer-events-none" />
+        <div className="absolute inset-0 hero-dots pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 pt-12 pb-10 relative">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
+              <span className="neu-tag-maroon">{data.meta.assignment}</span>
+              <span className="neu-tag">{data.meta.course}</span>
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl font-light tracking-tight text-neu-text leading-snug mb-2">
+              {data.meta.title}
+            </h1>
+            <p className="text-base md:text-lg text-neu-muted max-w-2xl mx-auto mb-4 font-light">
+              {data.meta.subtitle}
+            </p>
 
-                <div className="flex flex-wrap gap-x-3 gap-y-1 items-center justify-center text-xs text-neu-muted">
-                  <span className="text-maroon font-medium">{data.meta.institution}</span>
-                  <span>·</span>
-                  <span>{data.meta.instructor}</span>
-                  <span>·</span>
-                  <span>{data.meta.student}</span>
-                </div>
-              </motion.div>
-            </section>
+            <div className="flex flex-wrap gap-x-3 gap-y-1 items-center justify-center text-xs text-neu-muted">
+              <span className="text-maroon font-medium">{data.meta.institution}</span>
+              <span>·</span>
+              <span>{data.meta.instructor}</span>
+              <span>·</span>
+              <span>{data.meta.student}</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* CONTROLS */}
-            <section className="max-w-5xl mx-auto px-6 mb-8">
-              <NeuCard className="p-4 sm:p-5">
-                <div className="flex flex-col md:flex-row md:items-center gap-3">
-                  <div className="flex flex-wrap gap-1.5">
-                    <NeuPill active={activeEra === 'all'} onClick={() => setActiveEra('all')} accent={activeEra === 'all'}>
-                      All Eras
-                    </NeuPill>
-                    {data.eras.map((era) => (
-                      <EraPill key={era.id} era={era} active={activeEra === era.id} onClick={() => setActiveEra(era.id)} />
-                    ))}
-                  </div>
+      <section className="max-w-5xl mx-auto px-6 mb-8 -mt-6 relative z-10">
+        <NeuCard className="p-4 sm:p-5">
+          <div className="flex flex-col md:flex-row md:items-center gap-3">
+            <div className="flex flex-wrap gap-1.5 flex-1">
+              <NeuPill active={activeEra === 'all'} onClick={() => setActiveEra('all')} accent={activeEra === 'all'}>
+                All Eras
+              </NeuPill>
+              {data.eras.map((era) => (
+                <EraPill key={era.id} era={era} active={activeEra === era.id} onClick={() => setActiveEra(era.id)} />
+              ))}
+            </div>
 
-                  <div className="md:ml-auto flex-1 max-w-xs">
-                    <input
-                      className="neu-input w-full text-sm"
-                      placeholder="Search milestones, year content…"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                  </div>
-
-                  <button
-                    onClick={() => setPresenterMode(!presenterMode)}
-                    className={`${presenterMode ? 'neu-card-pressed' : 'neu-card'} px-3.5 py-1.5 text-xs font-medium`}
-                    title="⌘/Ctrl + P"
-                    style={presenterMode ? { color: 'var(--maroon-500)' } : {}}
-                  >
-                    {presenterMode ? '✕ Exit Presenter' : '⛶ Presenter Mode'}
-                  </button>
-                </div>
-                <div className="mt-3 flex flex-wrap gap-2 items-center text-[11px] text-neu-muted">
-                  <span className="neu-tag text-[10px]">← / →  navigate years</span>
-                  <span className="neu-tag text-[10px]">Esc  exit</span>
-                  <span className="neu-tag text-[10px]">⌘/Ctrl + P  presenter</span>
-                </div>
-              </NeuCard>
-            </section>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="flex-1 md:w-52 md:flex-none">
+                <input
+                  className="neu-input w-full text-sm"
+                  placeholder="Search…"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <button
+                onClick={() => setPresenterMode(!presenterMode)}
+                className={`${presenterMode ? 'neu-card-pressed' : 'neu-card'} px-3.5 py-1.5 text-xs font-medium whitespace-nowrap`}
+                title="⌘/Ctrl + P"
+                style={presenterMode ? { color: 'var(--maroon-500)' } : {}}
+              >
+                {presenterMode ? '✕ Exit Presenter' : '⛶ Presenter Mode'}
+              </button>
+            </div>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2 items-center text-[11px] text-neu-muted">
+            <span className="neu-tag text-[10px]">← / →  navigate years</span>
+            <span className="neu-tag text-[10px]">Esc  exit</span>
+            <span className="neu-tag text-[10px]">⌘/Ctrl + P  presenter</span>
+          </div>
+        </NeuCard>
+      </section>
 
             {/* TIMELINE TRACK — milestone years as clickable nodes */}
             <section className="max-w-5xl mx-auto px-6 mb-10" ref={timelineRef}>
