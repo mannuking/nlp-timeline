@@ -110,7 +110,6 @@ function Section({
   accent,
   bullets,
   fallback,
-  eraColor,
 }: {
   index: number;
   number: string;
@@ -118,7 +117,6 @@ function Section({
   accent: string;
   bullets: string[] | undefined;
   fallback?: string;
-  eraColor?: string;
 }) {
   const hasBullets = bullets && bullets.length > 0;
   if (!hasBullets && !fallback) return null;
@@ -144,14 +142,6 @@ function Section({
         >
           {title}
         </h4>
-        {eraColor && (
-          <span
-            className="ml-auto text-[10px] font-medium px-2 py-0.5 rounded-full neu-tag"
-            style={{ color: eraColor }}
-          >
-            ·
-          </span>
-        )}
       </div>
       {hasBullets ? (
         <motion.ul
@@ -344,7 +334,6 @@ export default function YearCard({
                   accent="var(--maroon-500)"
                   bullets={yearContent!.cs_highlights}
                   fallback="No major CS tech recorded for this year."
-                  eraColor={eraColor}
                 />
                 <Section
                   index={1}
@@ -352,7 +341,6 @@ export default function YearCard({
                   title="NLP Highlights"
                   accent="var(--maroon-500)"
                   bullets={undefined}
-                  eraColor={eraColor}
                 />
                 {/* Nested 2a / 2b */}
                 <div className="pl-6 sm:pl-8 space-y-4">
@@ -379,7 +367,6 @@ export default function YearCard({
                   title="Extras & Notable Context"
                   accent="var(--maroon-500)"
                   bullets={yearContent!.extras}
-                  eraColor={eraColor}
                 />
               </>
             ) : milestone ? (
@@ -416,7 +403,8 @@ export default function YearCard({
             ) : null}
           </div>
 
-          {/* References — always shown if milestone exists */}
+          {/* References — always shown if milestone exists. Wraps naturally;
+     no internal scroll — the parent card scrolls if needed. */}
           {milestone?.links && milestone.links.length > 0 && (
             <div className="mt-5 pt-4 border-t border-neu-dark/20">
               <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-2">
@@ -425,7 +413,7 @@ export default function YearCard({
                   ({milestone.links.length})
                 </span>
               </h4>
-              <div className="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-2">
+              <div className="flex flex-col gap-1.5">
                 {milestone.links.map((l) => (
                   <a
                     key={l.url}

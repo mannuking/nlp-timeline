@@ -267,33 +267,49 @@ export default function Home() {
     return out;
   }, [allYears, activeEra, searchQuery, yearContentMap, data.eras]);
 
-  // Year nav
+  // Year nav — step through ALL years 1950–2030 (not just the filtered
+  // search/era list) so arrow keys always work, even when the user has
+  // narrowed the timeline to a single search hit. The displayed track
+  // stays filtered, but nav is global and wraps at both ends so the
+  // user can flow through decades continuously.
   const navYear = useCallback((direction: 1 | -1) => {
-    if (flatYears.length === 0) return;
+    if (allYears.length === 0) return;
     if (activeYear === null) {
-      setActiveYear(flatYears[0]);
+      setActiveYear(allYears[0]);
       return;
     }
-    const idx = flatYears.indexOf(activeYear);
+    const idx = allYears.indexOf(activeYear);
     if (idx === -1) {
-      setActiveYear(flatYears[0]);
+      // Active year isn't in the year list — pick the closest one
+      setActiveYear(allYears[0]);
       return;
     }
-    const nextIdx = (idx + direction + flatYears.length) % flatYears.length;
-    setActiveYear(flatYears[nextIdx]);
-  }, [flatYears, activeYear]);
+    // Modulo wrap: 2027 + right → 2028, 2030 + right → 1950, 1950 + left → 2030
+    const nextIdx = (idx + direction + allYears.length) % allYears.length;
+    setActiveYear(allYears[nextIdx]);
+  }, [allYears, activeYear]);
 
   // Keyboard nav
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
-      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+      // Don't intercept typing inside text inputs
+      if (
+        target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
+        target.isContentEditable
+      ) {
+        return;
+      }
 
+      // Cmd/Ctrl+P — toggle presenter mode
       if (e.key === 'p' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setPresenterMode((p) => !p);
         return;
       }
+
+      // Esc — close presenter / close modal
       if (e.key === 'Escape') {
         if (presenterMode) {
           setPresenterMode(false);
@@ -302,22 +318,33 @@ export default function Home() {
         }
         return;
       }
+
+      // ArrowRight / 'l' — next year (always works, walks the full
+      // 1950-2030 list, not just search-filtered hits)
       if (e.key === 'ArrowRight' || e.key === 'l') {
         e.preventDefault();
         if (activeYear === null) {
-          setActiveYear(flatYears[0] ?? null);
+          setActiveYear(flatYears[0] ?? allYears[0] ?? null);
         } else {
           navYear(1);
         }
+        return;
       }
+
+      // ArrowLeft / 'h' — previous year
       if (e.key === 'ArrowLeft' || e.key === 'h') {
         e.preventDefault();
-        if (activeYear !== null) navYear(-1);
+        if (activeYear !== null) {
+          navYear(-1);
+        }
+        return;
       }
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [presenterMode, activeYear, flatYears, navYear]);
+    // Capture phase so we run before any focused button's default
+    // arrow-key behavior (which would move focus to the next button).
+    window.addEventListener('keydown', handler, true);
+    return () => window.removeEventListener('keydown', handler, true);
+  }, [presenterMode, activeYear, flatYears, allYears, navYear]);
 
   return (
     <main className="min-h-screen pb-32 relative">
@@ -513,8 +540,8 @@ export default function Home() {
                       milestone={activeMilestoneData.milestone}
                       yearContent={yearContentMap[activeYear]}
                       eraColor={activeMilestoneData.era?.color}
-                      yearIndex={flatYears.indexOf(activeYear)}
-                      totalYears={flatYears.length}
+                      yearIndex={allYears.indexOf(activeYear)}
+                      totalYears={allYears.length}
                       onClose={() => setActiveYear(null)}
                       onPrev={() => navYear(-1)}
                       onNext={() => navYear(1)}
