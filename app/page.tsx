@@ -34,6 +34,7 @@ type Data = {
     assignment: string;
     course: string;
     institution: string;
+    institution_url: string;
     instructor: string;
     instructor_url: string;
     student: string;
@@ -389,7 +390,15 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-x-3 gap-y-1 items-center justify-center text-xs text-neu-muted">
-              <span className="text-maroon font-medium">{data.meta.institution}</span>
+              <a
+                href={data.meta.institution_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="author-link"
+                title={`Open ${data.meta.institution}`}
+              >
+                {data.meta.institution}
+              </a>
               <span>·</span>
               <a
                 href={data.meta.instructor_url}
@@ -608,13 +617,13 @@ export default function Home() {
                 </p>
                 <p className="mt-1">
                   <a
-                    href={data.meta.student_url}
+                    href={data.meta.institution_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="author-link"
-                    title={`Open ${data.meta.student}'s portfolio`}
+                    title={`Open ${data.meta.institution}`}
                   >
-                    {data.meta.student}
+                    {data.meta.institution}
                   </a>
                   {' · '}
                   <a
@@ -625,6 +634,16 @@ export default function Home() {
                     title={`Open ${data.meta.instructor}'s Google Scholar profile`}
                   >
                     {data.meta.instructor}
+                  </a>
+                  {' · '}
+                  <a
+                    href={data.meta.student_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="author-link"
+                    title={`Open ${data.meta.student}'s portfolio`}
+                  >
+                    {data.meta.student}
                   </a>
                 </p>
               </NeuCard>
