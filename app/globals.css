@@ -126,22 +126,24 @@ html {
 .neu-pill {
   background: var(--neu-base);
   border-radius: 999px;
-  filter:
-    drop-shadow(3px 3px 5px var(--shadow-color-sm))
-    drop-shadow(-3px -3px 5px var(--highlight-color-sm));
+  /* Dark side = drop-shadow (respects border-radius:999px = pill shape).
+     Highlight side = inset shadow (clips cleanly to the pill's rounded
+     boundary — never bleeds out as a rectangle). */
+  filter: drop-shadow(2px 2px 3px var(--shadow-color-sm));
+  box-shadow:
+    inset 2px 2px 3px var(--highlight-color-sm);
   transition: all 0.2s ease;
 }
 
 .neu-pill:hover {
-  filter:
-    drop-shadow(4px 4px 6px var(--shadow-color-sm))
-    drop-shadow(-4px -4px 6px var(--highlight-color-sm));
+  filter: drop-shadow(3px 3px 4px var(--shadow-color-sm));
+  box-shadow:
+    inset 2px 2px 3px var(--highlight-color-sm);
 }
 
 .neu-pill-active {
   background: var(--neu-base);
   border-radius: 999px;
-  /* Inset for "pressed in" look on a pill */
   box-shadow:
     inset 3px 3px 6px var(--shadow-color-sm),
     inset -3px -3px 6px var(--highlight-color-sm);
@@ -160,10 +162,13 @@ html {
   font-weight: 500;
   font-size: 10px;
   color: var(--neu-text);
-  /* drop-shadow respects border-radius:50% → truly circular shadow */
-  filter:
-    drop-shadow(3px 3px 5px var(--shadow-color-sm))
-    drop-shadow(-3px -3px 5px var(--highlight-color-sm));
+  /* drop-shadow respects border-radius:50% → truly circular shadow.
+     Use only a tiny drop-shadow for the dark side; the highlight is
+     rendered as an inset (which clips cleanly to the circle) so we
+     never get a 'rectangular highlight bleed' outside the shape. */
+  filter: drop-shadow(2px 2px 3px var(--shadow-color-sm));
+  box-shadow:
+    inset 2px 2px 3px var(--highlight-color-sm);
   transition: all 0.25s ease;
   cursor: pointer;
   position: relative;
@@ -173,14 +178,13 @@ html {
 
 .neu-node:hover {
   transform: translateY(-2px) scale(1.05);
-  filter:
-    drop-shadow(4px 4px 6px var(--shadow-color))
-    drop-shadow(-4px -4px 6px var(--highlight-color));
+  filter: drop-shadow(3px 3px 4px var(--shadow-color));
+  box-shadow:
+    inset 2px 2px 3px var(--highlight-color-sm);
 }
 
 .neu-node-active {
-  /* Pressed = inset. On a circle, inset shadow works because the
-     border-radius clips it. */
+  /* Pressed = inset shadow on both sides, properly clipped to circle */
   box-shadow:
     inset 3px 3px 6px var(--shadow-color-sm),
     inset -3px -3px 6px var(--highlight-color-sm);
@@ -236,23 +240,22 @@ html {
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
-  /* drop-shadow respects border-radius:12px → truly rounded shadow */
-  filter:
-    drop-shadow(3px 3px 5px var(--shadow-color-sm))
-    drop-shadow(-3px -3px 5px var(--highlight-color-sm));
+  /* Dark side = drop-shadow (respects border-radius:12px → rounded shadow).
+     Highlight side = inset (clips cleanly to the rounded boundary). */
+  filter: drop-shadow(2px 2px 3px var(--shadow-color-sm));
+  box-shadow:
+    inset 2px 2px 3px var(--highlight-color-sm);
   transition: filter 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
 .neu-link:hover {
   color: var(--maroon-500);
-  filter:
-    drop-shadow(4px 4px 6px var(--shadow-color))
-    drop-shadow(-4px -4px 6px var(--highlight-color));
+  filter: drop-shadow(3px 3px 4px var(--shadow-color));
   transform: translateY(-1px);
 }
 
 .neu-link:active {
-  /* Pressed = inset. Inset shadows are clipped to border-radius automatically. */
+  /* Pressed = inset both sides, clipped to border-radius */
   box-shadow:
     inset 3px 3px 6px var(--shadow-color-sm),
     inset -3px -3px 6px var(--highlight-color-sm);
