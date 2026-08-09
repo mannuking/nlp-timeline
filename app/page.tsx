@@ -148,6 +148,24 @@ export default function Home() {
     return out;
   }, []);
 
+  // Body-scroll lock: when ANY modal (year card or presenter) is open,
+  // lock scroll on the underlying page. The cleanup runs on state change,
+  // so closing via Escape / back / click-outside always releases the lock.
+  // Replaces the per-component useEffect lock that was getting stuck
+  // during AnimatePresence exit animations.
+  const isAnyModalOpen = activeYear !== null;
+  useEffect(() => {
+    if (!isAnyModalOpen) return;
+    const prevHtml = document.documentElement.style.overflow;
+    const prevBody = document.body.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.style.overflow = prevHtml;
+      document.body.style.overflow = prevBody;
+    };
+  }, [isAnyModalOpen]);
+
   // Every year from 1950 to 2030
   const allYears = useMemo<number[]>(() => {
     const out: number[] = [];
@@ -438,8 +456,8 @@ export default function Home() {
             </div>
             <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
 
-            <div className="relative overflow-x-auto pb-6">
-              <div className="flex items-center gap-2 min-w-max px-2">
+            <div className="relative pb-6">
+              <div className="flex items-center gap-2 px-2 flex-wrap">
                 {era.milestones.map((m, i) => {
                   const isActive = activeYear === m.year;
                   return (
@@ -487,8 +505,8 @@ export default function Home() {
               Years from <span className="text-maroon font-medium">1950 – 2030</span> that match your search but are not curated milestones. Click any year to view its full content.
             </p>
 
-            <div className="relative overflow-x-auto pb-6">
-              <div className="flex items-center gap-2 min-w-max px-2 flex-wrap">
+            <div className="relative pb-6">
+              <div className="flex items-center gap-2 px-2 flex-wrap">
                 {searchOnlyYears.map((y, i) => {
                   const isActive = activeYear === y;
                   const eraForYear = data.eras.find((era) =>

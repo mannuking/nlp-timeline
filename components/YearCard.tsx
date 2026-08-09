@@ -20,7 +20,7 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 // ---- Types ----
 export type Link = { label: string; url: string };
@@ -194,20 +194,11 @@ export default function YearCard({
   // Local state: show primary milestone content vs structured sections
   const [view, setView] = useState<'structured' | 'milestone'>('structured');
 
-  // Lock body + html scroll while the modal is mounted so only the inner
-  // scrollbar (overflow-y-auto on the card) is visible. Prevents the page
-  // from scrolling behind the modal AND prevents a second scrollbar from
-  // appearing at the page edge.
-  useEffect(() => {
-    const prevHtmlOverflow = document.documentElement.style.overflow;
-    const prevBodyOverflow = document.body.style.overflow;
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.documentElement.style.overflow = prevHtmlOverflow;
-      document.body.style.overflow = prevBodyOverflow;
-    };
-  }, []);
+  // Body-scroll lock is now handled by the parent page component
+  // (app/page.tsx) so the cleanup fires reliably on every state change,
+  // regardless of AnimatePresence exit animation timing. The previous
+  // per-component useEffect here was leaving the page stuck after the
+  // modal closed, requiring a manual refresh to restore scroll.
 
   const hasStructured = useMemo(
     () =>

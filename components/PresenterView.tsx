@@ -17,7 +17,7 @@
  */
 
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+// (useEffect not used here — body scroll lock is handled by parent page)
 import type { Milestone, Era, YearContent } from './YearCard';
 
 type Props = {
@@ -110,19 +110,11 @@ export default function PresenterView({ year, milestone, era, yearContent, onPre
   // Count of milestone content — used to skip the milestone section when empty
   const hasMilestone = !!(title || author || summary || why);
 
-  // Lock body + html scroll while presenter is mounted so only the inner
-  // scrollbar (flex-1 overflow-y-auto) shows. Prevents a second scrollbar
-  // from appearing on the page edge.
-  useEffect(() => {
-    const prevHtmlOverflow = document.documentElement.style.overflow;
-    const prevBodyOverflow = document.body.style.overflow;
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.documentElement.style.overflow = prevHtmlOverflow;
-      document.body.style.overflow = prevBodyOverflow;
-    };
-  }, []);
+  // Body-scroll lock is now handled by the parent page component
+  // (app/page.tsx) so the cleanup fires reliably on every state change,
+  // regardless of AnimatePresence exit animation timing. The previous
+  // per-component useEffect here was leaving the page stuck after the
+  // presenter closed, requiring a manual refresh to restore scroll.
 
   return (
     <motion.div
