@@ -420,18 +420,19 @@ export default function Home() {
             />
 
       {/* YEAR DETAIL CARD — beautiful 3-section view */}
-      {activeYear !== null && !presenterMode && (
-        <YearCard
-          milestone={activeMilestoneData.milestone?.title ? activeMilestoneData.milestone : null}
-          yearContent={yearContentMap[activeYear]}
-          eraColor={activeMilestoneData.era?.color}
-          yearIndex={flatYears.indexOf(activeYear)}
-          totalYears={flatYears.length}
-          onClose={() => setActiveYear(null)}
-          onPrev={() => navYear(-1)}
-          onNext={() => navYear(1)}
-        />
-      )}
+                  {activeYear !== null && !presenterMode && (
+                    <YearCard
+                      year={activeYear}
+                      milestone={activeMilestoneData.milestone}
+                      yearContent={yearContentMap[activeYear]}
+                      eraColor={activeMilestoneData.era?.color}
+                      yearIndex={flatYears.indexOf(activeYear)}
+                      totalYears={flatYears.length}
+                      onClose={() => setActiveYear(null)}
+                      onPrev={() => navYear(-1)}
+                      onNext={() => navYear(1)}
+                    />
+                  )}
 
       {/* PRESENTER MODE */}
             <AnimatePresence>

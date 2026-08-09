@@ -49,6 +49,7 @@ export type YearContent = {
 };
 
 type Props = {
+  year: number;
   milestone: Milestone | null;
   yearContent: YearContent | undefined;
   eraColor: string | undefined;
@@ -190,6 +191,7 @@ function highlightCitations(text: string): string {
 
 // ---- Main component ----
 export default function YearCard({
+  year,
   milestone,
   yearContent,
   eraColor,
@@ -251,9 +253,9 @@ export default function YearCard({
                     fontSize: 'clamp(2rem, 5vw, 2.75rem)',
                   }}
                 >
-                  {milestone?.year}
+                  {year}
                 </span>
-                {eraColor && milestone && (
+                {eraColor && milestone?.tags?.[0] && (
                   <span
                     className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                     style={{
@@ -261,14 +263,14 @@ export default function YearCard({
                       color: eraColor,
                     }}
                   >
-                    {milestone.tags?.[0] ?? '—'}
+                    {milestone.tags[0]}
                   </span>
                 )}
                 <span className="text-[10px] text-neu-muted">
                   {yearIndex + 1} / {totalYears}
                 </span>
               </div>
-              {milestone && (
+              {milestone?.title && (
                 <h3
                   className="font-display font-light text-neu-text leading-tight"
                   style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.4rem)' }}
@@ -289,8 +291,8 @@ export default function YearCard({
             </button>
           </div>
 
-          {/* View toggle — only if BOTH views have content */}
-          {milestone && hasStructured && (
+          {/* View toggle — only if BOTH views have content (milestone + structured) */}
+          {milestone?.title && hasStructured && (
             <div className="flex gap-1 mb-4 neu-card-pressed p-1 rounded-full w-fit">
               <button
                 onClick={() => setView('structured')}
