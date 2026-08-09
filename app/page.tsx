@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import timelineData from '@/data/timeline.json';
 import yearContentData from '@/data/year-content.json';
 import YearCard, { type YearContent } from '@/components/YearCard';
+import YearBrowser from '@/components/YearBrowser';
+import PresenterView from '@/components/PresenterView';
 
 // ---- Types ----
 type Link = { label: string; url: string };
@@ -285,178 +287,137 @@ export default function Home() {
   return (
     <main className="min-h-screen pb-32">
       {/* HERO */}
-      <section className="max-w-6xl mx-auto px-6 pt-16 pb-12 relative overflow-hidden">
-        <div className="absolute inset-0 hero-gradient pointer-events-none" />
-        <div className="absolute inset-0 hero-dots pointer-events-none" />
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="neu-tag-maroon">{data.meta.assignment}</span>
-            <span className="neu-tag">{data.meta.course}</span>
-          </div>
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-neu-text leading-tight mb-4">
-            {data.meta.title}
-          </h1>
-          <p className="text-xl text-neu-muted max-w-3xl mb-8">{data.meta.subtitle}</p>
+            <section className="max-w-5xl mx-auto px-6 pt-10 pb-8 relative overflow-hidden">
+              <div className="absolute inset-0 hero-gradient pointer-events-none" />
+              <div className="absolute inset-0 hero-dots pointer-events-none" />
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative text-center"
+              >
+                <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
+                  <span className="neu-tag-maroon">{data.meta.assignment}</span>
+                  <span className="neu-tag">{data.meta.course}</span>
+                </div>
+                <h1 className="font-display text-3xl md:text-4xl font-light tracking-tight text-neu-text leading-snug mb-2">
+                  {data.meta.title}
+                </h1>
+                <p className="text-base md:text-lg text-neu-muted max-w-2xl mx-auto mb-4 font-light">
+                  {data.meta.subtitle}
+                </p>
 
-          <div className="flex flex-wrap gap-3 items-center text-sm text-neu-muted">
-            <span className="text-maroon font-medium">{data.meta.institution}</span>
-            <span>·</span>
-            <span>{data.meta.instructor}</span>
-            <span>·</span>
-            <span>{data.meta.student}</span>
-          </div>
-        </motion.div>
-      </section>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 items-center justify-center text-xs text-neu-muted">
+                  <span className="text-maroon font-medium">{data.meta.institution}</span>
+                  <span>·</span>
+                  <span>{data.meta.instructor}</span>
+                  <span>·</span>
+                  <span>{data.meta.student}</span>
+                </div>
+              </motion.div>
+            </section>
 
       {/* CONTROLS */}
-      <section className="max-w-6xl mx-auto px-6 mb-12">
-        <NeuCard className="p-6">
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <div className="flex flex-wrap gap-2">
-              <NeuPill active={activeEra === 'all'} onClick={() => setActiveEra('all')} accent={activeEra === 'all'}>
-                All Eras
-              </NeuPill>
-              {data.eras.map((era) => (
-                <EraPill key={era.id} era={era} active={activeEra === era.id} onClick={() => setActiveEra(era.id)} />
-              ))}
-            </div>
+            <section className="max-w-5xl mx-auto px-6 mb-8">
+              <NeuCard className="p-4 sm:p-5">
+                <div className="flex flex-col md:flex-row md:items-center gap-3">
+                  <div className="flex flex-wrap gap-1.5">
+                    <NeuPill active={activeEra === 'all'} onClick={() => setActiveEra('all')} accent={activeEra === 'all'}>
+                      All Eras
+                    </NeuPill>
+                    {data.eras.map((era) => (
+                      <EraPill key={era.id} era={era} active={activeEra === era.id} onClick={() => setActiveEra(era.id)} />
+                    ))}
+                  </div>
 
-            <div className="md:ml-auto flex-1 max-w-xs">
-              <input
-                className="neu-input w-full"
-                placeholder="Search milestones, year content…"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
+                  <div className="md:ml-auto flex-1 max-w-xs">
+                    <input
+                      className="neu-input w-full text-sm"
+                      placeholder="Search milestones, year content…"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
 
-            <button
-              onClick={() => setPresenterMode(!presenterMode)}
-              className={`${presenterMode ? 'neu-card-pressed' : 'neu-card'} px-4 py-2 text-sm font-medium`}
-              title="⌘/Ctrl + P"
-              style={presenterMode ? { color: 'var(--maroon-500)' } : {}}
-            >
-              {presenterMode ? '✕ Exit Presenter' : '⛶ Presenter Mode'}
-            </button>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-3 items-center text-xs text-neu-muted">
-            <span className="neu-tag">← / →  navigate years</span>
-            <span className="neu-tag">Esc  exit</span>
-            <span className="neu-tag">⌘/Ctrl + P  presenter</span>
-          </div>
-        </NeuCard>
-      </section>
+                  <button
+                    onClick={() => setPresenterMode(!presenterMode)}
+                    className={`${presenterMode ? 'neu-card-pressed' : 'neu-card'} px-3.5 py-1.5 text-xs font-medium`}
+                    title="⌘/Ctrl + P"
+                    style={presenterMode ? { color: 'var(--maroon-500)' } : {}}
+                  >
+                    {presenterMode ? '✕ Exit Presenter' : '⛶ Presenter Mode'}
+                  </button>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2 items-center text-[11px] text-neu-muted">
+                  <span className="neu-tag text-[10px]">← / →  navigate years</span>
+                  <span className="neu-tag text-[10px]">Esc  exit</span>
+                  <span className="neu-tag text-[10px]">⌘/Ctrl + P  presenter</span>
+                </div>
+              </NeuCard>
+            </section>
 
-      {/* TIMELINE TRACK — milestone years as clickable nodes */}
-      <section className="max-w-6xl mx-auto px-6 mb-12" ref={timelineRef}>
-        {filteredEras.map((era) => (
-          <motion.div
-            key={era.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mb-14"
-          >
-            <div className="flex items-baseline justify-between mb-4 px-2">
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-neu-text flex items-center gap-3">
-                <span className="w-4 h-4 rounded-full" style={{ background: era.color }} />
-                {era.label}
-              </h2>
-              <span className="text-neu-muted font-medium">{era.years}</span>
-            </div>
-            <p className="text-neu-muted mb-8 max-w-3xl">{era.summary}</p>
-
-            <div className="relative overflow-x-auto pb-8">
-              <div className="flex items-center gap-3 min-w-max px-2">
-                {era.milestones.map((m, i) => {
-                  const isActive = activeYear === m.year;
-                  return (
-                    <div key={`${m.year}-${m.title}`} className="flex items-center">
-                      <motion.button
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: i * 0.05, duration: 0.3 }}
-                        onClick={() => openYear(setActiveYear, m)}
-                        className={`neu-node year-button ${isActive ? 'neu-node-active' : ''}`}
-                        style={isActive ? { color: 'var(--maroon-500)' } : {}}
-                        title={`${m.year} — ${m.title}`}
-                      >
-                        {m.year}
-                      </motion.button>
-                      {i < era.milestones.length - 1 && (
-                        <div className="w-10 h-1 mx-1 rounded-full neu-track" />
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-
-        {filteredEras.length === 0 && (
-          <div className="text-center text-neu-muted py-16">
-            No milestones match your search.
-          </div>
-        )}
-      </section>
-
-      {/* ALL-YEARS BROWSER — clickable year chips for the 81 years */}
-      <section className="max-w-6xl mx-auto px-6 mb-16">
-        <NeuCard className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-lg font-semibold text-neu-text">
-              Browse every year, 1950 – 2030
-            </h3>
-            <span className="text-xs text-neu-muted">
-              {flatYears.length} / 81 years
-            </span>
-          </div>
-          <p className="text-sm text-neu-muted mb-5">
-            Click any year to open its card — top CS tech, NLP research breakthroughs, NLP applications, and extras.
-          </p>
-          <div className="flex flex-wrap gap-2 max-h-72 overflow-y-auto pr-2">
-            {allYears.map((y) => {
-              const isActive = activeYear === y;
-              const inEra = data.eras.find((era) =>
-                era.milestones.some((m) => m.year === y),
-              );
-              const inFilter = flatYears.includes(y);
-              return (
-                <motion.button
-                  key={y}
-                  whileHover={inFilter ? { scale: 1.05, y: -2 } : {}}
-                  whileTap={inFilter ? { scale: 0.95 } : {}}
-                  onClick={() => inFilter && setActiveYear(y)}
-                  disabled={!inFilter}
-                  className={`year-button px-3.5 py-2 text-xs font-semibold rounded-full transition-all ${
-                    isActive
-                      ? 'neu-pill-active'
-                      : inFilter
-                      ? 'neu-pill hover:text-maroon'
-                      : 'neu-pill opacity-30 cursor-not-allowed'
-                  }`}
-                  style={
-                    isActive
-                      ? { color: 'var(--maroon-500)' }
-                      : inFilter && inEra
-                      ? { color: inEra.color }
-                      : {}
-                  }
-                  title={`${y} — ${inEra?.label ?? 'No milestone'}`}
+            {/* TIMELINE TRACK — milestone years as clickable nodes */}
+            <section className="max-w-5xl mx-auto px-6 mb-10" ref={timelineRef}>
+              {filteredEras.map((era) => (
+                <motion.div
+                  key={era.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="mb-10"
                 >
-                  {y}
-                </motion.button>
-              );
-            })}
-          </div>
-        </NeuCard>
-      </section>
+                  <div className="flex items-baseline justify-between mb-3 px-2 flex-wrap gap-2">
+                    <h2 className="font-display text-xl md:text-2xl font-light text-neu-text flex items-center gap-2.5">
+                      <span className="w-3 h-3 rounded-full" style={{ background: era.color }} />
+                      {era.label}
+                    </h2>
+                    <span className="text-neu-muted text-xs font-medium">{era.years}</span>
+                  </div>
+                  <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
+
+                  <div className="relative overflow-x-auto pb-6">
+                    <div className="flex items-center gap-2 min-w-max px-2">
+                      {era.milestones.map((m, i) => {
+                        const isActive = activeYear === m.year;
+                        return (
+                          <div key={`${m.year}-${m.title}`} className="flex items-center">
+                            <motion.button
+                              initial={{ scale: 0.5, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={{ delay: i * 0.04, duration: 0.3 }}
+                              onClick={() => openYear(setActiveYear, m)}
+                              className={`neu-node year-button ${isActive ? 'neu-node-active' : ''}`}
+                              style={isActive ? { color: 'var(--maroon-500)' } : {}}
+                              title={`${m.year} — ${m.title}`}
+                            >
+                              {m.year}
+                            </motion.button>
+                            {i < era.milestones.length - 1 && (
+                              <div className="w-7 h-1 mx-1 rounded-full neu-track" />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {filteredEras.length === 0 && (
+                <div className="text-center text-neu-muted text-sm py-12">
+                  No milestones match your search.
+                </div>
+              )}
+            </section>
+
+      {/* ALL-YEARS BROWSER — collapsed by default; user opens it on demand */}
+            <YearBrowser
+              allYears={allYears}
+              flatYears={flatYears}
+              activeYear={activeYear}
+              onPick={setActiveYear}
+              eraForYear={(y) => data.eras.find((era) => era.milestones.some((m) => m.year === y))}
+            />
 
       {/* YEAR DETAIL CARD — beautiful 3-section view */}
       {activeYear !== null && !presenterMode && (
@@ -473,113 +434,30 @@ export default function Home() {
       )}
 
       {/* PRESENTER MODE */}
-      <AnimatePresence>
-        {presenterMode && activeYear !== null && (
-          <motion.div
-            key="presenter"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-12"
-            style={{ background: '#E0E5EC' }}
-          >
-            <div className="max-w-5xl w-full">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="neu-tag-maroon year-button">{activeYear}</span>
-                {activeMilestoneData.era && (
-                  <span className="neu-tag" style={{ color: activeMilestoneData.era.color, fontWeight: 600 }}>
-                    {activeMilestoneData.era.label}
-                  </span>
-                )}
-              </div>
-              <h2 className="font-display text-7xl font-bold text-neu-text mb-6">
-                {activeMilestoneData.milestone?.title || `${activeYear} in NLP`}
-              </h2>
-              {activeMilestoneData.milestone?.author && (
-                <p className="text-3xl text-neu-muted mb-12">{activeMilestoneData.milestone.author}</p>
+            <AnimatePresence>
+              {presenterMode && activeYear !== null && (
+                <PresenterView
+                  year={activeYear}
+                  milestone={activeMilestoneData.milestone}
+                  era={activeMilestoneData.era}
+                  yearContent={yearContentMap[activeYear]}
+                  onPrev={() => navYear(-1)}
+                  onNext={() => navYear(1)}
+                />
               )}
-              {activeMilestoneData.milestone?.summary && (
-                <p className="text-2xl text-neu-text leading-relaxed mb-8">
-                  {activeMilestoneData.milestone.summary}
-                </p>
-              )}
-              {activeMilestoneData.milestone?.why_it_mattered && (
-                <div className="text-xl text-neu-muted italic font-serif">
-                  &ldquo;{activeMilestoneData.milestone.why_it_mattered}&rdquo;
-                </div>
-              )}
-              {yearContentMap[activeYear] && (
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
-                  {yearContentMap[activeYear].cs_highlights && (
-                    <div className="neu-card-pressed p-4 rounded-2xl">
-                      <div className="text-maroon font-bold mb-1">1. CS / Tech</div>
-                      <div className="text-sm text-neu-text">
-                        {yearContentMap[activeYear].cs_highlights?.length ?? 0} entries
-                      </div>
-                    </div>
-                  )}
-                  {yearContentMap[activeYear].nlp_research && (
-                    <div className="neu-card-pressed p-4 rounded-2xl">
-                      <div className="text-maroon font-bold mb-1">2a. NLP Research</div>
-                      <div className="text-sm text-neu-text">
-                        {yearContentMap[activeYear].nlp_research?.length ?? 0} entries
-                      </div>
-                    </div>
-                  )}
-                  {yearContentMap[activeYear].nlp_applications && (
-                    <div className="neu-card-pressed p-4 rounded-2xl">
-                      <div className="text-maroon font-bold mb-1">2b. NLP Applications</div>
-                      <div className="text-sm text-neu-text">
-                        {yearContentMap[activeYear].nlp_applications?.length ?? 0} entries
-                      </div>
-                    </div>
-                  )}
-                  {yearContentMap[activeYear].extras && (
-                    <div className="neu-card-pressed p-4 rounded-2xl">
-                      <div className="text-maroon font-bold mb-1">3. Extras</div>
-                      <div className="text-sm text-neu-text">
-                        {yearContentMap[activeYear].extras?.length ?? 0} entries
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              <div className="fixed bottom-12 left-12 right-12 flex justify-between items-center">
-                <button
-                  onClick={() => navYear(-1)}
-                  className="neu-pill w-14 h-14 flex items-center justify-center text-2xl"
-                  aria-label="Previous"
-                >
-                  ←
-                </button>
-                <div className="text-neu-muted text-sm">
-                  ← / → arrow keys · Esc to exit
-                </div>
-                <button
-                  onClick={() => navYear(1)}
-                  className="neu-pill w-14 h-14 flex items-center justify-center text-2xl"
-                  aria-label="Next"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </AnimatePresence>
 
       {/* FOOTER */}
-      <footer className="max-w-6xl mx-auto px-6 mt-20 pb-12">
-        <NeuCard className="p-6 text-center text-neu-muted text-sm">
-          <p>{data.meta.assignment} · {data.meta.course} · {data.meta.institution}</p>
-          <p className="mt-1">
-            Built with Next.js + Framer Motion + neumorphic CSS.
-            Data sourced from Wikipedia &amp; arXiv primary papers (1950 – 2030).
-          </p>
-          <p className="mt-1">{data.meta.student} · {data.meta.instructor}</p>
-        </NeuCard>
-      </footer>
-    </main>
-  );
-}
+            <footer className="max-w-5xl mx-auto px-6 mt-12 pb-8">
+              <NeuCard className="p-4 text-center text-neu-muted text-xs">
+                <p>{data.meta.assignment} · {data.meta.course} · {data.meta.institution}</p>
+                <p className="mt-1">
+                  Built with Next.js + Framer Motion + neumorphic CSS.
+                  Data sourced from Wikipedia &amp; arXiv primary papers (1950 – 2030).
+                </p>
+                <p className="mt-1">{data.meta.student} · {data.meta.instructor}</p>
+              </NeuCard>
+            </footer>
+          </main>
+        );
+      }

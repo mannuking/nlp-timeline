@@ -24,6 +24,14 @@ import { useMemo, useState } from 'react';
 
 // ---- Types ----
 export type Link = { label: string; url: string };
+export type Era = {
+  id: string;
+  label: string;
+  years: string;
+  color: string;
+  summary: string;
+  milestones?: unknown[];
+};
 export type Milestone = {
   year: number;
   title: string;
@@ -122,19 +130,22 @@ function Section({
       animate="visible"
       className="relative"
     >
-      <div className="flex items-baseline gap-3 mb-3">
+      <div className="flex items-baseline gap-2.5 mb-2.5">
         <span
-          className="font-display font-bold text-2xl md:text-3xl leading-none"
-          style={{ color: accent }}
+          className="font-display font-light leading-none"
+          style={{ color: accent, fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
         >
           {number}
         </span>
-        <h4 className="font-display font-semibold text-neu-text text-lg md:text-xl leading-snug">
+        <h4
+          className="font-display font-medium text-neu-text leading-snug"
+          style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)' }}
+        >
           {title}
         </h4>
         {eraColor && (
           <span
-            className="ml-auto text-xs font-medium px-2.5 py-1 rounded-full neu-tag"
+            className="ml-auto text-[10px] font-medium px-2 py-0.5 rounded-full neu-tag"
             style={{ color: eraColor }}
           >
             ·
@@ -146,20 +157,20 @@ function Section({
           variants={bulletContainerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-2.5 pl-9"
+          className="space-y-1.5 pl-7 sm:pl-8"
         >
           {bullets!.map((b, i) => (
             <motion.li
               key={i}
               variants={bulletVariants}
-              className="relative text-neu-text leading-relaxed text-[15px] before:content-['—'] before:absolute before:-left-5 before:text-neu-muted before:font-semibold"
+              className="relative text-neu-text leading-relaxed text-[13px] sm:text-sm before:content-['—'] before:absolute before:-left-4 sm:before:-left-5 before:text-neu-muted before:font-semibold"
             >
               <span dangerouslySetInnerHTML={{ __html: highlightCitations(b) }} />
             </motion.li>
           ))}
         </motion.ul>
       ) : (
-        <p className="text-neu-muted italic pl-9 text-[15px] leading-relaxed">
+        <p className="text-neu-muted italic pl-7 sm:pl-8 text-[13px] sm:text-sm leading-relaxed">
           {fallback}
         </p>
       )}
@@ -213,13 +224,13 @@ export default function YearCard({
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="fixed inset-0 z-40 flex items-end md:items-center justify-center p-4 md:p-8 bg-black/25 backdrop-blur-md"
+        className="fixed inset-0 z-40 flex items-end sm:items-center justify-center p-2 sm:p-4 md:p-6 bg-black/30 backdrop-blur-md"
         onClick={onClose}
       >
         <motion.div
           variants={cardVariants}
           onClick={(e) => e.stopPropagation()}
-          className="neu-card max-w-3xl w-full p-8 md:p-10 max-h-[85vh] overflow-y-auto relative"
+          className="neu-card w-full sm:max-w-2xl lg:max-w-3xl p-4 sm:p-6 md:p-7 max-h-[92vh] sm:max-h-[88vh] overflow-y-auto relative"
         >
           {/* Top accent ribbon — era color fades across the top */}
           <div
@@ -230,42 +241,48 @@ export default function YearCard({
           />
 
           {/* Header */}
-          <div className="flex items-start justify-between mb-6">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2 flex-wrap">
+          <div className="flex items-start justify-between mb-4 sm:mb-5 gap-3">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                 <span
-                  className="font-display text-5xl md:text-6xl font-bold year-button leading-none"
-                  style={{ color: 'var(--maroon-500)' }}
+                  className="font-display font-light year-button leading-none"
+                  style={{
+                    color: 'var(--maroon-500)',
+                    fontSize: 'clamp(2rem, 5vw, 2.75rem)',
+                  }}
                 >
                   {milestone?.year}
                 </span>
-                {eraColor && (
+                {eraColor && milestone && (
                   <span
-                    className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                    className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                     style={{
                       background: 'rgba(0,0,0,0.04)',
                       color: eraColor,
                     }}
                   >
-                    {milestone && `Era: ${milestone.tags?.[0] ?? '—'}`}
+                    {milestone.tags?.[0] ?? '—'}
                   </span>
                 )}
-                <span className="text-xs text-neu-muted">
+                <span className="text-[10px] text-neu-muted">
                   {yearIndex + 1} / {totalYears}
                 </span>
               </div>
               {milestone && (
-                <h3 className="font-display text-2xl md:text-3xl font-bold text-neu-text leading-tight">
+                <h3
+                  className="font-display font-light text-neu-text leading-tight"
+                  style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.4rem)' }}
+                >
                   {milestone.title}
                 </h3>
               )}
               {milestone?.author && (
-                <p className="text-neu-muted mt-1 text-sm">{milestone.author}</p>
+                <p className="text-neu-muted mt-0.5 text-xs">{milestone.author}</p>
               )}
             </div>
             <button
               onClick={onClose}
-              className="neu-pill w-10 h-10 flex items-center justify-center text-neu-muted hover:text-maroon flex-shrink-0 ml-4"
+              className="neu-pill w-9 h-9 flex items-center justify-center text-sm text-neu-muted hover:text-maroon flex-shrink-0"
               aria-label="Close"
             >
               ✕
@@ -274,10 +291,10 @@ export default function YearCard({
 
           {/* View toggle — only if BOTH views have content */}
           {milestone && hasStructured && (
-            <div className="flex gap-2 mb-6 neu-card-pressed p-1 rounded-full w-fit">
+            <div className="flex gap-1 mb-4 neu-card-pressed p-1 rounded-full w-fit">
               <button
                 onClick={() => setView('structured')}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all ${
                   view === 'structured'
                     ? 'neu-card text-maroon'
                     : 'text-neu-muted'
@@ -287,7 +304,7 @@ export default function YearCard({
               </button>
               <button
                 onClick={() => setView('milestone')}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all ${
                   view === 'milestone'
                     ? 'neu-card text-maroon'
                     : 'text-neu-muted'
@@ -299,7 +316,7 @@ export default function YearCard({
           )}
 
           {/* Body */}
-          <div className="space-y-7">
+          <div className="space-y-5">
             {view === 'structured' && hasStructured ? (
               <>
                 <Section
@@ -320,7 +337,7 @@ export default function YearCard({
                   eraColor={eraColor}
                 />
                 {/* Nested 2a / 2b */}
-                <div className="pl-9 space-y-5">
+                <div className="pl-6 sm:pl-8 space-y-4">
                   <Section
                     index={2}
                     number="2a."
@@ -350,27 +367,27 @@ export default function YearCard({
             ) : milestone ? (
               <>
                 <div>
-                  <h4 className="text-sm font-semibold text-neu-text uppercase tracking-wider mb-2">
+                  <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-1.5">
                     Summary
                   </h4>
-                  <p className="text-neu-text leading-relaxed">{milestone.summary}</p>
+                  <p className="text-neu-text leading-relaxed text-sm">{milestone.summary}</p>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-neu-text uppercase tracking-wider mb-2">
+                  <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-1.5">
                     Why it mattered
                   </h4>
-                  <p className="text-neu-text leading-relaxed">
+                  <p className="text-neu-text leading-relaxed text-sm">
                     {milestone.why_it_mattered}
                   </p>
                 </div>
                 {milestone.tags?.length > 0 && (
                   <div>
-                    <h4 className="text-sm font-semibold text-neu-text uppercase tracking-wider mb-2">
+                    <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-1.5">
                       Tags
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                       {milestone.tags.map((t) => (
-                        <span key={t} className="neu-tag">
+                        <span key={t} className="neu-tag text-[10px]">
                           {t}
                         </span>
                       ))}
@@ -383,21 +400,21 @@ export default function YearCard({
 
           {/* References — always shown if milestone exists */}
           {milestone?.links && milestone.links.length > 0 && (
-            <div className="mt-8 pt-6 border-t border-neu-dark/20">
-              <h4 className="text-sm font-semibold text-neu-text uppercase tracking-wider mb-3">
+            <div className="mt-5 pt-4 border-t border-neu-dark/20">
+              <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-2">
                 References{' '}
                 <span className="text-neu-muted font-normal">
                   ({milestone.links.length})
                 </span>
               </h4>
-              <div className="flex flex-col gap-2 max-h-48 overflow-y-auto pr-2">
+              <div className="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-2">
                 {milestone.links.map((l) => (
                   <a
                     key={l.url}
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="neu-link w-fit text-xs"
+                    className="neu-link w-fit text-[11px]"
                   >
                     <span>↗</span>
                     <span>{l.label}</span>
@@ -408,12 +425,12 @@ export default function YearCard({
           )}
 
           {/* Footer navigation */}
-          <div className="flex justify-between gap-3 pt-6 mt-6 border-t border-neu-dark/20">
+          <div className="flex justify-between gap-2 pt-4 mt-5 border-t border-neu-dark/20">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={onPrev}
-              className="neu-pill px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="neu-pill px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5"
             >
               ← Previous
             </motion.button>
@@ -421,7 +438,7 @@ export default function YearCard({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={onNext}
-              className="neu-pill px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="neu-pill px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5"
             >
               Next →
             </motion.button>

@@ -113,15 +113,15 @@ html {
 }
 
 .neu-node {
-  width: 64px;
-  height: 64px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--neu-base);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 10px;
   color: var(--neu-text);
   box-shadow:
     4px 4px 8px var(--shadow-color-sm),
