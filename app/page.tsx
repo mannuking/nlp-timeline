@@ -456,7 +456,7 @@ export default function Home() {
             </div>
             <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
 
-            <div className="relative pb-6">
+            <div className="relative pb-6 overflow-hidden">
               <div className="flex items-center gap-2 px-2 flex-wrap">
                 {era.milestones.map((m, i) => {
                   const isActive = activeYear === m.year;
@@ -505,7 +505,7 @@ export default function Home() {
               Years from <span className="text-maroon font-medium">1950 – 2030</span> that match your search but are not curated milestones. Click any year to view its full content.
             </p>
 
-            <div className="relative pb-6">
+            <div className="relative pb-6 overflow-hidden">
               <div className="flex items-center gap-2 px-2 flex-wrap">
                 {searchOnlyYears.map((y, i) => {
                   const isActive = activeYear === y;
