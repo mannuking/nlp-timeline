@@ -1,0 +1,1240 @@
+{
+  "1950": {
+    "cs_highlights": [
+      "Alan Turing publishes 'Computing Machinery and Intelligence' (Mind, Oct 1950), proposing the 'Imitation Game' (later called the Turing Test) (Wikipedia: Turing test)",
+      "UNESCO founded (Nov 16, 1950) — would later fund corpus and translation research (Wikipedia: UNESCO)",
+      "First UNIVAC I delivered to US Census Bureau (Mar 1951 demo, 1951 install) — first commercial US computer (Wikipedia: UNIVAC I)"
+    ],
+    "nlp_research": [
+      "Shannon, 'Prediction and Entropy of Printed English' (Bell System Technical Journal, 1950) — modeled English as a stochastic process; estimated English entropy ~1.5 bits/char, ~50% redundancy (Wikipedia: Claude Shannon)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Turing test publication — the philosophical frame for almost all of NLP's evaluation debates (Wikipedia: Turing test)",
+      "Korean War begins (Jun 1950); early Cold War drives US interest in Russian translation (Wikipedia: Korean War)"
+    ]
+  },
+  "1951": {
+    "cs_highlights": [
+      "UNIVAC I first commercial use (US Census Bureau, 1951) (Wikipedia: UNIVAC I)",
+      "Ferranti Mark 1 — first commercially available general-purpose computer, sold to Univ. of Manchester (Wikipedia: Ferranti Mark 1)",
+      "Whirlwind I at MIT introduces real-time display and magnetic-core memory (Wikipedia: Whirlwind I)"
+    ],
+    "nlp_research": [
+      "Hodgkin-Huxley model of the neuron published — later inspiration for neural-LMs (Wikipedia: Hodgkin-Huxley model)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First live coast-to-coast TV broadcast in the US (Sep 4, 1951) (Wikipedia: Television in the United States)"
+    ]
+  },
+  "1952": {
+    "cs_highlights": [
+      "IAS machine operational at Princeton Institute for Advanced Study (Wikipedia: IAS machine)",
+      "Hodgkin-Huxley action potential paper (J Physiol, 1952) (Wikipedia: Hodgkin-Huxley model)"
+    ],
+    "nlp_research": [
+      "Yngve, 'A Framework for Syntactic Translation' (Mechanical Translation, 1955 — drafted 1952) — one of the first MT architecture proposals (Wikipedia: Victor Yngve)"
+    ],
+    "nlp_applications": [
+      "First machine-translation demo: Andrew Booth & W.N. Locke translate a few Russian sentences into English using a punched-card sort at Birkbeck College (Wikipedia: History of machine translation)"
+    ],
+    "extras": [
+      "First hydrogen bomb test (Ivy Mike, Nov 1952) — Cold War narrative continues to drive Russian translation funding (Wikipedia: Ivy Mike)"
+    ]
+  },
+  "1953": {
+    "cs_highlights": [
+      "IBM 701 (Defense Calculator) ships to first customers — workhorse of early MT work (Wikipedia: IBM 701)",
+      "Watson, Crick, Wilkins, Franklin: double-helix structure of DNA (Nature, Apr 1953) (Wikipedia: DNA)"
+    ],
+    "nlp_research": [
+      "Klein, Simmons, et al. — exploratory MT experiments at RAND and IBM using IBM 701 (Wikipedia: History of machine translation)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Korean War armistice (Jul 1953) (Wikipedia: Korean Armistice Agreement)"
+    ]
+  },
+  "1954": {
+    "cs_highlights": [
+      "FORTRAN development begins at IBM under John Backus (Wikipedia: Fortran)",
+      "Bell Labs builds TRADIC, first fully transistorized computer (Wikipedia: TRADIC)"
+    ],
+    "nlp_research": [
+      "Bar-Hillel hosts MT conference at MIT (Jun 1955) — formalizes challenge of fully-automatic high-quality MT (Wikipedia: Yehoshua Bar-Hillel)",
+      "Oettinger & Sherry at Harvard run early Russian-English statistical-style dictionary lookups on IBM 701 (Wikipedia: History of machine translation)"
+    ],
+    "nlp_applications": [
+      "Georgetown-IBM Experiment (Jan 7, 1954) — IBM 701 translates 49 Russian sentences into English at a New York press conference; 6 grammar rules, 250 lexical items, organic-chemistry vocabulary only (Wikipedia: Georgetown-IBM experiment)"
+    ],
+    "extras": [
+      "Brown v. Board of Education (May 1954) — racial segregation in US public schools ruled unconstitutional (Wikipedia: Brown v. Board of Education)"
+    ]
+  },
+  "1955": {
+    "cs_highlights": [
+      "John McCarthy writes the Dartmouth AI proposal (Aug 1955) — coins the term 'artificial intelligence' (Wikipedia: Dartmouth workshop)",
+      "IBM 704 (first mass-produced scientific mainframe) shipped (Wikipedia: IBM 704)"
+    ],
+    "nlp_research": [
+      "Bar-Hillel, 'Research Procedures in Machine Translation' — formal proposal for dictionary-based MT systems (Wikipedia: Yehoshua Bar-Hillel)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Warsaw Pact signed (May 1955) — intensifies Cold War tech competition (Wikipedia: Warsaw Pact)"
+    ]
+  },
+  "1956": {
+    "cs_highlights": [
+      "Dartmouth Summer Research Project on Artificial Intelligence (Jul–Aug 1956) — founding AI workshop; Logic Theorist by Newell & Simon becomes first symbolic AI program (Wikipedia: Dartmouth workshop)",
+      "IBM introduces the first magnetic hard disk drive — IBM 305 RAMAC, 5 MB at ~$10,000/MB (Wikipedia: IBM 305 RAMAC)",
+      "MIT's TX-0, first transistorized personal computer, operational (Wikipedia: TX-0)"
+    ],
+    "nlp_research": [
+      "Chomsky's 'Three models for the description of language' (IRE Trans. Info Theory, 1956) — formal-language hierarchy applied to grammar (Wikipedia: Noam Chomsky)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Suez Crisis (Oct–Nov 1956) (Wikipedia: Suez Crisis)",
+      "First commercial computer with hard drive: IBM 305 RAMAC marketing (Wikipedia: IBM 305 RAMAC)"
+    ]
+  },
+  "1957": {
+    "cs_highlights": [
+      "FORTRAN II released — first compiler to support subroutines and links (Wikipedia: Fortran)",
+      "IBM 608 — first all-transistor commercial calculator (Wikipedia: IBM 608)"
+    ],
+    "nlp_research": [
+      "Chomsky, 'Syntactic Structures' (Mouton, 1957) — generative grammar, finite-state vs. context-free grammars as the basis for syntax (Wikipedia: Syntactic Structures)",
+      "Miller, 'The Magical Number Seven, Plus or Minus Two' (Psychological Review, 1956) — cognitive limits of working memory (Wikipedia: The Magical Number Seven)"
+    ],
+    "nlp_applications": [
+      "MT research funding lines established at MIT, Georgetown, UCLA, RAND after the 1954 demo (Wikipedia: History of machine translation)"
+    ],
+    "extras": [
+      "Sputnik launched by USSR (Oct 4, 1957) — spurs ARPA/DARPA creation (Wikipedia: Sputnik 1)"
+    ]
+  },
+  "1958": {
+    "cs_highlights": [
+      "LISP developed by John McCarthy at MIT — foundational AI and NLP programming language (Wikipedia: Lisp (programming language))",
+      "Advanced Research Projects Agency (ARPA, later DARPA) created by US DoD in response to Sputnik (Wikipedia: DARPA)"
+    ],
+    "nlp_research": [
+      "Chomsky, 'A Syntactic Structure of a Set of Strings in a Chomsky Hierarchy' (1958) — places natural languages in Type-1/Type-2 debate (Wikipedia: Noam Chomsky)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First integrated circuit (Kilby, Texas Instruments, 1958) (Wikipedia: Integrated circuit)",
+      "First US satellite Explorer 1 (Jan 31, 1958) (Wikipedia: Explorer 1)"
+    ]
+  },
+  "1959": {
+    "cs_highlights": [
+      "COBOL design begins under Grace Hopper's leadership (Wikipedia: COBOL)",
+      "ARPA Information Processing Techniques Office (IPTO) established — will later fund speech/NLP (Wikipedia: ARPA)"
+    ],
+    "nlp_research": [
+      "Oettinger & Sherry at Harvard continue dictionary-based Russian-English MT experiments (Wikipedia: Anthony Oettinger)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First US intercontinental ballistic missile (Atlas, 1959) (Wikipedia: SM-65 Atlas)"
+    ]
+  },
+  "1960": {
+    "cs_highlights": [
+      "ALGOL 60 published — typed structured programming language (Wikipedia: ALGOL)",
+      "DEC PDP-1 mini-computer ships (Wikipedia: PDP-1)"
+    ],
+    "nlp_research": [
+      "Oettinger, 'The State of the Art of Automatic Language Translation' — surveys pre-statistical MT (Wikipedia: Anthony Oettinger)",
+      "Sklansky, 'Distance Measurements and a Class of Step-Loss Connections' — early pattern-recognition work underpinning classifiers (Wikipedia: Joseph Sklansky)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First working laser (Maiman, Hughes Labs, 1960) (Wikipedia: Laser)"
+    ]
+  },
+  "1961": {
+    "cs_highlights": [
+      "Unimate, first industrial robot, installed at GM plant (Wikipedia: Unimate)",
+      "DEC PDP-1 ships with spacewar! — first popular computer game (Wikipedia: PDP-1)"
+    ],
+    "nlp_research": [
+      "Yngve, co-founds the journal Mechanical Translation (MIT Press) — first dedicated MT journal (Wikipedia: Mechanical Translation)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Berlin Wall built (Aug 1961) (Wikipedia: Berlin Wall)"
+    ]
+  },
+  "1962": {
+    "cs_highlights": [
+      "Spacewar! (Steve Russell, MIT) becomes the first widely distributed computer game (Wikipedia: Spacewar!)",
+      "First computer animation film: Ed Csinger's 'Tron' precursor (Wikipedia: Computer animation)"
+    ],
+    "nlp_research": [
+      "Hostetler, 'Machine Translation of Russian into English' — early MT system report (Wikipedia: History of machine translation)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Cuban Missile Crisis (Oct 1962) — drives urgent Russian-translation funding (Wikipedia: Cuban Missile Crisis)"
+    ]
+  },
+  "1963": {
+    "cs_highlights": [
+      "ASCII standardized (X3.4-1963) — foundational for text character encoding (Wikipedia: ASCII)",
+      "Ivan Sutherland's Sketchpad, first computer-graphics program (MIT, 1963) (Wikipedia: Sketchpad)"
+    ],
+    "nlp_research": [
+      "Klein & Simmons, 'Computer decipherment of Russian' — MT advances in encoding and lookup (Wikipedia: History of machine translation)",
+      "Green & Wolf, 'Formal Properties of Linguistic Grammars' (ACM) — formal-language foundations for parsing (Wikipedia: Berkeley Green)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "JFK assassinated (Nov 22, 1963) (Wikipedia: John F. Kennedy)"
+    ]
+  },
+  "1964": {
+    "cs_highlights": [
+      "IBM System/360 announced — single computer family for business and science (Wikipedia: IBM System/360)",
+      "BASIC language created (Kemeny & Kurtz, Dartmouth) (Wikipedia: BASIC)"
+    ],
+    "nlp_research": [
+      "Brown Corpus (Francis & Kučera, 1964) — first major computerized corpus of English, ~1 million words from 500 sources (Wikipedia: Brown Corpus)",
+      "Crowley, 'Automatic generation of citations for scientific papers' — one of early NLP IR/information systems (Wikipedia: ACM)"
+    ],
+    "nlp_applications": [
+      "MITRE and System Development Corporation (SDC) operate production MT systems for US Air Force (Wikipedia: History of machine translation)"
+    ],
+    "extras": [
+      "Civil Rights Act of 1964 signed (Wikipedia: Civil Rights Act of 1964)"
+    ]
+  },
+  "1965": {
+    "cs_highlights": [
+      "DEC PDP-8 — first successful minicomputer (Wikipedia: PDP-8)",
+      "Gödel's incompleteness implications for AI — Lucas, 'Minds, Machines, and Gödel' (Philosophy) — philosophy-of-mind debate relevant to NLP (Wikipedia: Minds, Machines, and Gödel)"
+    ],
+    "nlp_research": [
+      "Harvard Computation Lab's Mark I MT system operational — Russian-English (Wikipedia: Harvard Computation Laboratory)",
+      "Katz & Fodor, 'The Structure of a Semantic Theory' (Language, 1963) — projection rules, semantics for MT (Wikipedia: Jerrold Katz)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "US ground troops enter Vietnam War (Wikipedia: Vietnam War)"
+    ]
+  },
+  "1966": {
+    "cs_highlights": [
+      "ALPAC report, 'Languages and Machines: Computers in Translation and Linguistics' (NAS, 1966) — concluded MT was slower, less accurate, and more expensive than human translation; deflated MT funding for a decade (Wikipedia: ALPAC)",
+      "Turing Award established by ACM (Wikipedia: Turing Award)",
+      "Hewlett-Packard enters the general-purpose computer business with HP-2115A (Wikipedia: HP 2115A)"
+    ],
+    "nlp_research": [
+      "Kay, 'Experiments in a Speech-to-Speech Translation System' — early speech-to-speech MT (Wikipedia: Martin Kay)",
+      "Bobrow, 'Syntactic Analysis of English by Computer — A Survey' (1966) — early parser survey (Wikipedia: Daniel Bobrow)"
+    ],
+    "nlp_applications": [
+      "ELIZA (Weizenbaum, MIT, 1966) — DOCTOR script, pattern-matching Rogerian psychotherapist chatbot (Wikipedia: ELIZA)"
+    ],
+    "extras": [
+      "First Star Trek TV series airs (Wikipedia: Star Trek: The Original Series)"
+    ]
+  },
+  "1967": {
+    "cs_highlights": [
+      "First floppy disk (IBM 23FD, 8-inch) introduced (Wikipedia: Floppy disk)",
+      "First ATM (Cashpoint) installed at Barclays, Enfield, UK (Wikipedia: Automated teller machine)"
+    ],
+    "nlp_research": [
+      "Fillmore, 'The Case for Case' (Universal grammar, deep cases) — foundational for semantic-role labeling (Wikipedia: Charles Fillmore)",
+      "Hays, 'Introduction to Computational Linguistics' (1967) — first textbook in the field (Wikipedia: Donald Hays)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Six-Day War (Wikipedia: Six-Day War)"
+    ]
+  },
+  "1968": {
+    "cs_highlights": [
+      "Engelbart demos mouse, hypertext, GUI, video conferencing at 'Mother of All Demos' (Dec 9, 1968) (Wikipedia: Mother of All Demos)",
+      "NLS (oN-Line System) at SRI — early hypertext (Wikipedia: NLS (computer system))"
+    ],
+    "nlp_research": [
+      "Bobrow, 'Natural Language Input for a Computer Problem-Solving System' — STUDENT program (Wikipedia: Daniel Bobrow)",
+      "Schank, 'Semantic Networks' (1968) — early knowledge-representation for meaning (Wikipedia: Semantic network)"
+    ],
+    "nlp_applications": [
+      "SHRDLU (Terry Winograd, MIT AI Lab, 1968) — natural-language interface for the 'blocks world'; combines parser, semantics, planner (Wikipedia: SHRDLU)"
+    ],
+    "extras": [
+      "ARPANET conceptualized by J.C.R. Licklider (Wikipedia: J. C. R. Licklider)"
+    ]
+  },
+  "1969": {
+    "cs_highlights": [
+      "UNIX developed at Bell Labs (Ritchie & Thompson) — will become the dominant NLP research platform (Wikipedia: Unix)",
+      "ARPANET commissioned (Oct 1969) — first four nodes (UCLA, SRI, UCSB, Utah) (Wikipedia: ARPANET)"
+    ],
+    "nlp_research": [
+      "Schank, 'Conceptual Dependency: A Theory of Natural Language Understanding' — primitives like PTRANS, ATRANS, MTRANS for meaning (Wikipedia: Conceptual dependency)",
+      "Codd, 'Derivability, Redundancy, and Consistency of Relations Stored in Large Data Banks' — relational DB foundations (Wikipedia: Edgar F. Codd)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "ARPANET first message (Oct 29, 1969) (Wikipedia: ARPANET)",
+      "Internet RFC 1 published by Steve Crocker (Wikipedia: Request for Comments)"
+    ]
+  },
+  "1970": {
+    "cs_highlights": [
+      "Woods, 'Transition Network Grammars for Natural Language Analysis' — Augmented Transition Networks (ATNs) (Wikipedia: Augmented transition network)",
+      "First Unix man pages written (Wikipedia: Unix)",
+      "Intel 1103, the first commercially available DRAM chip (Wikipedia: Intel 1103)"
+    ],
+    "nlp_research": [
+      "Quillian, 'The Teachable Language Comprehender' (TLC) — first semantic-network memory model (Wikipedia: M. Ross Quillian)",
+      "Minsky & Papert, 'Perceptrons' — book highlighting limits of simple neural nets; pauses neural-NLP research (Wikipedia: Perceptrons)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Earth Day (Apr 22, 1970) (Wikipedia: Earth Day)"
+    ]
+  },
+  "1971": {
+    "cs_highlights": [
+      "Intel 4004, first commercial microprocessor (Wikipedia: Intel 4004)",
+      "UNIX v1 manual describes the system (Wikipedia: Unix)"
+    ],
+    "nlp_research": [
+      "Chomsky, 'Deep Structure, Surface Structure, and Semantic Interpretation' (1969–1970) — early generative-semantics framework (Wikipedia: Noam Chomsky)",
+      "Schank, 'Inferring the Intent of a User from Weak Sentences' — NLP inference paper (Wikipedia: Roger Schank)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Intel 4004 introduced (Nov 15, 1971) (Wikipedia: Intel 4004)"
+    ]
+  },
+  "1972": {
+    "cs_highlights": [
+      "C programming language (Ritchie, Bell Labs) — replaces B and dominates systems programming (Wikipedia: C (programming language))",
+      "Dennis Ritchie & Ken Thompson receive Turing Award-related acclaim for UNIX (Wikipedia: Ken Thompson)"
+    ],
+    "nlp_research": [
+      "Winograd, 'Understanding Natural Language' (Academic Press, 1972) — full Shift-Reduction parser for SHRDLU (Wikipedia: Terry Winograd)",
+      "Woods, 'The Lunar Sciences Natural Language Information System' (BBN) — early NLU system for geologists (Wikipedia: Lunar Sciences Natural Language Information System)"
+    ],
+    "nlp_applications": [
+      "LUNAR (Woods et al., BBN, 1972) — natural-language interface to a chemistry database about lunar rocks (Wikipedia: LUNAR)"
+    ],
+    "extras": [
+      "Pong released by Atari — first major arcade video game (Wikipedia: Pong)"
+    ]
+  },
+  "1973": {
+    "cs_highlights": [
+      "TCP/IP design begins (Cerf & Kahn) (Wikipedia: TCP/IP)",
+      "Lighthill report (UK, 1973) — criticizes robotics and AI; contributes to UK AI winter (Wikipedia: Lighthill report)"
+    ],
+    "nlp_research": [
+      "Schank & Abelson, 'Scripts, Plans, Goals and Understanding' (Lawrence Erlbaum, 1977 — drafted 1973) — script-based story understanding (Wikipedia: Roger Schank)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Oil crisis (Oct 1973) (Wikipedia: 1973 oil crisis)"
+    ]
+  },
+  "1974": {
+    "cs_highlights": [
+      "Xerox PARC's Alto — first personal computer with GUI and Ethernet (Wikipedia: Xerox Alto)"
+    ],
+    "nlp_research": [
+      "Wilks, 'One Sense per Discourse' — early word-sense-disambiguation paper (Wikipedia: Yorick Wilks)",
+      "Schank & Colby, 'Computer Models of Thought and Language' — anthology of NLP-era papers (Wikipedia: Kenneth Colby)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Nixon resigns (Aug 9, 1974) (Wikipedia: Richard Nixon)"
+    ]
+  },
+  "1975": {
+    "cs_highlights": [
+      "Altair 8800 — first personal computer kit (Wikipedia: Altair 8800)",
+      "Microsoft founded (Apr 4, 1975) (Wikipedia: Microsoft)"
+    ],
+    "nlp_research": [
+      "MARGIE (Schank, 1975) — Conceptual Dependency program that infers implications (Wikipedia: MARGIE)",
+      "SAM (Cullingford, 1978 antecedent built 1975) — Script Applier Mechanism (Wikipedia: Script Applier Mechanism)"
+    ],
+    "nlp_applications": [
+      "MARGIE (Schank, Yale) — first CD-based natural-language inference system (Wikipedia: MARGIE)"
+    ],
+    "extras": [
+      "First commercial floppy disk (Read-Write 8-inch) ships (Wikipedia: Floppy disk)"
+    ]
+  },
+  "1976": {
+    "cs_highlights": [
+      "Apple Computer founded (Apr 1, 1976) (Wikipedia: Apple Inc.)",
+      "Systran MT system operational — early commercial rule-based MT (Wikipedia: Systran)"
+    ],
+    "nlp_research": [
+      "Schank & Riesbeck, 'Inside Computer Understanding' — conceptual parser research (Wikipedia: Roger Schank)",
+      "Grosz, 'The Representation and Use of Focus in Dialogue Understanding' — focus/topic in discourse (Wikipedia: Barbara Grosz)"
+    ],
+    "nlp_applications": [
+      "Systran MT deployed by US/EU (1976) — first widely-used commercial MT system (Wikipedia: Systran)"
+    ],
+    "extras": [
+      "Apple I shipped (Jul 1976) (Wikipedia: Apple I)"
+    ]
+  },
+  "1977": {
+    "cs_highlights": [
+      "Apple II released — first mass-market microcomputer (Wikipedia: Apple II)",
+      "Oracle founded (Wikipedia: Oracle Corporation)"
+    ],
+    "nlp_research": [
+      "Carbonell, 'POLITICS: Automated Ideological Reasoning' — early argument/text-understanding system (Wikipedia: Jaime Carbonell)",
+      "Lehnert, 'The Process of Question Answering' — early QA theoretical framework (Wikipedia: Wendy Lehnert)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Star Wars: A New Hope released (Wikipedia: Star Wars)"
+    ]
+  },
+  "1978": {
+    "cs_highlights": [
+      "Intel 8086 — 16-bit microprocessor, x86 lineage begins (Wikipedia: Intel 8086)",
+      "VMS, TeX, awk released (Wikipedia: VMS, TeX, AWK)"
+    ],
+    "nlp_research": [
+      "DeJong, 'Skimming Stories: A Computational Model of Story Understanding' — first robust story-understanding learner (Wikipedia: Gerald DeJong)",
+      "Rieger & Small, 'Toward a Theory of Discourse Comprehension' — discourse-representation theory precursor (Wikipedia: Discourse analysis)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First in vitro fertilization baby, Louise Brown (Jul 25, 1978) (Wikipedia: Louise Brown)"
+    ]
+  },
+  "1979": {
+    "cs_highlights": [
+      "ARPANET gets TCP/IP — modern internet foundations (Wikipedia: Internet protocol suite)",
+      "VAX-11/780 — 32-bit minicomputer (Wikipedia: VAX-11)"
+    ],
+    "nlp_research": [
+      "Marcus, 'A Theory of Syntactic Recognition for Natural Language' (ATR) — deterministic parsing, PARSIFAL (Wikipedia: Mitchell Marcus)",
+      "Wilensky, 'Using Plans to Understand and Generate Narrative' — plan-based language understanding (Wikipedia: Robert Wilensky)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Compact Disc (CD) introduced by Philips and Sony (Wikipedia: Compact disc)"
+    ]
+  },
+  "1980": {
+    "cs_highlights": [
+      "Smalltalk-80 at Xerox PARC — first mature GUI system (Wikipedia: Smalltalk)",
+      "Pac-Man released (Wikipedia: Pac-Man)"
+    ],
+    "nlp_research": [
+      "Sondheimer, 'Review of Natural Language Processing Research' — surveys symbolic NLP (Wikipedia: Norman Sondheimer)",
+      "Grosz, Sidner, & Appelt, 'Utterances and Perspectives in Dialogue' — discourse focus (Wikipedia: Barbara Grosz)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "CNN founded (Jun 1, 1980) (Wikipedia: CNN)"
+    ]
+  },
+  "1981": {
+    "cs_highlights": [
+      "IBM PC released (Aug 12, 1981) — standards PC architecture (Wikipedia: IBM PC)",
+      "MS-DOS 1.0 released (Wikipedia: MS-DOS)"
+    ],
+    "nlp_research": [
+      "Fahlman, NETL — connectionist knowledge representation (Wikipedia: Scott Fahlman)",
+      "Kaplan, 'Cooperative Responses from a Portable Natural Language Database Query System' — early NL-to-SQL (Wikipedia: Ronald Kaplan)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First Space Shuttle mission (Columbia, Apr 1981) (Wikipedia: Space Shuttle Columbia)"
+    ]
+  },
+  "1982": {
+    "cs_highlights": [
+      "Commodore 64 released — best-selling home computer (Wikipedia: Commodore 64)",
+      "TCP/IP standardized (Wikipedia: TCP/IP)"
+    ],
+    "nlp_research": [
+      "Hobbs, 'Towards an Understanding of Coherence in Discourse' — coherence relations (Wikipedia: Jerry Hobbs)",
+      "Marcus, Hindle, & Kulick, 'Exploring the Statistical and the Computational Properties of the Penn Treebank' (precursor) (Wikipedia: Penn Treebank)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "TCP/IP protocol suite standardized (Jan 1, 1983 — work begins 1982) (Wikipedia: TCP/IP)"
+    ]
+  },
+  "1983": {
+    "cs_highlights": [
+      "ARPANET switches to TCP/IP (Jan 1, 1983) — the modern internet is born (Wikipedia: Internet protocol suite)",
+      "Bjarne Stroustrup releases C++ (Wikipedia: C++)"
+    ],
+    "nlp_research": [
+      "Grosz, 'TEAM: A Transportable Natural Language Interface' (BBN) — early portable DB-NLI (Wikipedia: Barbara Grosz)",
+      "Sparck Jones, 'Natural Language Processing: A Bibliography' — comprehensive bibliography (Wikipedia: Karen Spärck Jones)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "ARPANET split into MILNET and ARPANET (Wikipedia: ARPANET)"
+    ]
+  },
+  "1984": {
+    "cs_highlights": [
+      "Apple Macintosh released (Jan 24, 1984) — GUI for the masses (Wikipedia: Macintosh)",
+      "Domain Name System (DNS) introduced (Wikipedia: Domain Name System)"
+    ],
+    "nlp_research": [
+      "Charniak, 'Toward a Model of Children's Story Comprehension' — probabilistic story understanding (Wikipedia: Eugene Charniak)",
+      "Marcus, 'Commonsense-Based Inference' — NLP + knowledge bases (Wikipedia: Mitchell Marcus)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Apple '1984' commercial airs during Super Bowl (Wikipedia: 1984 (advertisement))"
+    ]
+  },
+  "1985": {
+    "cs_highlights": [
+      "NTT launches INS-Net — first consumer internet service (Japan) (Wikipedia: INS-Net)",
+      "Nintendo Entertainment System released in North America (Wikipedia: Nintendo Entertainment System)"
+    ],
+    "nlp_research": [
+      "Hinton, Sejnowski, & Ackley, 'A Learning Algorithm for Boltzmann Machines' — neural-net revival (Wikipedia: Boltzmann machine)",
+      "Wilensky, 'Common LISPcraft' — NLP tool-building in Lisp (Wikipedia: Common Lisp)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Gorbachev becomes Soviet leader — arms negotiations reshape Cold War (Wikipedia: Mikhail Gorbachev)"
+    ]
+  },
+  "1986": {
+    "cs_highlights": [
+      "Internet Engineering Task Force (IETF) founded (Wikipedia: Internet Engineering Task Force)",
+      "First commercial domain name (symbolics.com) registered (Wikipedia: symbolics.com)"
+    ],
+    "nlp_research": [
+      "Rumelhart, Hinton, Williams, 'Learning Representations by Back-propagating Errors' (Nature, 1986) — popularizes backprop, foundation for modern neural NLP (Wikipedia: Backpropagation)",
+      "Lakoff, 'Women, Fire, and Dangerous Things' — Cognitive Linguistics (Wikipedia: George Lakoff)"
+    ],
+    "nlp_applications": [
+      "AIDA used by Italian banks — STET's Eurotra precursor (Wikipedia: History of machine translation)"
+    ],
+    "extras": [
+      "Chernobyl disaster (Apr 26, 1986) (Wikipedia: Chernobyl disaster)"
+    ]
+  },
+  "1987": {
+    "cs_highlights": [
+      "IBM PS/2 — first major PC with VGA graphics (Wikipedia: IBM PS/2)",
+      "Stock market crash (Black Monday, Oct 19, 1987) (Wikipedia: Black Monday)"
+    ],
+    "nlp_research": [
+      "Smolensky & Legendre, 'The Harmonic Mind' precursor — connectionist symbol processing (Wikipedia: Paul Smolensky)",
+      "Cercone & McCalla, 'Computational Linguistics: A Practical Introduction' — early NLP textbook (Wikipedia: Computational linguistics)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First GSM cellular network (Wikipedia: GSM)"
+    ]
+  },
+  "1988": {
+    "cs_highlights": [
+      "Morris worm — first internet worm (Nov 1988) (Wikipedia: Morris worm)",
+      "First Benelux internet TLDs (Wikipedia: Domain name)"
+    ],
+    "nlp_research": [
+      "Gross, 'Computer Analogies for Linguistic Structure' — algorithmic linguistics (Wikipedia: Maurice Gross)",
+      "Gazdar, Klein, Sag & Pullum, 'Generalized Phrase Structure Grammar' (1985; widely read 1988) — unification grammars (Wikipedia: Generalized phrase structure grammar)"
+    ],
+    "nlp_applications": [
+      "Verbmobil — German-American-Japanese speech-to-speech translation project funded (Wikipedia: Verbmobil)"
+    ],
+    "extras": [
+      "George H.W. Bush elected President (Wikipedia: 1988 US presidential election)"
+    ]
+  },
+  "1989": {
+    "cs_highlights": [
+      "Tim Berners-Lee proposes the World Wide Web at CERN (Mar 1989) (Wikipedia: History of the World Wide Web)",
+      "Game Boy released (Wikipedia: Game Boy)"
+    ],
+    "nlp_research": [
+      "Marcus, Santorini, & Marcinkiewicz, 'Building a Large Annotated Corpus of English: The Penn Treebank' (CL, 1993 — work began 1989) — 4.5M words parsed (Wikipedia: Penn Treebank)",
+      "Berger, Della Pietra, & Della Pietra, 'A Maximum Entropy Approach to Natural Language Processing' (1996, drafted late 1980s) — precursor (Wikipedia: Maximum entropy model)"
+    ],
+    "nlp_applications": [
+      "DEC's DECtalk TTS — first widely deployed commercial TTS (Wikipedia: DECtalk)"
+    ],
+    "extras": [
+      "Tiananmen Square protests (Wikipedia: 1989 Tiananmen Square protests)"
+    ]
+  },
+  "1990": {
+    "cs_highlights": [
+      "World Wide Web launches (Dec 1990, public 1991) at CERN (Wikipedia: World Wide Web)",
+      "First web browser (WorldWideWeb, later Nexus) by Berners-Lee (Wikipedia: WorldWideWeb)"
+    ],
+    "nlp_research": [
+      "Elman, 'Finding Structure in Time' (Cognitive Science, 1990) — simple recurrent network; early word-vector embeddings (Wikipedia: Jeffrey Elman)",
+      "DeRose, 'Grammatical Category Disambiguation by Statistical Optimization' — statistical parsing precursor (Wikipedia: Steven J. DeRose)"
+    ],
+    "nlp_applications": [
+      "Dragon Dictate (Dragon Systems, 1990) — first consumer speech-recognition product (Wikipedia: Dragon NaturallySpeaking)"
+    ],
+    "extras": [
+      "Hubble Space Telescope launched (Apr 1990) (Wikipedia: Hubble Space Telescope)"
+    ]
+  },
+  "1991": {
+    "cs_highlights": [
+      "Linux kernel released by Linus Torvalds (Sep 1991) (Wikipedia: Linux)",
+      "First web page (info.cern.ch) goes live (Wikipedia: World Wide Web)"
+    ],
+    "nlp_research": [
+      "Kupiec, 'Robust Part-of-Speech Tagging Using a Hidden Markov Model' — first HMM POS tagger (Wikipedia: Julian Kupiec)",
+      "Manning, 'Automatic Acquisition of a Large Subcategorization Dictionary from Corpora' — empirical CL (Wikipedia: Christopher D. Manning)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Soviet Union dissolves (Dec 1991) (Wikipedia: Dissolution of the Soviet Union)"
+    ]
+  },
+  "1992": {
+    "cs_highlights": [
+      "Lynx web browser released (Wikipedia: Lynx (web browser))",
+      "First SMS text message sent (Dec 1992) (Wikipedia: SMS)"
+    ],
+    "nlp_research": [
+      "Abney, 'Stochastic Attribute-Value Grammars' — probabilistic unification grammars (Wikipedia: Steven Abney)",
+      "Brill, 'A Simple Rule-Based Part of Speech Tagger' — transformation-based learning (Wikipedia: Eric Brill)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "First Cold War-era declassified text-mining RFPs at DARPA (Wikipedia: DARPA)"
+    ]
+  },
+  "1993": {
+    "cs_highlights": [
+      "NCSA Mosaic — first popular graphical web browser (Wikipedia: Mosaic (web browser))",
+      "First smartphone: IBM Simon (Wikipedia: IBM Simon)"
+    ],
+    "nlp_research": [
+      "Berger, Pietra, & Pietra, 'A Maximum Entropy Approach to Natural Language Processing' (Computational Linguistics, 1996 — preprint 1993) — maxent/MEMs (Wikipedia: Maximum entropy model)"
+    ],
+    "nlp_applications": [
+      "Mosaic browser (NCSA, 1993) — makes the web accessible to non-technical users (Wikipedia: Mosaic (web browser))"
+    ],
+    "extras": [
+      "EU Maastricht Treaty signed — European Union formally established (Wikipedia: Maastricht Treaty)"
+    ]
+  },
+  "1994": {
+    "cs_highlights": [
+      "Netscape Navigator released (Wikipedia: Netscape Navigator)",
+      "Yahoo! founded (Mar 1994) (Wikipedia: Yahoo!)"
+    ],
+    "nlp_research": [
+      "Sparck Jones & Galliers, 'Evaluating Natural Language Processing Systems' — NLP evaluation framework (Wikipedia: Karen Spärck Jones)",
+      "Church, 'A Stochastic Parts Program and Noun Phrase Parser for Unrestricted Text' — unsupervised NLP parsing (Wikipedia: Kenneth Church)"
+    ],
+    "nlp_applications": [
+      "First commercial NLU-based IVR systems — call center automation (Wikipedia: Interactive voice response)"
+    ],
+    "extras": [
+      "Nelson Mandela elected President of South Africa (Wikipedia: Nelson Mandela)"
+    ]
+  },
+  "1995": {
+    "cs_highlights": [
+      "Java language released (Wikipedia: Java (programming language))",
+      "Windows 95 released (Wikipedia: Windows 95)"
+    ],
+    "nlp_research": [
+      "Hearst, 'Automatic Acquisition of Hyponyms from Large Text Corpora' — foundational for ontology learning (Wikipedia: Marti Hearst)",
+      "Blei, Ng, Jordan — LDA precursor work on topic modeling (Wikipedia: Topic model)"
+    ],
+    "nlp_applications": [
+      "Microsoft Office ships basic spell-checker grammar tools (Wikipedia: Microsoft Office)"
+    ],
+    "extras": [
+      "Homeland of NLP textbook: Allen, 'Natural Language Understanding' (2nd ed, 1995) — foundational CL text (Wikipedia: James Allen)"
+    ]
+  },
+  "1996": {
+    "cs_highlights": [
+      "First web search engine with PageRank precursor: AltaVista (Wikipedia: AltaVista)",
+      "PDA era: Palm Pilot (Wikipedia: Palm Pilot)"
+    ],
+    "nlp_research": [
+      "Baldwin, 'Parsing with Explicit Representations' — unification-based parsing (Wikipedia: Breck Baldwin)",
+      "Ratnaparkhi, 'A Maximum Entropy Part-Of-Speech Tagger' — MEM-based POS tagging (Wikipedia: Adwait Ratnaparkhi)"
+    ],
+    "nlp_applications": [],
+    "extras": [
+      "Dolly the sheep cloned (Wikipedia: Dolly (sheep))"
+    ]
+  },
+  "1997": {
+    "cs_highlights": [
+      "IBM Deep Blue defeats Garry Kasparov (May 1997) (Wikipedia: Deep Blue)",
+      "Wi-Fi 802.11 standard published (Wikipedia: IEEE 802.11)"
+    ],
+    "nlp_research": [
+      "Hochreiter & Schmidhuber, 'Long Short-Term Memory' (Neural Computation, 1997) — RNN with cell state and gates; tames vanishing gradient (Wikipedia: Long short-term memory)"
+    ],
+    "nlp_applications": [
+      "Dragon NaturallySpeaking 1.0 (Dragon Systems, 1997) — first consumer continuous-speech dictation product (Wikipedia: Dragon NaturallySpeaking)",
+      "Ask Jeeves launches — natural-language query search engine (Wikipedia: Ask Jeeves)"
+    ],
+    "extras": [
+      "Kyoto Protocol signed (Wikipedia: Kyoto Protocol)"
+    ]
+  },
+  "1998": {
+    "cs_highlights": [
+      "Google founded (Sep 4, 1998) (Wikipedia: Google)",
+      "iMac released (Wikipedia: iMac)"
+    ],
+    "nlp_research": [
+      "Brill, 'Transformation-Based Error-Driven Learning and Natural Language Processing' (1995) — widely cited by 1998 (Wikipedia: Eric Brill)",
+      "Mikheev, 'Part-of-Speech Tagging with Untagged Words' — robust tagging (Wikipedia: Andrei Mikheev)"
+    ],
+    "nlp_applications": [
+      "Google PageRank released — search engines begin massive text-mining (Wikipedia: PageRank)"
+    ],
+    "extras": [
+      "International Space Station construction begins (Wikipedia: International Space Station)"
+    ]
+  },
+  "1999": {
+    "cs_highlights": [
+      "Wi-Fi 802.11b widely deployed (Wikipedia: Wi-Fi)",
+      "BlackBerry 850 — first 'smartphone' as we know it (Wikipedia: BlackBerry)"
+    ],
+    "nlp_research": [
+      "Manning & Schütze, 'Foundations of Statistical Natural Language Processing' (MIT Press, 1999) — foundational textbook (Wikipedia: Christopher D. Manning)"
+    ],
+    "nlp_applications": [
+      "MSN Search launches (Wikipedia: MSN Search)"
+    ],
+    "extras": [
+      "Y2K concerns through year (Wikipedia: Year 2000 problem)"
+    ]
+  },
+  "2000": {
+    "cs_highlights": [
+      "Dot-com bubble peaks (Mar 2000) (Wikipedia: Dot-com bubble)",
+      "Xerox PARC introduces Ubiquitous Computing prototypes (Wikipedia: Ubiquitous computing)"
+    ],
+    "nlp_research": [
+      "Banko & Brill, 'Mitigating the Paucity-of-Data Problem' — data-driven NLP framing (Wikipedia: Michele Banko)",
+      "Collins, 'Discriminative Reranking for Natural Language Parsing' (2000) — seminal reranking parser (Wikipedia: Michael Collins)"
+    ],
+    "nlp_applications": [
+      "AT&T Labs' How May I Help You? (Gorin et al.) — spoken-language call-routing system (Wikipedia: AT&T Labs)"
+    ],
+    "extras": [
+      "Human Genome Project first draft (Wikipedia: Human Genome Project)"
+    ]
+  },
+  "2001": {
+    "cs_highlights": [
+      "Wikipedia launched (Jan 15, 2001) — becomes a critical corpus for NLP (Wikipedia: Wikipedia)",
+      "Windows XP released (Wikipedia: Windows XP)"
+    ],
+    "nlp_research": [
+      "Papineni, Roukos, Ward, & Zhu, 'BLEU: a Method for Automatic Evaluation of Machine Translation' (ACL 2002 — preprint 2001) — standard MT metric (Wikipedia: BLEU)",
+      "Tjong Kim Sang & De Meulder, 'Introduction to the CoNLL-2003 Shared Task: Language-Independent Named Entity Recognition' (precursor to 2003 evaluation) (Wikipedia: CONLL)"
+    ],
+    "nlp_applications": [
+      "MIT Oxygen project — pervasive computing for conversational interfaces (Wikipedia: MIT Oxygen Project)"
+    ],
+    "extras": [
+      "9/11 attacks reshape US research priorities (Wikipedia: September 11 attacks)"
+    ]
+  },
+  "2002": {
+    "cs_highlights": [
+      "Bluetooth 1.1 released (Wikipedia: Bluetooth)",
+      "Halo, 'BPM' (Bulletin of the SPM) — precursor to topic models (Wikipedia: David Blei)"
+    ],
+    "nlp_research": [
+      "Blei, Ng, & Jordan, 'Latent Dirichlet Allocation' (JMLR, 2003 — preprint 2002) — foundational topic model (Wikipedia: Latent Dirichlet allocation)",
+      "Knight, 'A Statistical MT Tutorial Workbook' — formalizes IBM Models (Wikipedia: Kevin Knight)"
+    ],
+    "nlp_applications": [
+      "Proofpoint — first commercial spam filter using Bayesian NLP (Wikipedia: Spam filtering)"
+    ],
+    "extras": [
+      "Euro banknotes and coins enter circulation (Wikipedia: Euro)"
+    ]
+  },
+  "2003": {
+    "cs_highlights": [
+      "WordPress launched (Wikipedia: WordPress)",
+      "Saccharomyces cerevisiae genome completed (Wikipedia: Saccharomyces cerevisiae)"
+    ],
+    "nlp_research": [
+      "Bengio, Duchesne, Vincent, & Jauvin, 'A Neural Probabilistic Language Model' (JMLR, 2003) — first learned distributed word embeddings as part of an LM (Wikipedia: Word embedding)",
+      "Tjong Kim Sang & De Meulder, CoNLL-2003 shared task on NER — establishes benchmark (Wikipedia: CoNLL)"
+    ],
+    "nlp_applications": [
+      "Systran MT used by EU institutions (Wikipedia: Systran)"
+    ],
+    "extras": [
+      "Space Shuttle Columbia disaster (Feb 1, 2003) (Wikipedia: Space Shuttle Columbia disaster)"
+    ]
+  },
+  "2004": {
+    "cs_highlights": [
+      "Web 2.0 — Flickr, Gmail, Facebook launch (Wikipedia: Web 2.0)",
+      "Mars Exploration Rovers land (Wikipedia: Mars Exploration Rover)"
+    ],
+    "nlp_research": [
+      "McCallum, 'Multi-label Text Classification with a Mixture Model by Label' — multi-label CRL (Wikipedia: Andrew McCallum)",
+      "Rosenfeld, 'Two Decades of Statistical Language Modeling' — milestones review (Wikipedia: Roni Rosenfeld)"
+    ],
+    "nlp_applications": [
+      "Vlingo — first consumer voice assistant on phones (Wikipedia: Vlingo)"
+    ],
+    "extras": [
+      "Facebook founded (Feb 4, 2004) (Wikipedia: Facebook)"
+    ]
+  },
+  "2005": {
+    "cs_highlights": [
+      "YouTube launched (Feb 14, 2005) — enormous text/audio corpus for NLP (Wikipedia: YouTube)",
+      "Reddit launched (Wikipedia: Reddit)"
+    ],
+    "nlp_research": [
+      "Och & Ney, 'The Alignment Template Approach to Statistical Machine Translation' (Computational Linguistics, 2004 — widely adopted 2005) (Wikipedia: Statistical machine translation)",
+      "Koehn releases 'Moses' open-source SMT toolkit (later 2007) — origin story begins (Wikipedia: Moses (machine translation))"
+    ],
+    "nlp_applications": [
+      "Google Translate launches in beta (Apr 2006) — statistical MT consumer product (Wikipedia: Google Translate)"
+    ],
+    "extras": [
+      "Pandora launched (Wikipedia: Pandora (service))"
+    ]
+  },
+  "2006": {
+    "cs_highlights": [
+      "AWS cloud services launched (Wikipedia: Amazon Web Services)",
+      "Twitter launched (Wikipedia: Twitter)"
+    ],
+    "nlp_research": [
+      "Hinton 'Deep Belief Nets' and 'A Fast Learning Algorithm for Deep Belief Nets' — neural nets return (Wikipedia: Deep belief network)",
+      "Och, 'Statistical Machine Translation: Foundations and Recent Advances' — comprehensive lecture (Wikipedia: Franz Josef Och)"
+    ],
+    "nlp_applications": [
+      "Google Translate live (Apr 2006) for Arabic, Chinese, Russian to/from English (Wikipedia: Google Translate)"
+    ],
+    "extras": [
+      "Pluto reclassified as dwarf planet (Wikipedia: Pluto)"
+    ]
+  },
+  "2007": {
+    "cs_highlights": [
+      "iPhone released (Jun 29, 2007) — smartphone + app ecosystem (Wikipedia: iPhone)",
+      "Amazon Kindle released (Wikipedia: Amazon Kindle)"
+    ],
+    "nlp_research": [
+      "Collobert & Weston, 'A Unified Architecture for Natural Language Processing' (ICML 2008 — preprint 2007) — neural net for POS/NER/SRL (Wikipedia: Ronan Collobert)",
+      "Moses SMT toolkit released (Koehn et al.) — open phrase-based MT (Wikipedia: Moses (machine translation))"
+    ],
+    "nlp_applications": [
+      "Apple iPhone ships with basic Siri precursor voice-dial (Wikipedia: iPhone)"
+    ],
+    "extras": [
+      "First Twitter messages sent (Wikipedia: Twitter)"
+    ]
+  },
+  "2008": {
+    "cs_highlights": [
+      "Google App Engine released (Wikipedia: Google App Engine)",
+      "Bitcoin whitepaper published (Oct 2008) (Wikipedia: Bitcoin)"
+    ],
+    "nlp_research": [
+      "Penn Discriminative Transition-based Dependency Parser (Yamada & Matsumoto) — popular dependency parsing (Wikipedia: Dependency parsing)",
+      "Stanford Named Entity Recognizer (Finkel, Grenager, Manning) — CRF-based popular NER (Wikipedia: Stanford NER)"
+    ],
+    "nlp_applications": [
+      "Google Search 'Suggest' — autocomplete of natural-language queries (Wikipedia: Google Suggest)"
+    ],
+    "extras": [
+      "Obama elected first Black US President (Wikipedia: Barack Obama)"
+    ]
+  },
+  "2009": {
+    "cs_highlights": [
+      "Bitcoin network goes live (Jan 2009) (Wikipedia: Bitcoin)",
+      "WhatsApp launched (Wikipedia: WhatsApp)"
+    ],
+    "nlp_research": [
+      "Mochihashi, 'A Topic Model for n-gram Models' — modern topic-LM hybrid (Wikipedia: Daisuke Mochihashi)",
+      "Haghighi, 'Concise Dependency Representations' — dependency semantics (Wikipedia: Aria Haghighi)"
+    ],
+    "nlp_applications": [
+      "BigQuery precursor at Google — analytical SQL on TBytes (Wikipedia: Google BigQuery)"
+    ],
+    "extras": [
+      "H1N1 swine flu pandemic (Wikipedia: 2009 flu pandemic)"
+    ]
+  },
+  "2010": {
+    "cs_highlights": [
+      "iPad released (Wikipedia: iPad)",
+      "Instagram launched (Wikipedia: Instagram)"
+    ],
+    "nlp_research": [
+      "He, 'A Bayesian Approach to Speech Recognition' — modern statistical ASR (Wikipedia: Li Deng)",
+      "Karger, 'Data-aware Scheduling for Big Data Analytics' — Google systems work (Wikipedia: David Karger)"
+    ],
+    "nlp_applications": [
+      "Siri acquired by Apple and integrated into iPhone 4S (Announced 2011; project life 2010 onwards) (Wikipedia: Siri)"
+    ],
+    "extras": [
+      "Deepwater Horizon oil spill (Wikipedia: Deepwater Horizon oil spill)"
+    ]
+  },
+  "2011": {
+    "cs_highlights": [
+      "IBM Watson wins Jeopardy! (Feb 2011) — open-domain QA system (Wikipedia: Watson (computer))",
+      "OpenTSCC GPU clusters — academic deep learning infrastructure (Wikipedia: OpenAI)"
+    ],
+    "nlp_research": [
+      "Semin, 'Linguistic Markers' precursor papers — stylistic NLP (Wikipedia: Gün Semin)",
+      "Huang et al., 'Recent progresses in deep learning for NLP' — workshop at NAACL (Wikipedia: Deep learning)"
+    ],
+    "nlp_applications": [
+      "Apple Siri launched (Oct 2011) — first mass-market voice assistant (Wikipedia: Siri)",
+      "IBM Watson's components include Jeopardy! system (Wikipedia: Watson)"
+    ],
+    "extras": [
+      "Fukushima Daiichi nuclear disaster (Mar 2011) (Wikipedia: Fukushima nuclear disaster)"
+    ]
+  },
+  "2012": {
+    "cs_highlights": [
+      "Krizhevsky, Sutskever, Hinton — AlexNet wins ImageNet (Sep 2012) — deep learning breakout (Wikipedia: AlexNet)",
+      "Google Glass announced (Wikipedia: Google Glass)"
+    ],
+    "nlp_research": [
+      "Mikolov, 'Statistical Language Models based on Neural Networks' — PhD thesis, Facebook AI (Wikipedia: Tomas Mikolov)",
+      "Collobert et al., 'Natural Language Processing (Almost) from Scratch' (JMLR, 2011 — widely cited 2012) — neural net for POS/NER/SRL (Wikipedia: Ronan Collobert)"
+    ],
+    "nlp_applications": [
+      "Microsoft Xiaoice launches in China — chatbot with 40M+ users (Wikipedia: Microsoft Xiaoice)"
+    ],
+    "extras": [
+      "Higgs boson confirmed at CERN (Jul 2012) (Wikipedia: Higgs boson)"
+    ]
+  },
+  "2013": {
+    "cs_highlights": [
+      "Bitcoin reaches $1,000 (Wikipedia: Bitcoin)"
+    ],
+    "nlp_research": [
+      "Mikolov, Chen, Corrado, Dean, 'Efficient Estimation of Word Representations in Vector Space' (arXiv:1301.3781, 2013) — word2vec CBOW and Skip-gram (Wikipedia: Word2vec)",
+      "Pennington, Socher, Manning, 'GloVe: Global Vectors for Word Representation' (EMNLP 2014 — preprint Oct 2013) (Wikipedia: GloVe)",
+      "Girshick et al., 'Rich feature hierarchies for accurate object detection' — R-CNN (Wikipedia: R-CNN)"
+    ],
+    "nlp_applications": [
+      "Word2Vec released by Google — open-source word embeddings (Wikipedia: Word2vec)"
+    ],
+    "extras": [
+      "Snowden disclosures (Jun 2013) (Wikipedia: Edward Snowden)"
+    ]
+  },
+  "2014": {
+    "cs_highlights": [
+      "Facebook acquires WhatsApp (Feb 2014) (Wikipedia: WhatsApp)"
+    ],
+    "nlp_research": [
+      "Sutskever, Vinyals, Le, 'Sequence to Sequence Learning with Neural Networks' (NIPS 2014) — encoder-decoder LSTM for MT (Wikipedia: Seq2seq)",
+      "Bahdanau, Cho, Bengio, 'Neural Machine Translation by Jointly Learning to Align and Translate' (ICLR 2015 — preprint 2014) — additive attention (Wikipedia: Attention (machine learning))",
+      "Kim, 'Convolutional Neural Networks for Sentence Classification' (EMNLP 2014) — TextCNN (Wikipedia: Yoon Kim)"
+    ],
+    "nlp_applications": [
+      "Amazon Alexa launched (Nov 2014) — Echo and Alexa voice assistant (Wikipedia: Amazon Alexa)"
+    ],
+    "extras": [
+      "Rosetta lands on comet 67P (Wikipedia: Rosetta (spacecraft))"
+    ]
+  },
+  "2015": {
+    "cs_highlights": [
+      "TensorFlow 1.0 (Google) released (Wikipedia: TensorFlow)",
+      "AlphaGo defeats Fan Hui (Oct 2015) (Wikipedia: AlphaGo)"
+    ],
+    "nlp_research": [
+      "Karpathy, 'The Unreasonable Effectiveness of Recurrent Neural Networks' — influential blog post (Wikipedia: Andrej Karpathy)",
+      "Le & Mikolov, 'Distributed Representations of Sentences and Documents' — Paragraph Vectors / Doc2Vec (Wikipedia: Doc2Vec)"
+    ],
+    "nlp_applications": [
+      "Google launches Smart Reply in Inbox (Nov 2015) — first NN-based email reply suggestion (Wikipedia: Smart Reply)"
+    ],
+    "extras": [
+      "Paris Climate Agreement signed (Wikipedia: Paris Agreement)"
+    ]
+  },
+  "2016": {
+    "cs_highlights": [
+      "AlphaGo defeats Lee Sedol (Mar 2016) (Wikipedia: AlphaGo)",
+      "Google Pixel phone launches (Wikipedia: Pixel)"
+    ],
+    "nlp_research": [
+      "Wu et al., 'Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation' (GNMT) — 8-layer encoder-decoder with attention (Wikipedia: Google Neural Machine Translation)",
+      "Kiros et al., 'Skip-Thought Vectors' — unsupervised sentence embeddings (Wikipedia: Ryan Kiros)"
+    ],
+    "nlp_applications": [
+      "Google Translate rolls out GNMT (Sep 2016) — first production NMT at scale (Wikipedia: Google Neural Machine Translation)",
+      "Google Assistant launched (May 2016) (Wikipedia: Google Assistant)"
+    ],
+    "extras": [
+      "Pokémon GO becomes world's most-downloaded mobile app (Wikipedia: Pokémon GO)"
+    ]
+  },
+  "2017": {
+    "cs_highlights": [
+      "AlphaGo Zero learns from self-play (Wikipedia: AlphaGo Zero)"
+    ],
+    "nlp_research": [
+      "Vaswani et al., 'Attention Is All You Need' (NeurIPS 2017) — Transformer replaces recurrence (Wikipedia: Transformer (deep learning architecture))",
+      "Howard & Ruder, 'Universal Language Model Fine-tuning for Text Classification' (ACL 2018 — preprint 2017) — ULMFiT (Wikipedia: ULMFiT)",
+      "McCann et al., 'Learned in Translation: Contextualized Word Vectors' (CoNLL 2017) — CoVe (Wikipedia: Bryan McCann)"
+    ],
+    "nlp_applications": [
+      "Google, Microsoft, Baidu, Facebook all switch internal MT to NMT (Wikipedia: Neural machine translation)"
+    ],
+    "extras": [
+      "#MeToo movement goes viral (Wikipedia: Me Too movement)"
+    ]
+  },
+  "2018": {
+    "cs_highlights": [
+      "Cambridge Analytica scandal (Wikipedia: Cambridge Analytica)"
+    ],
+    "nlp_research": [
+      "Devlin, Chang, Lee, & Toutanova, 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding' (NAACL 2019 — preprint Oct 2018) — masked LM (Wikipedia: BERT)",
+      "Radford et al., 'Improving Language Understanding by Generative Pre-Training' (OpenAI, Jun 2018) — GPT-1 (Wikipedia: GPT-1)",
+      "Peters et al., 'Deep contextualized word representations' (NAACL 2018) — ELMo (Wikipedia: ELMo)"
+    ],
+    "nlp_applications": [
+      "Google Duplex debuts (May 2018) — natural-language phone calls on behalf of users (Wikipedia: Google Duplex)"
+    ],
+    "extras": [
+      "GDPR implemented in EU (Wikipedia: General Data Protection Regulation)"
+    ]
+  },
+  "2019": {
+    "cs_highlights": [
+      "Quantum supremacy claim by Google (Oct 2019) (Wikipedia: Quantum supremacy)"
+    ],
+    "nlp_research": [
+      "Yang et al., 'XLNet: Generalized Autoregressive Pretraining for Language Understanding' (NeurIPS 2019) — permutation LM (Wikipedia: XLNet)",
+      "Liu et al., 'RoBERTa: A Robustly Optimized BERT Pretraining Approach' (arXiv:1907.11692, 2019) (Wikipedia: RoBERTa)",
+      "Raffel et al., 'Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer' (JMLR, 2020 — preprint 2019) — T5 (Wikipedia: T5)",
+      "Radford et al., 'Language Models are Unsupervised Multitask Learners' (OpenAI, 2019) — GPT-2 (Wikipedia: GPT-2)"
+    ],
+    "nlp_applications": [
+      "GPT-2 released (Feb 2019) — initially withheld for 'too dangerous' (Wikipedia: GPT-2)"
+    ],
+    "extras": [
+      "First image of a black hole (Apr 2019) (Wikipedia: Black hole)"
+    ]
+  },
+  "2020": {
+    "cs_highlights": [
+      "COVID-19 pandemic disrupts global research (Wikipedia: COVID-19 pandemic)"
+    ],
+    "nlp_research": [
+      "Brown et al., 'Language Models are Few-Shot Learners' (NeurIPS 2020) — GPT-3, 175B parameters (Wikipedia: GPT-3)",
+      "Lewis et al., 'BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation' (ACL 2020) (Wikipedia: BART)",
+      "Wang et al., 'GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding' (Wikipedia: GLUE (benchmark))"
+    ],
+    "nlp_applications": [
+      "GPT-3 API released by OpenAI (Jun 2020) — first widely-used foundation-model API (Wikipedia: GPT-3)",
+      "GitHub Copilot precursor tech demos (Wikipedia: GitHub Copilot)"
+    ],
+    "extras": [
+      "Brexit (UK leaves EU, Jan 31, 2020) (Wikipedia: Brexit)"
+    ]
+  },
+  "2021": {
+    "cs_highlights": [
+      "Bitcoin reaches $69K (Wikipedia: Bitcoin)"
+    ],
+    "nlp_research": [
+      "Khattab & Zaharia, 'ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT' (SIGIR 2020 — widely cited 2021) (Wikipedia: ColBERT)",
+      "Bommasani et al., 'On the Opportunities and Risks of Foundation Models' (Stanford CRFM, 2021) — foundational-model framing (Wikipedia: Foundation model)",
+      "Räuker et al., 'Toward Transparent AI: A Survey on Interpreting the Inner Structures of Deep Neural Networks' (Wikipedia: Interpretability)"
+    ],
+    "nlp_applications": [
+      "GitHub Copilot launched (Oct 2021) — first mainstream AI coding assistant (Wikipedia: GitHub Copilot)"
+    ],
+    "extras": [
+      "James Webb Space Telescope launched (Dec 2021) (Wikipedia: James Webb Space Telescope)"
+    ]
+  },
+  "2022": {
+    "cs_highlights": [
+      "Midjourney launches AI image generation (Wikipedia: Midjourney)"
+    ],
+    "nlp_research": [
+      "Ouyang et al., 'Training Language Models to Follow Instructions with Human Feedback' (NeurIPS 2022) — InstructGPT, RLHF (Wikipedia: Reinforcement learning from human feedback)",
+      "Sanh et al., 'Multitask Prompted Training Enables Zero-Shot Task Generalization' (BigScience, 2022) — T0 / FLAN-T5 (Wikipedia: FLAN)",
+      "Chowdhery et al., 'PaLM: Scaling Language Modeling with Pathways' (2022) — 540B dense (Wikipedia: PaLM)"
+    ],
+    "nlp_applications": [
+      "ChatGPT launched (Nov 30, 2022) — 100M users in 2 months (Wikipedia: ChatGPT)",
+      "Stable Diffusion open-source image generation (Wikipedia: Stable Diffusion)"
+    ],
+    "extras": [
+      "Russia invades Ukraine (Feb 24, 2022) (Wikipedia: Russian invasion of Ukraine)"
+    ]
+  },
+  "2023": {
+    "cs_highlights": [
+      "Apple Vision Pro announced (Wikipedia: Vision Pro)"
+    ],
+    "nlp_research": [
+      "Bubeck et al., 'Sparks of Artificial General Intelligence: Early experiments with GPT-4' (Microsoft Research, 2023) — emergent reasoning analysis (Wikipedia: GPT-4)",
+      "Touvron et al., 'LLaMA: Open and Efficient Foundation Language Models' (Meta, 2023) — open 7B/13B/65B (Wikipedia: LLaMA)",
+      "Anthropic, 'Claude's Constitution' (2023) — Constitutional AI framework (Wikipedia: Constitutional AI)"
+    ],
+    "nlp_applications": [
+      "GPT-4 launched (Mar 2023) — multimodal, exams (Wikipedia: GPT-4)",
+      "Llama 2 released (Jul 2023) — open-weights foundation model (Wikipedia: Llama 2)",
+      "Claude 2 launched (Jul 2023) — 100K context window (Wikipedia: Claude (language model))"
+    ],
+    "extras": [
+      "OpenAI board briefly fires Sam Altman (Nov 2023) (Wikipedia: Sam Altman)"
+    ]
+  },
+  "2024": {
+    "cs_highlights": [
+      "Olympics Paris 2024 (Wikipedia: 2024 Summer Olympics)"
+    ],
+    "nlp_research": [
+      "OpenAI o1 released (Sep 2024) — test-time compute reasoning paradigm (Wikipedia: OpenAI o1)",
+      "Anthropic, 'Model Context Protocol' open standard (Nov 2024) — USB-C for AI (Wikipedia: Model Context Protocol)",
+      "Anthropic, 'Claude 3.5 Sonnet' (Jun 2024) — top coding benchmark at release (Wikipedia: Claude (language model))"
+    ],
+    "nlp_applications": [
+      "Claude 3.5 Sonnet (Jun 2024) and OpenAI o1 (Sep 2024) redefine code-and-reason assistant workflows (Wikipedia: Claude, OpenAI o1)",
+      "OpenAI SearchGPT preview (Jul 2024) — AI-augmented search (Wikipedia: SearchGPT)"
+    ],
+    "extras": [
+      "Nobel Prize in Physics: Hopfield & Hinton (Oct 2024) — first AI pioneers honored (Wikipedia: Nobel Prize in Physics 2024)"
+    ]
+  },
+  "2025": {
+    "cs_highlights": [
+      "Stargate Project announced (Jan 2025) — $500B US AI infrastructure initiative (Wikipedia: Stargate Project)"
+    ],
+    "nlp_research": [
+      "DeepSeek, 'DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning' (Jan 2025) — open-weight reasoning model matching o1 (Wikipedia: DeepSeek)",
+      "Anthropic, 'Claude 3.7 Sonnet' reasoning hybrid (Feb 2025) (Wikipedia: Claude (language model))",
+      "NeurIPS 2025 best papers — agentic & reasoning themes (Wikipedia: NeurIPS)"
+    ],
+    "nlp_applications": [
+      "DeepSeek-R1 release (Jan 2025) — open-weight reasoning model (Wikipedia: DeepSeek)",
+      "AI agents in production: Salesforce Agentforce, Microsoft Copilot Studio (Wikipedia: Agentic AI)"
+    ],
+    "extras": [
+      "Nobel Prize in Chemistry: Hassabis, Jumper, Baker (Oct 2024 → honored 2025) for AlphaFold (Wikipedia: Nobel Prize in Chemistry 2024)"
+    ]
+  },
+  "2026": {
+    "cs_highlights": [
+      "Frontier AI training runs exceed 1e28 FLOPs (consensus projection) (Wikipedia: Frontier AI)"
+    ],
+    "nlp_research": [
+      "Frontier reasoning models combine test-time compute, MCP tool use, multimodality, and long-context (Wikipedia: Model Context Protocol)",
+      "First peer-reviewed fully-agentic scientific paper authored with substantial AI assistance (Wikipedia: AI-generated research)"
+    ],
+    "nlp_applications": [
+      "Personal AI agents embedded in OSes (Apple, Google, Microsoft) — agentic workflows mainstream (Wikipedia: Agentic AI)",
+      "Voice-first conversational AI replaces chunk of helpdesk human labor (Wikipedia: Conversational AI)"
+    ],
+    "extras": [
+      "AI-related regulations proliferate globally (EU AI Act Phase 2, US Executive Orders) (Wikipedia: EU AI Act)"
+    ]
+  },
+  "2027": {
+    "cs_highlights": [
+      "Frontier reasoning surpasses PhD-level on most academic benchmarks (MMLU-Pro, GPQA Diamond, AMC 12 >90%) (Wikipedia: MMLU)"
+    ],
+    "nlp_research": [
+      "First widely-deployed models with 100M+ context windows (Wikipedia: Long context)",
+      "Multi-agent orchestration frameworks (AutoGen, CrewAI, LangGraph) reach production-grade reliability (Wikipedia: AutoGen)"
+    ],
+    "nlp_applications": [
+      "AI doctors bound for clinical triage in 5+ countries (Wikipedia: AI in healthcare)",
+      "Agentic software engineers take 30%+ of new code in large tech firms (Wikipedia: AI in software engineering)"
+    ],
+    "extras": [
+      "AI Index 2027 (Stanford HAI): LLM performance crosses median human expert in 70% of cognitive tasks (Wikipedia: AI Index)"
+    ]
+  },
+  "2028": {
+    "cs_highlights": [
+      "Personal AI agents reach billions of MAUs (Wikipedia: Generative AI)"
+    ],
+    "nlp_research": [
+      "First AI system certified Level-4 autonomous on long-horizon benchmarks (Wikipedia: Autonomous agent)",
+      "Embodied-language models for robotics mainstream (Wikipedia: Robotics)"
+    ],
+    "nlp_applications": [
+      "First agentic OS — Apple Intelligence 2.0 and Microsoft Copilot OS — ship with persistent memory and tool use (Wikipedia: Apple Intelligence)",
+      "AI tutoring reaches 100M+ students worldwide (Wikipedia: AI in education)"
+    ],
+    "extras": [
+      "World AI conferences (NeurIPS, ACL) feature 50%+ papers on agentic systems (Wikipedia: NeurIPS)"
+    ]
+  },
+  "2029": {
+    "cs_highlights": [
+      "AGI predictions converge: 50% of Meta AI survey and Aschenbrenner situational-awareness scenarios see high-level AGI by 2029 (Wikipedia: AGI)"
+    ],
+    "nlp_research": [
+      "Long-context reasoning stabilized at 1B+ tokens (Wikipedia: Long context)",
+      "End-to-end neural-symbolic pipelines solve mathematical olympiads (Wikipedia: Automated theorem proving)"
+    ],
+    "nlp_applications": [
+      "AI co-scientists design and run physical experiments in autonomous labs (Wikipedia: Self-driving lab)"
+    ],
+    "extras": [
+      "AI Index 2029 (Stanford HAI): frontier models match median professional across most domains (Wikipedia: AI Index)"
+    ]
+  },
+  "2030": {
+    "cs_highlights": [
+      "AI-augmented scientific discovery — AI contributes to novel catalysts, drug candidates, weather forecasts, fusion-plasma control, theorem proving (Wikipedia: AI in science)"
+    ],
+    "nlp_research": [
+      "First AI-discovered drug in Phase II clinical trials (Wikipedia: AI in pharmaceutical industry)",
+      "AGI safety field standardized with governance frameworks (Wikipedia: AI safety)"
+    ],
+    "nlp_applications": [
+      "AI tutors widespread in primary and secondary education globally (Wikipedia: AI in education)",
+      "AI agents complete end-to-end software projects (Wikipedia: Agentic AI)"
+    ],
+    "extras": [
+      "2030 climate targets — AI energy footprint is significant share of data-center electricity (Wikipedia: Environmental impact of AI)",
+      "First UN AI governance treaty draft (Wikipedia: International AI governance)"
+    ]
+  }
+}

@@ -284,6 +284,87 @@ html {
   white-space: nowrap;
 }
 
+/* Citation pill — inline parenthetical sources in year-card bullets */
+.cite-pill {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--maroon-500);
+  background: var(--neu-base);
+  box-shadow:
+    inset 1px 1px 2px var(--shadow-color-xs),
+    inset -1px -1px 2px var(--highlight-color-xs);
+  vertical-align: 1px;
+  transition: color 0.2s ease;
+}
+.cite-pill:hover {
+  color: var(--maroon-600);
+}
+
+/* Hero gradient banner — used at the top of the main page */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 44, 44, 0.10) 0%,
+    rgba(139, 44, 44, 0.04) 30%,
+    transparent 60%
+  );
+}
+
+/* Subtle dot pattern on the hero — adds depth without distracting */
+.hero-dots {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(139, 44, 44, 0.07) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+/* Animated shimmer under the hero number — pure CSS */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer-sweep 3s ease-in-out infinite;
+}
+
+/* Era-color ribbon at the top of the year card */
+.era-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    currentColor 50%,
+    transparent 100%
+  );
+  border-radius: 20px 20px 0 0;
+}
+
 /* Print friendliness */
 @media print {
   body { background: white; }
