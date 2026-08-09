@@ -23,6 +23,8 @@ type Era = {
   id: string;
   label: string;
   years: string;
+  startYear: number;
+  endYear: number;
   color: string;
   summary: string;
   milestones: Milestone[];
@@ -200,7 +202,10 @@ export default function Home() {
     };
   }, [activeYear, data.eras]);
 
-  // Filtered eras (for the timeline track) — by era + search
+  // Filtered eras — by era picker + search.
+  // The era's full year range is always shown (year-pill row), but the
+  // MILESTONE list is filtered by the search query so the right-side
+  // panel and the modal's primary content react to search.
   const filteredEras = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return data.eras.map((era) => ({
@@ -218,8 +223,28 @@ export default function Home() {
         ].join(' ').toLowerCase();
         return haystack.includes(q);
       }),
-    })).filter((era) => era.milestones.length > 0);
+    })).filter((era) => {
+      // Era filter: keep only the active era if one is selected
+      if (activeEra !== 'all' && era.id !== activeEra) return false;
+      // If searching, keep eras that have matching milestone OR all years
+      // are in the era — we always want to show the era row
+      return true;
+    });
   }, [data.eras, activeEra, searchQuery, yearContentMap]);
+
+  // For each era, the list of year numbers to render in the year-pill row.
+  // Includes EVERY year from startYear..endYear, not just milestones — so
+  // every year 1950-2030 is clickable, with milestone years styled as
+  // .neu-node-sm pills and non-milestone years as plain .year-label.
+  const eraYearsByEra = useMemo<Record<string, number[]>>(() => {
+    const out: Record<string, number[]> = {};
+    for (const era of data.eras) {
+      const years: number[] = [];
+      for (let y = era.startYear; y <= era.endYear; y++) years.push(y);
+      out[era.id] = years;
+    }
+    return out;
+  }, [data.eras]);
 
   // Flat list of years that pass search + era filter (every year 1950-2030, not just milestones)
   const flatYears = useMemo<number[]>(() => {
@@ -479,31 +504,45 @@ export default function Home() {
                 <span className="w-3 h-3 rounded-full" style={{ background: era.color }} />
                 {era.label}
               </h2>
-              <span className="text-neu-muted text-xs font-medium">{era.years}</span>
+              <span className="text-neu-muted text-xs font-medium">
+                {era.years} · {era.milestones.length} milestone{era.milestones.length !== 1 ? 's' : ''}
+              </span>
             </div>
             <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
 
-            <div className="relative pb-6 overflow-hidden">
-              <div className="flex items-center gap-2 px-2 flex-wrap">
-                {era.milestones.map((m, i) => {
-                  const isActive = activeYear === m.year;
-                  return (
-                    <div key={`${m.year}-${m.title}`} className="flex items-center">
+            <div className="relative pb-4 overflow-hidden">
+              <div className="flex items-center gap-1.5 px-2 flex-wrap">
+                {(eraYearsByEra[era.id] ?? []).map((y, i) => {
+                  const milestone = era.milestones.find((m) => m.year === y);
+                  const isActive = activeYear === y;
+                  const isMilestone = !!milestone;
+                  if (isMilestone) {
+                    return (
                       <motion.button
+                        key={`${y}-${milestone!.title}`}
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: i * 0.04, duration: 0.3 }}
-                        onClick={() => openYear(setActiveYear, m)}
-                        className={`neu-node year-button ${isActive ? 'neu-node-active' : ''}`}
+                        transition={{ delay: i * 0.012, duration: 0.25 }}
+                        onClick={() => openYear(setActiveYear, milestone!)}
+                        className={`neu-node-sm year-button ${isActive ? 'neu-node-active' : ''}`}
                         style={isActive ? { color: 'var(--maroon-500)' } : {}}
-                        title={`${m.year} — ${m.title}`}
+                        title={`${y} — ${milestone!.title}`}
+                        aria-label={`${y} — ${milestone!.title}`}
                       >
-                        {m.year}
+                        {y}
                       </motion.button>
-                      {i < era.milestones.length - 1 && (
-                        <div className="w-7 h-1 mx-1 rounded-full neu-track" />
-                      )}
-                    </div>
+                    );
+                  }
+                  return (
+                    <button
+                      key={`y-${y}`}
+                      onClick={() => setActiveYear(y)}
+                      className={`year-label ${isActive ? 'year-label-active' : ''}`}
+                      title={`Open ${y}`}
+                      aria-label={`Open ${y}`}
+                    >
+                      {y}
+                    </button>
                   );
                 })}
               </div>

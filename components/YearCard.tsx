@@ -22,6 +22,66 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMemo, useState } from 'react';
 
+// ---- Reference filtering ----
+// Generic NLP community resources that appear in every milestone's link
+// list but are NOT specific to that year. We hide them so each year
+// card shows only the references that are actually relevant to that
+// specific year/milestone. This is the "divide links by specific year"
+// fix the user asked for.
+const GENERIC_NLP_LABELS = [
+  'Wikipedia: Natural language processing',
+  'Wikipedia: History of natural language processing',
+  'Wikipedia: Computational linguistics',
+  'ACL Anthology',
+  'ACL Anthology search',
+  'Stanford NLP',
+  'Stanford CS224N',
+  'Stanford CS224N: NLP with Deep Learning',
+  'Stanford CS224N: LMs intro',
+  'Jurafsky & Martin: n-gram LMs chapter',
+  'Cornell CS4740: language models',
+  'ACL',
+  'NAACL',
+  'TACL',
+  'JAIR',
+  'MIT Press NLP',
+  'arXiv cs.CL',
+  'Papers with Code',
+  'HuggingFace',
+  'Google Scholar',
+  'Semantic Scholar',
+  'DBLP',
+  'OpenReview',
+  'Distill.pub',
+  'Deep Learning book',
+];
+
+// Detect year-specific references. A link is "year-specific" if:
+//   1. It's the primary paper / first-author page for the milestone
+//   2. Its label or URL contains the year (e.g. "1997 LSTM")
+//   3. It refers to a person, paper, or concept directly tied to this
+//      milestone (not a generic NLP resource)
+// Since we only have label + URL, we use a heuristic: drop entries whose
+// label matches one of the generic archetypes above. Everything else
+// is kept and ordered by score (URLs with the year rank highest).
+function filterLinksForYear(links: Link[], year: number): Link[] {
+  const filtered = links.filter(
+    (l) => !GENERIC_NLP_LABELS.includes(l.label),
+  );
+  // Sort: links whose label or URL mention the year go first
+  const sorted = [...filtered].sort((a, b) => {
+    const aHasYear =
+      a.label.includes(String(year)) || a.url.includes(String(year));
+    const bHasYear =
+      b.label.includes(String(year)) || b.url.includes(String(year));
+    if (aHasYear && !bHasYear) return -1;
+    if (!aHasYear && bHasYear) return 1;
+    return 0;
+  });
+  // Cap at 6 to keep the card scannable
+  return sorted.slice(0, 6);
+}
+
 // ---- Types ----
 export type Link = { label: string; url: string };
 export type Era = {
@@ -394,32 +454,37 @@ export default function YearCard({
             ) : null}
           </div>
 
-          {/* References — always shown if milestone exists. Wraps naturally;
-     no internal scroll — the parent card scrolls if needed. */}
-          {milestone?.links && milestone.links.length > 0 && (
-            <div className="mt-5 pt-4 border-t border-neu-dark/20">
-              <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-2">
-                References{' '}
-                <span className="text-neu-muted font-normal">
-                  ({milestone.links.length})
-                </span>
-              </h4>
-              <div className="flex flex-col gap-1.5">
-                {milestone.links.map((l) => (
-                  <a
-                    key={l.url}
-                    href={l.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="neu-link w-fit text-[11px]"
-                  >
-                    <span>↗</span>
-                    <span>{l.label}</span>
-                  </a>
-                ))}
+          {/* References — only year-specific links. Filters out generic
+             NLP community resources so each year card shows only the
+             references that actually relate to that specific year. */}
+          {milestone?.links && milestone.links.length > 0 && (() => {
+            const filtered = filterLinksForYear(milestone.links, milestone.year);
+            if (filtered.length === 0) return null;
+            return (
+              <div className="mt-5 pt-4 border-t border-neu-dark/20">
+                <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-2">
+                  References{' '}
+                  <span className="text-neu-muted font-normal">
+                    ({filtered.length})
+                  </span>
+                </h4>
+                <div className="flex flex-col gap-1.5">
+                  {filtered.map((l) => (
+                    <a
+                      key={l.url}
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="neu-link w-fit text-[11px]"
+                    >
+                      <span>↗</span>
+                      <span>{l.label}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
 
           {/* Footer navigation */}
           <div className="flex justify-between gap-2 pt-4 mt-5 border-t border-neu-dark/20">

@@ -2311,7 +2311,9 @@
             "parsing"
           ]
         }
-      ]
+      ],
+      "startYear": 1950,
+      "endYear": 1989
     },
     {
       "id": "statistical",
@@ -3341,7 +3343,9 @@
             "statistical"
           ]
         }
-      ]
+      ],
+      "startYear": 1990,
+      "endYear": 2010
     },
     {
       "id": "embeddings",
@@ -4441,7 +4445,9 @@
             "deep-learning"
           ]
         }
-      ]
+      ],
+      "startYear": 2011,
+      "endYear": 2016
     },
     {
       "id": "transformers",
@@ -5701,7 +5707,9 @@
             "consumer-product"
           ]
         }
-      ]
+      ],
+      "startYear": 2017,
+      "endYear": 2022
     },
     {
       "id": "agentic",
@@ -7870,7 +7878,9 @@
             "biotech"
           ]
         }
-      ]
+      ],
+      "startYear": 2023,
+      "endYear": 2030
     }
   ]
 }

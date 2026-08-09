@@ -3,7 +3,7 @@ import './globals.css';
 import FirebaseAnalytics from '@/components/FirebaseAnalytics';
 
 export const metadata: Metadata = {
-  title: 'Evolution of NLP — 1950 to 2030',
+  title: 'NLP — 1950 to 2030',
   description:
     'An interactive timeline of Natural Language Processing history — from the 1950s to the present day. Built for the Introduction to NLP course, Delhi Technological University.',
   keywords: [
@@ -19,10 +19,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Jai Kumar Meena' }],
   openGraph: {
-    title: 'Evolution of NLP — 1950 to 2030',
+    title: 'NLP — 1950 to 2030',
     description:
       'An interactive timeline of Natural Language Processing history with curated milestones, research highlights, and applications.',
     type: 'website',
+  },
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
   },
 };
 
