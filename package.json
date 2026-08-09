@@ -7,19 +7,26 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy:preview": "npm run build && firebase hosting:channel:deploy preview",
+    "deploy:message": "firebase deploy --only hosting --message \"Update from local\""
   },
   "dependencies": {
-    "next": "14.2.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^11.3.8",
-    "tailwindcss": "^3.4.7",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.40",
-    "typescript": "^5.5.3",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "firebase": "^12.17.1",
+    "framer-motion": "^11.3.8",
+    "next": "14.2.5",
+    "postcss": "^8.4.40",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.5.0"
   }
 }
