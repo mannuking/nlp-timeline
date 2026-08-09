@@ -20,7 +20,7 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 // ---- Reference filtering ----
 // Generic NLP community resources that appear in every milestone's link
@@ -170,16 +170,31 @@ function Section({
   accent,
   bullets,
   fallback,
+  variant = 'numbered',
+  onCitations,
 }: {
   index: number;
-  number: string;
+  number?: string;
   title: string;
   accent: string;
   bullets: string[] | undefined;
   fallback?: string;
+  variant?: 'numbered' | 'sub';
+  onCitations?: (cites: string[]) => void;
 }) {
   const hasBullets = bullets && bullets.length > 0;
   if (!hasBullets && !fallback) return null;
+
+  // Collect citations from every bullet in this section so the parent
+  // can show a single References list at the bottom of the card.
+  const allCitations: string[] = [];
+  if (hasBullets) {
+    for (const b of bullets!) {
+      const { citations } = splitBullet(b);
+      allCitations.push(...citations);
+    }
+    if (onCitations) onCitations(allCitations);
+  }
 
   return (
     <motion.div
@@ -189,39 +204,52 @@ function Section({
       animate="visible"
       className="relative"
     >
-      <div className="flex items-baseline gap-2.5 mb-2.5">
-        <span
-          className="font-display font-light leading-none"
-          style={{ color: accent, fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
-        >
-          {number}
-        </span>
-        <h4
-          className="font-display font-medium text-neu-text leading-snug"
-          style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)' }}
-        >
-          {title}
-        </h4>
-      </div>
+      {variant === 'numbered' ? (
+        <div className="flex items-baseline gap-2.5 mb-2.5">
+          {number && (
+            <span
+              className="font-display font-light leading-none"
+              style={{ color: accent, fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
+            >
+              {number}
+            </span>
+          )}
+          <h4
+            className="font-display font-medium text-neu-text leading-snug"
+            style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)' }}
+          >
+            {title}
+          </h4>
+        </div>
+      ) : (
+        <div className="mb-1.5 mt-1">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-neu-muted">
+            {title}
+          </span>
+        </div>
+      )}
       {hasBullets ? (
         <motion.ul
           variants={bulletContainerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-1.5 pl-7 sm:pl-8"
+          className={`space-y-1.5 ${variant === 'numbered' ? 'pl-7 sm:pl-8' : 'pl-3 sm:pl-4'}`}
         >
-          {bullets!.map((b, i) => (
-            <motion.li
-              key={i}
-              variants={bulletVariants}
-              className="relative text-neu-text leading-relaxed text-[13px] sm:text-sm before:content-['—'] before:absolute before:-left-4 sm:before:-left-5 before:text-neu-muted before:font-semibold"
-            >
-              <span dangerouslySetInnerHTML={{ __html: highlightCitations(b) }} />
-            </motion.li>
-          ))}
+          {bullets!.map((b, i) => {
+            const { text } = splitBullet(b);
+            return (
+              <motion.li
+                key={i}
+                variants={bulletVariants}
+                className="relative text-neu-text leading-relaxed text-[13px] sm:text-sm before:content-['—'] before:absolute before:-left-4 sm:before:-left-5 before:text-neu-muted before:font-semibold"
+              >
+                <span>{text}</span>
+              </motion.li>
+            );
+          })}
         </motion.ul>
       ) : (
-        <p className="text-neu-muted italic pl-7 sm:pl-8 text-[13px] sm:text-sm leading-relaxed">
+        <p className={`text-neu-muted italic text-[13px] sm:text-sm leading-relaxed ${variant === 'numbered' ? 'pl-7 sm:pl-8' : ''}`}>
           {fallback}
         </p>
       )}
@@ -230,13 +258,54 @@ function Section({
 }
 
 // ---- Cite highlighter (renders the parenthetical source in a subtle pill) ----
-function highlightCitations(text: string): string {
-  // Wrap any "(...)" parenthetical at the end of a bullet in a subtle maroon pill.
-  // Format: "Some claim (Source: x)" → Some claim <span class="cite">(Source: x)</span>
-  return text.replace(
-    /(\((?:[^()]*?(?:Wikipedia|arxiv|ACL|aclanthology|NYT|Nature|Science|Source)[^()]*?)\))/gi,
-    '<span class="cite-pill">$1</span>',
-  );
+// Extract + strip citation parentheticals from a bullet so the body
+// text stays clean, and the citations can be collected into a single
+// References section at the bottom of the card.
+//   Input:  "LISP developed by McCarthy (Wikipedia: Lisp)"
+//   Output: { text: "LISP developed by McCarthy", citations: ["Wikipedia: Lisp"] }
+function splitBullet(text: string): { text: string; citations: string[] } {
+  const citations: string[] = [];
+  // Match any parenthesised expression that looks like a citation
+  // (contains Wikipedia / arXiv / ACL / etc.). To handle nested parens
+  // like "(Wikipedia: Lisp (programming language))", we count parens
+  // manually from the opening "(": find the closing ")" that matches.
+  const result: string[] = [];
+  let i = 0;
+  while (i < text.length) {
+    const open = text.indexOf('(', i);
+    if (open === -1) {
+      result.push(text.slice(i));
+      break;
+    }
+    // Push everything before the "("
+    result.push(text.slice(i, open));
+    // Find the matching ")" by counting nested parens
+    let depth = 1;
+    let j = open + 1;
+    while (j < text.length && depth > 0) {
+      const ch = text[j];
+      if (ch === '(') depth++;
+      else if (ch === ')') depth--;
+      j++;
+    }
+    // The inner content is text[open+1 .. j-1]
+    const inner = text.slice(open + 1, j - 1);
+    // Check if this looks like a citation
+    if (/(?:Wikipedia|arxiv|ACL|aclanthology|NYT|Nature|Science|Source|PNAS|IEEE|ACM)/i.test(inner)) {
+      citations.push(inner.trim());
+    } else {
+      // Keep the original parens in the body text
+      result[result.length - 1] = (result[result.length - 1] || '') + text.slice(open, j);
+    }
+    i = j;
+  }
+  let stripped = result.join('');
+  // Clean up trailing punctuation/whitespace, leftover parens, etc.
+  stripped = stripped
+    .replace(/[\s,.;:]+$/, '')
+    .replace(/\(\s*\)/g, '')
+    .trim();
+  return { text: stripped, citations };
 }
 
 // ---- Main component ----
@@ -253,6 +322,47 @@ export default function YearCard({
 }: Props) {
   // Local state: show primary milestone content vs structured sections
   const [view, setView] = useState<'structured' | 'milestone'>('structured');
+
+  // Collect citations from every section as it renders. We use a ref
+  // (not state) so calling collectCitations does NOT trigger a re-render
+  // (which would cause an infinite loop with state-based collection).
+  // The body section's `key` prop on the parent forces a fresh ref every
+  // time the year changes, so citations don't leak across years.
+  const citationsRef = useRef<string[]>([]);
+  const collectCitations = useCallback((newOnes: string[]) => {
+    const seen = new Set(citationsRef.current);
+    for (const c of newOnes) {
+      if (!seen.has(c)) {
+        seen.add(c);
+        citationsRef.current.push(c);
+      }
+    }
+  }, []);
+
+  // Reset citations when the year changes so navigation between
+  // years doesn't accumulate citations from previous years.
+  const lastYearRef = useRef<number | null>(null);
+  if (lastYearRef.current !== year) {
+    citationsRef.current = [];
+    lastYearRef.current = year;
+  }
+
+  // Mirror citationsRef.current into state so the References section
+  // re-renders when the body sections collect new citations. We use
+  // a state to trigger React re-renders, but the ref is the source of
+  // truth. The state is updated AFTER the render commits (via a
+  // useEffect below), so there's no infinite loop.
+  const [citations, setCitations] = useState<string[]>([]);
+
+  // After every render, sync the latest citations to state so the
+  // References section sees the updated value. We only update state
+  // when the ref's length changed (avoids infinite loop).
+  useEffect(() => {
+    if (citationsRef.current.length !== citations.length) {
+      setCitations([...citationsRef.current]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [citations.length]);
 
   // Body-scroll lock is now handled by the parent page component
   // (app/page.tsx) so the cleanup fires reliably on every state change,
@@ -288,7 +398,7 @@ export default function YearCard({
         <motion.div
           variants={cardVariants}
           onClick={(e) => e.stopPropagation()}
-          className="neu-card w-full sm:max-w-2xl lg:max-w-3xl p-4 sm:p-6 md:p-7 max-h-[92vh] sm:max-h-[88vh] overflow-y-auto relative scrollbar-thin"
+          className="neu-card w-full sm:max-w-2xl lg:max-w-3xl py-4 sm:py-6 md:py-7 pl-4 pr-6 sm:pl-6 sm:pr-8 md:pl-7 md:pr-9 max-h-[92vh] sm:max-h-[88vh] overflow-y-auto relative scrollbar-thin"
           style={{ scrollbarGutter: 'stable' }}
         >
           {/* Top accent ribbon — era color fades across the top */}
@@ -385,6 +495,7 @@ export default function YearCard({
                   accent="var(--maroon-500)"
                   bullets={yearContent!.cs_highlights}
                   fallback="No major CS tech recorded for this year."
+                  onCitations={collectCitations}
                 />
                 <Section
                   index={1}
@@ -393,23 +504,25 @@ export default function YearCard({
                   accent="var(--maroon-500)"
                   bullets={undefined}
                 />
-                {/* Nested 2a / 2b */}
+                {/* Nested 2a / 2b — sub-headings, no big numbers */}
                 <div className="pl-6 sm:pl-8 space-y-4">
                   <Section
                     index={2}
-                    number="2a."
                     title="Research"
-                    accent="var(--maroon-300)"
+                    accent="var(--maroon-500)"
                     bullets={yearContent!.nlp_research}
                     fallback="Few public NLP research breakthroughs recorded for this year."
+                    variant="sub"
+                    onCitations={collectCitations}
                   />
                   <Section
                     index={3}
-                    number="2b."
                     title="Applications"
-                    accent="var(--maroon-300)"
+                    accent="var(--maroon-500)"
                     bullets={yearContent!.nlp_applications}
                     fallback="No major NLP applications or deployed systems recorded for this year."
+                    variant="sub"
+                    onCitations={collectCitations}
                   />
                 </div>
                 <Section
@@ -418,6 +531,7 @@ export default function YearCard({
                   title="Extras & Notable Context"
                   accent="var(--maroon-500)"
                   bullets={yearContent!.extras}
+                  onCitations={collectCitations}
                 />
               </>
             ) : milestone ? (
@@ -454,32 +568,61 @@ export default function YearCard({
             ) : null}
           </div>
 
-          {/* References — only year-specific links. Filters out generic
-             NLP community resources so each year card shows only the
-             references that actually relate to that specific year. */}
-          {milestone?.links && milestone.links.length > 0 && (() => {
-            const filtered = filterLinksForYear(milestone.links, milestone.year);
-            if (filtered.length === 0) return null;
+          {/* References — collected from the body text. Citations
+             (Wikipedia / arXiv / etc.) detected in bullet text are
+             shown here, inlined with the milestone's primary links
+             (filtered to year-specific entries only). */}
+          {((citations.length > 0) || (milestone?.links && milestone.links.length > 0)) && (() => {
+            const filteredMilestoneLinks = milestone?.links
+              ? filterLinksForYear(milestone.links, milestone.year)
+              : [];
+            // Combine collected citations + milestone primary links
+            const seen = new Set<string>();
+            const items: { label: string; url?: string }[] = [];
+            for (const c of citations) {
+              const key = c.toLowerCase();
+              if (!seen.has(key)) {
+                seen.add(key);
+                items.push({ label: c });
+              }
+            }
+            for (const l of filteredMilestoneLinks) {
+              const key = l.label.toLowerCase();
+              if (!seen.has(key)) {
+                seen.add(key);
+                items.push({ label: l.label, url: l.url });
+              }
+            }
+            if (items.length === 0) return null;
             return (
               <div className="mt-5 pt-4 border-t border-neu-dark/20">
-                <h4 className="text-[11px] font-semibold text-neu-text uppercase tracking-wider mb-2">
+                <h4 className="text-[10px] font-semibold uppercase tracking-[0.08em] text-neu-muted mb-2">
                   References{' '}
-                  <span className="text-neu-muted font-normal">
-                    ({filtered.length})
+                  <span className="text-neu-text font-normal">
+                    ({items.length})
                   </span>
                 </h4>
                 <div className="flex flex-col gap-1.5">
-                  {filtered.map((l) => (
-                    <a
-                      key={l.url}
-                      href={l.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="neu-link w-fit text-[11px]"
-                    >
-                      <span>↗</span>
-                      <span>{l.label}</span>
-                    </a>
+                  {items.map((it, i) => (
+                    it.url ? (
+                      <a
+                        key={i}
+                        href={it.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="neu-link w-fit text-[11px]"
+                      >
+                        <span>↗</span>
+                        <span>{it.label}</span>
+                      </a>
+                    ) : (
+                      <span
+                        key={i}
+                        className="text-[11px] text-neu-muted italic"
+                      >
+                        {it.label}
+                      </span>
+                    )
                   ))}
                 </div>
               </div>
