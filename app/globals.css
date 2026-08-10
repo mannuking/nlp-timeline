@@ -431,6 +431,53 @@ html {
   font-weight: 600 !important;
 }
 
+/* Hairline arrow between milestone pills in the era track.
+   Each pill is followed by a .hairline-arrow (except the last).
+   The line uses a thin 1px line with a small triangular arrowhead at
+   the end, colored by the era color set via inline --era-color.
+   On wide screens the line stretches ~40px; on mobile it shrinks
+   to fit. The line is left-to-right oriented and animates in with
+   scaleX from 0 (parent motion.span handles the entrance animation).
+*/
+.hairline-arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  width: clamp(28px, 5vw, 56px);
+  height: 1px;
+  margin: 0 4px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--era-color, var(--maroon-300)) 6%,
+    var(--era-color, var(--maroon-300)) 88%,
+    transparent 100%
+  );
+  position: relative;
+  transform-origin: left center;
+  opacity: 0.6;
+  border-radius: 999px;
+}
+
+/* Arrowhead — small triangle on the right end of the line */
+.hairline-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 5px solid var(--era-color, var(--maroon-300));
+  opacity: 0.85;
+}
+
+/* On hover of the parent pill, make the next line slightly brighter */
+.neu-node-sm:hover + .hairline-arrow {
+  opacity: 0.9;
+}
+
 /* Year button — full year, not 2-digit */
 .year-button {
   font-variant-numeric: tabular-nums;

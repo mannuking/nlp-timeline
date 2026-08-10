@@ -232,20 +232,6 @@ export default function Home() {
     });
   }, [data.eras, activeEra, searchQuery, yearContentMap]);
 
-  // For each era, the list of year numbers to render in the year-pill row.
-  // Includes EVERY year from startYear..endYear, not just milestones — so
-  // every year 1950-2030 is clickable, with milestone years styled as
-  // .neu-node-sm pills and non-milestone years as plain .year-label.
-  const eraYearsByEra = useMemo<Record<string, number[]>>(() => {
-    const out: Record<string, number[]> = {};
-    for (const era of data.eras) {
-      const years: number[] = [];
-      for (let y = era.startYear; y <= era.endYear; y++) years.push(y);
-      out[era.id] = years;
-    }
-    return out;
-  }, [data.eras]);
-
   // Flat list of years that pass search + era filter (every year 1950-2030, not just milestones)
   const flatYears = useMemo<number[]>(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -505,44 +491,41 @@ export default function Home() {
                 {era.label}
               </h2>
               <span className="text-neu-muted text-xs font-medium">
-                {era.years} · {era.milestones.length} milestone{era.milestones.length !== 1 ? 's' : ''}
+                {era.years} · {era.milestones.length} curated milestone{era.milestones.length !== 1 ? 's' : ''}
               </span>
             </div>
             <p className="text-neu-muted text-sm mb-5 max-w-3xl">{era.summary}</p>
 
             <div className="relative pb-4 overflow-hidden">
-              <div className="flex items-center gap-1.5 px-2 flex-wrap">
-                {(eraYearsByEra[era.id] ?? []).map((y, i) => {
-                  const milestone = era.milestones.find((m) => m.year === y);
-                  const isActive = activeYear === y;
-                  const isMilestone = !!milestone;
-                  if (isMilestone) {
-                    return (
+              <div className="flex items-center justify-center flex-wrap gap-x-0 gap-y-3 px-2 py-1">
+                {era.milestones.map((milestone, i) => {
+                  const isActive = activeYear === milestone.year;
+                  const isLast = i === era.milestones.length - 1;
+                  return (
+                    <div key={`m-${milestone.year}-${i}`} className="flex items-center">
                       <motion.button
-                        key={`${y}-${milestone!.title}`}
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: i * 0.012, duration: 0.25 }}
-                        onClick={() => openYear(setActiveYear, milestone!)}
+                        transition={{ delay: i * 0.06, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        onClick={() => openYear(setActiveYear, milestone)}
                         className={`neu-node-sm year-button ${isActive ? 'neu-node-active' : ''}`}
                         style={isActive ? { color: 'var(--maroon-500)' } : {}}
-                        title={`${y} — ${milestone!.title}`}
-                        aria-label={`${y} — ${milestone!.title}`}
+                        title={`${milestone.year} — ${milestone.title}`}
+                        aria-label={`${milestone.year} — ${milestone.title}`}
                       >
-                        {y}
+                        {milestone.year}
                       </motion.button>
-                    );
-                  }
-                  return (
-                    <button
-                      key={`y-${y}`}
-                      onClick={() => setActiveYear(y)}
-                      className={`year-label ${isActive ? 'year-label-active' : ''}`}
-                      title={`Open ${y}`}
-                      aria-label={`Open ${y}`}
-                    >
-                      {y}
-                    </button>
+                      {!isLast && (
+                        <motion.span
+                          aria-hidden="true"
+                          initial={{ scaleX: 0, opacity: 0 }}
+                          animate={{ scaleX: 1, opacity: 1 }}
+                          transition={{ delay: i * 0.06 + 0.15, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                          className="hairline-arrow"
+                          style={{ ['--era-color' as string]: era.color }}
+                        />
+                      )}
+                    </div>
                   );
                 })}
               </div>
