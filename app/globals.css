@@ -44,6 +44,7 @@ html, body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: transparent !important;
 }
 
 /* FIXED FULL-SCREEN ACCENT BACKGROUND — pinned to the viewport so it never
@@ -74,7 +75,7 @@ html {
       var(--neu-base) 100%
     );
   background-size: cover, 22px 22px, cover;
-  background-attachment: fixed, fixed, fixed;
+  background-attachment: scroll, scroll, scroll;
 }
 
 body {
