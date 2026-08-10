@@ -183,7 +183,10 @@ function Section({
   onCitations?: (cites: string[]) => void;
 }) {
   const hasBullets = bullets && bullets.length > 0;
-  if (!hasBullets && !fallback) return null;
+  // Render nothing only if there's nothing to show at all — a header-only
+  // section (e.g. "2. NLP Highlights" with sub-sections below) still
+  // needs to display its number + title.
+  if (!hasBullets && !fallback && variant !== 'numbered') return null;
 
   // Collect citations from every bullet in this section so the parent
   // can show a single References list at the bottom of the card.
@@ -228,31 +231,33 @@ function Section({
           </span>
         </div>
       )}
-      {hasBullets ? (
-        <motion.ul
-          variants={bulletContainerVariants}
-          initial="hidden"
-          animate="visible"
-          className={`space-y-1.5 ${variant === 'numbered' ? 'pl-7 sm:pl-8' : 'pl-3 sm:pl-4'}`}
-        >
-          {bullets!.map((b, i) => {
-            const { text } = splitBullet(b);
-            return (
-              <motion.li
-                key={i}
-                variants={bulletVariants}
-                className="relative text-neu-text leading-relaxed text-[13px] sm:text-sm before:content-['—'] before:absolute before:-left-4 sm:before:-left-5 before:text-neu-muted before:font-semibold"
-              >
-                <span>{text}</span>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
-      ) : (
-        <p className={`text-neu-muted italic text-[13px] sm:text-sm leading-relaxed ${variant === 'numbered' ? 'pl-7 sm:pl-8' : ''}`}>
-          {fallback}
-        </p>
-      )}
+      {hasBullets || fallback ? (
+        hasBullets ? (
+          <motion.ul
+            variants={bulletContainerVariants}
+            initial="hidden"
+            animate="visible"
+            className={`space-y-1.5 ${variant === 'numbered' ? 'pl-7 sm:pl-8' : 'pl-3 sm:pl-4'}`}
+          >
+            {bullets!.map((b, i) => {
+              const { text } = splitBullet(b);
+              return (
+                <motion.li
+                  key={i}
+                  variants={bulletVariants}
+                  className="relative text-neu-text leading-relaxed text-[13px] sm:text-sm before:content-['—'] before:absolute before:-left-4 sm:before:-left-5 before:text-neu-muted before:font-semibold"
+                >
+                  <span>{text}</span>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
+        ) : (
+          <p className={`text-neu-muted italic text-[13px] sm:text-sm leading-relaxed ${variant === 'numbered' ? 'pl-7 sm:pl-8' : ''}`}>
+            {fallback}
+          </p>
+        )
+      ) : null}
     </motion.div>
   );
 }
